@@ -1,6 +1,6 @@
-// Minimal SMTP client for sending one message through the hMailServer mail server (submission, AUTH PLAIN).
+// Minimal SMTP client for sending one message through the hMailServer mail server (submission port, AUTH).
 import { connect } from "cloudflare:sockets";
-import { base64 } from "./contact.ts";
+import { authSteps } from "./smtp-auth.ts";
 
 export interface SmtpConfig {
     host: string;
@@ -21,17 +21,20 @@ export async function sendMail(config: SmtpConfig, from: string, to: string, mes
 
     try {
         await session.expect(220);
-        await session.command(`EHLO ${config.heloName}`, 250);
+        let ehloReply = await session.command(`EHLO ${config.heloName}`, 250);
 
         if (config.security === "starttls") {
             await session.command("STARTTLS", 220);
             session.release();
             socket = socket.startTls();
             session = new SmtpSession(socket);
-            await session.command(`EHLO ${config.heloName}`, 250);
+            // Capabilities can differ after STARTTLS, so ask again.
+            ehloReply = await session.command(`EHLO ${config.heloName}`, 250);
         }
 
-        await session.command(`AUTH PLAIN ${base64(`\0${config.user}\0${config.password}`)}`, 235, "AUTH PLAIN ***");
+        for (const step of authSteps(ehloReply, config.user, config.password)) {
+            await session.command(step.line, step.expectedCode, step.logAs);
+        }
         await session.command(`MAIL FROM:<${from}>`, 250);
         await session.command(`RCPT TO:<${to}>`, 250);
         await session.command("DATA", 354);
@@ -56,14 +59,15 @@ class SmtpSession {
         this.writer = socket.writable.getWriter();
     }
 
-    // Sends a command and checks the reply code. logAs replaces the command in error messages (e.g. to hide the password).
-    async command(line: string, expectedCode: number, logAs = line): Promise<void> {
+    // Sends a command, checks the reply code and returns the reply.
+    // logAs replaces the command in error messages (e.g. to hide the password).
+    async command(line: string, expectedCode: number, logAs = line): Promise<string> {
         await this.writer.write(this.encoder.encode(line + "\r\n"));
-        await this.expect(expectedCode, logAs);
+        return this.expect(expectedCode, logAs);
     }
 
-    // Reads one (possibly multi-line) reply and checks its code.
-    async expect(expectedCode: number, after = "connect"): Promise<void> {
+    // Reads one (possibly multi-line) reply, checks its code and returns it.
+    async expect(expectedCode: number, after = "connect"): Promise<string> {
         let reply = "";
         for (;;) {
             const line = await this.readLine();
@@ -74,6 +78,7 @@ class SmtpSession {
         if (code !== expectedCode) {
             throw new Error(`SMTP: expected ${expectedCode} after ${after}, got: ${reply.trim()}`);
         }
+        return reply;
     }
 
     release(): void {
