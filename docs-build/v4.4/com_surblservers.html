@@ -1,0 +1,33 @@
+<p>The SURBLServers collection contains the SURBL servers defined in the hMailServer installation.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">The number of objects in the collection.</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_surblserver">SURBLServer</a></h4>
+
+<div class="indented">Returns an object from the collection based on it's index in the collection.</div>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_surblserver">SURBLServer</a></h4>
+
+<div class="indented">Returns an object from the collection based on it's database identifier.</div>
+
+<h4>Property ItemByDNSHost(sDNSHost As String) As <a href="?page=com_surblserver">SURBLServer</a></h4>
+
+<div class="indented">Returns an object from the collection based on it's DNS host.</div>
+
+<h1>Methods</h1>
+
+<h4>Function Add() As <a href="?page=com_surblserver">SURBLServer</a></h4>
+
+<div class="indented">Adds a new SURBL server to the collection.</div>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">Deletes the SURBL server with the specified database identifier.</div>
+
+<h4>Sub Refresh()</h4>
+
+<div class="indented">Refreshes the collection from the database.</div>

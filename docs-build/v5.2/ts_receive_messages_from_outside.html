@@ -1,0 +1,35 @@
+<p>The most common problems that prevent you from receiving emails are:</p>
+
+<h2>MX problems</h2>
+
+<p>All email servers must have MX records defined for the domain they host. MX records are added to DNS. You can verify that your MX records are set up properly, by entering your domain name on <a href="http://www.dnsreport.com/">DNSReport.com</a>. You should enter your domain name, excluding any sub domains. If your domain is something.com, you should enter something.com and not smtp.something.com or mail.something.com. After the search, view the result, under the <em>MX category</em>. It should not say <em>FAIL</em> anywhere. If it does, your MX records are probably not well set up. <a href="?page=ts_mx_problems">Read more</a></p>
+
+<h2>Blocked TCP/IP ports</h2>
+
+<p>Some ISPs block TCP/IP port 25 to prevent spamming. Some block inbound traffic on port 25, while others block outbound traffic. To check whether your ISP has blocked inbound traffic, do a query on <a href="http://www.dnsreport.com/">DNSReport.com</a>. After the query, look up the category, <em>Mail</em>. It should not say <em>FAIL</em> anywhere. If it does, your ISP has probably blocked traffic to or from port 25. <a href="?page=ts_blocked_ports">Read more</a>. To confirm whether this is the case, you can contact your ISP and ask them.</p>
+
+<h2>Port 25 not used</h2>
+
+<p>To work properly, all email servers must use port 25 for inbound traffic. If you have reconfigured hMailServer to use another port, you might not be able to receive email. <a href="?page=ts_using_nondefault_smtp_port">Read more.</a></p>
+
+<h2>Router / firewall not set up</h2>
+
+<p>As mentioned above, all email server must use port 25 for inbound traffic. If you want to receive email from other people you need to let hMailServer listen for SMTP connections on port 25 (which it does, by default). However, if your hMailServer installation is behind a router of firewall, you likely need to configure the router or firewall to forward incoming TCP traffic on port 25 to the computer where hMailServer is runnnig. If you do not do this, the traffic won&#039;t arrive at hMailServer and senders of email will not be able to connect.</p>
+
+<h2>DNS errors</h2>
+
+<p>If the DNS records for your domain is not set up properly, you might not be able to receive email. To check whether your DNS records are set up properly, use <a href="http://www.dnsreport.com/">DNSReport.com</a>.</p>
+
+<h2>Incorrect multihoming settings</h2>
+
+<p>If you have configured hMailServer to listen on a specific IP address, make sure that the IP address is correct and not a local one, such as 127.0.0.1. If hMailServer only listens on a local IP address, such as 127.0.0.1, no-one - except for people connecting from the local computer - will be able to connect.</p>
+
+<h2>Incorrect IP ranges</h2>
+
+<p>By default, an IP range called Internet is created. If you modify this IP range, there&#039;s a risk that you won&#039;t be able to receive email from other servers. hMailServer does not accept email from IP addresses which does not match any of the IP ranges.</p>
+
+<h2>Other</h2>
+
+<p>If the above description does not apply to your problem, you can ask the forum for suggestions. Before asking:</p>
+
+<ul><li>Send an email from an external server. Wait for an error message to come back. Include the error message in your post to the forum.</li><li>If you do not get a bounce message back, enable SMTP logging in hMailServer, reproduce the error and then check if anything is added to the log. If there is, please include it in the forum post.</li></ul>

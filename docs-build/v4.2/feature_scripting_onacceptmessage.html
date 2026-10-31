@@ -1,0 +1,27 @@
+<h2>Signature</h2>
+
+<p>OnAcceptMessage(oClient as hMailServer.Client, oMessage as hMailServer.Message)</p>
+
+<h2>Result values</h2>
+
+<ul><li>0 - hMailServer accepts the message</li><li>1 - hMailServer rejects the message with the error <em>542 Rejected</em></li><li>2 - hMailServer rejects the message with a script-defined error.</li></ul>
+
+<h2>Examples</h2>
+
+<p>VB-script:</p>
+
+<pre>
+Sub OnAcceptMessage(oClient, oMessage)
+
+  If oMessage.Size &gt; 10 Then
+     &#039; Reject the message since it&#039;s larger
+     &#039; than 10 kb.
+     Result.Message = &quot;This message is too large&quot;
+     Result.Value = 2          
+  Else
+     &#039; Accept the message
+     Result.Value = 0 
+  End If
+
+End Sub
+</pre>

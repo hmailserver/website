@@ -1,0 +1,15 @@
+<h2>Overview</h2>
+
+<p>This page describes how to upgrade from hMailServer version 5.2 to 5.3. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, hMailServer database and hMailServer.ini, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h3>Before installation</h3>
+
+<ul><li>If you are using the internal MySQL database, and are upgrading from 4.2 or earlier, you should install the latest 4.4-build prior to upgrading to version 5. If you do not do this, the database upgrade will fail.</li><li>If you are using other software which communicates with hMailServer, make sure that that software is compatible with the hMailServer version you are upgrading to. This may be the case for example if you&#039;re using 3&#039;rd party web interfaces for the server.</li></ul>
+
+<h3>Install the new version</h3>
+
+<ol><li>IMPORTANT: Back up your hMailServer database, your data directory and the hMailServer.ini file.</li><li>Read the Backwards compatibility section below. If something is unclear, it&#039;s recommended that you install hMailServer 5 on a test server first to learn about the new functionality.</li><li>Download hMailServer 5 from the hMailServer website.</li><li>Launch the setup executable by double-clicking it. You should not stop or uninstall the current version before instaling the new version.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files.</li><li>After the files have been copied, the setup software will automatically start hMailServer database upgrade. If you see the text &quot;<em>Creating the hMailServer database</em>&quot; in the installation wizard for more than 15 seconds, and no &quot;<em>Database upgrade</em>&quot;-dialog is shown, it&#039;s likely that the upgrade dialog is located &quot;behind&quot; the wizard. So if the upgrade dialog is not shown, try moving the installation wizard window.</li><li>Click Upgrade to upgrade the database to the latest structure.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>
+
+<p>Â </p>
+
+<p>Â </p>

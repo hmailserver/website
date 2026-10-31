@@ -1,0 +1,59 @@
+<h2>Installing hMailServer</h2>
+
+<p>This page describes the required steps to install hMailServer 5. Before installing hMailServer, you should ensure that your computer fulfills the <a href="?page=system_requirements">system requirements</a>.</p>
+
+<h3>Step 1: Download</h3>
+
+<p>The first step is of to download hMailServer. The installation program is available for download at the <a href="http://www.hmailserver.com/?page=download">download page</a>. It is recommended that you download the latest stable version. The file you download has a name of the form <em>hMailServer-version-build.exe</em>. As an example, <em>version-build</em> might stand for <em>5.0-Build-305.</em></p>
+
+<h3>Step 2: Install</h3>
+
+<ul><li>Double-click on the downloaded file to launch the setup. The first dialog which is shown is the Welcome dialog, in this one, simply click Next.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_1.png" alt=""></p>
+
+<ul><li>The next step is to read the license agreement. If you don&#039;t accept the license agreement, please cancel the installation. If you agree, select &quot;I accept the agreement&quot; and click next.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_2.png" alt=""></p>
+
+<p> </p>
+
+<ul><li>Select the destination folder and click Next. You should select a local drive and not a network folder. It is possible to install hMailServer on removable devices, but you will not be able to run hMailServer from the device on another computer.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_3.png" alt=""></p>
+
+<ul><li>Select which components you want to install and click Next. On the server, you should install all available components. If you have already installed the hMailServer server on another computer and you want to manage that remotely, you only need to install the Administrative tools.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_4.png" alt=""></p>
+
+<ul><li>Select which start menu folder you want to place the hMailServer icons in and click Next.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_5.png" alt=""></p>
+
+<ul><li>Confirm that the settings are correct and then click Install to do the installation.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_6.png" alt=""></p>
+
+<ul><li>Wait... The installation should take about 10-20 seconds.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_7.png" alt=""></p>
+
+<ul><li>After the files have been installed, you need to provide the installation program with a main hMailServer password. In 4.3 and later, a main password is used to increase security. The password can be anything you like as long as it&#039;s longer than 5 characters. You will need the password later on when performing server administration, so don&#039;t forget it. You only need to specify the password the first time you install hMailServer</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_8.png" alt=""></p>
+
+<ul><li>After you have finished the installation, it&#039;s time to start hMailServer Administrator (found in the start menu). The first thing which appears is the <em>Connect</em> dialog. This dialog allows you to connect to different hMailServer installations in your network. Normally, you will want to connect to <em>localhost</em>. Select <em>localhost</em>, and click <em>Connect</em>. In the password dialog, enter your main hMailServer password and click OK.</li></ul>
+
+<p style="text-align: center;"><img src="images/hmailserver_install_step_9.png" alt=""></p>
+
+<h2>Step 3: Post-installation tasks</h2>
+
+<h3>DNS configuration</h3>
+
+<p>After installing hMailServer, make sure you configure your DNS server correctly. For SMTP to work, you must define MX records for your domain. MX stands for Mail eXchanger. Simply put, the MX records tell other email servers what server in your domain is responsible for handling mail. Here is <a href="?page=ts_mx_problems">more information about MX records</a>.</p>
+
+<h3>Step 4: Configuring the server</h3>
+
+<p>The tutorial for configuring the server is <a href="?page=basic_configuration">found here</a>.</p>
+
+<p>If you are experiencing any problems, please read the <a href="?page=troubleshooting_tips">troubleshooting guide</a>.</p>

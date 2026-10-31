@@ -1,0 +1,21 @@
+<p>This page describes how to connect to the MySQL database to execute statements.</p>
+
+<h2>Step 1: Determine MySQL password</h2>
+
+<p>If you are using an external version of MySQL, you should already know your MySQL password. If you are using the built-in MySQL version that comes with hMailServer, you might not know your password. To determine it, follow these steps:</p>
+
+<ol><li>Open up hMailserver.ini, located in your Windows directory.</li><li>If you can&#039;t find <em>passwordencryption=1</em> in the file, locate the password in the file and go to <em>Step 2: Connect to the server</em> below.</li><li>Run the script \hMailServer\Addons\Utilities\DecryptBlowfish.vbs.</li><li>Copy the password from hMailServer.ini to the DecryptBlowfish dialog.</li><li>Click OK in DecryptBlowfish to view your password. DecryptBlowfish will now show your password. Either keep the dialog open or memorize the password.</li></ol>
+
+<h2>Step 2: Connect to the server</h2>
+
+<p>To connect to MySQL, you need a MySQL client. You can use <a href="http://www.hmailserver.com/download/MySQLFront.zip">MySQL Front</a> for this.</p>
+
+<ol><li>Download and unzip MySQLFront</li><li>Run MySqlFront.exe</li><li>In the connection dialog, click New</li><li>Enter the connection information for your MySQL server. If you are using the built-in server, you should enter hostname: localhost, user:root, password:the password, port:3307</li><li>Click Connect to connect to the database server</li></ol>
+
+<p>Now you have connected to MySQL.</p>
+
+<h2>Step 3: Executing statements</h2>
+
+<p>After you have connected to MySQL, you can execute statements by following these steps:</p>
+
+<ol><li>In the tree-menu to the left, click on the hmailserver database. To the right, you now see a list over tables in the database.</li><li>Over the list of tables, there is a &quot;tab&quot; with the title <em>Query</em>. Click on this tab.</li><li>Enter your SQL-query</li><li>Click on the <em>Execute SQL</em> button in the keyboard, or press F9 on the keyboard to run the query</li></ol>

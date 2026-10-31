@@ -1,0 +1,20 @@
+<p>This example shows how to enable an existing domain in your hMailServer installation. The script is written in VBA.</p>
+
+<h1>Enabling a domain</h1>
+
+<p>``</p>
+
+<pre><code>Dim obApp
+   Set obApp = CreateObject(&quot;hMailServer.Application&quot;)
+
+   &#039; Authenticate. Without doing this, we won&#039;t have permission
+   &#039; to change any server settings or add any objects to the
+   &#039; installation.   
+   Call obApp.Authenticate(&quot;Administrator&quot;, &quot;your-main-hmailserver-password&quot;)
+   
+   &#039; Locate the domain we want to add the account to
+   Dim obDomain
+   Set obDomain = obApp.Domains.ItemByName(&quot;example.com&quot;)
+
+   obDomain.Active = True
+   obDomain.Save</code></pre>

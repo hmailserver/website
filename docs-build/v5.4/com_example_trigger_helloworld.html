@@ -1,0 +1,11 @@
+<h2>Overview</h2>
+
+<p>It&#039;s possible to implement custom scripts in hMailServer which are executed when certain actions occrur. This example shows you how to write the text Hello World to the Event log whenever a message is accepted for delivery by hMailServer.</p>
+
+<h3>Script</h3>
+
+<p>``</p>
+
+<p><span class="Code">Sub OnAcceptMessage(oClient, oMessage)<br>
+   EventLog.Write("Hello World")<br>
+End Sub</span></p>

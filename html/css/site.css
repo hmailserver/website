@@ -1,0 +1,243 @@
+/*
+	#8E9E82
+	#CACCB6
+	#F2F0DF
+	#A9C1D9
+	#607890
+
+*/
+html,
+body {
+    height: 100%;
+	font-family:Verdana, Tahoma, sans-serif;
+	font-size: 0.9em;
+	color: #333333;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    overflow-y: scroll;
+}
+
+div.bootstrap 
+	.navbar-default {
+		background-color: #F2F0DF
+	}
+
+div.bootstrap .navbar-default .navbar-nav > .active{
+    color: #fff;
+    background: #A9C1D9;
+
+ }
+div.bootstrap  .navbar-default .navbar-nav > .active > a, 
+div.bootstrap  .navbar-default .navbar-nav > .active > a:hover, 
+div.bootstrap  .navbar-default .navbar-nav > .active > a:focus {
+      color: #fff;
+      background: #A9C1D9;
+	  
+ }
+ 
+
+	
+div.bootstrap 
+	.panel-default  .panel-heading
+	{
+		background-color: #A9C1D9;
+		color: #ffffff;
+	}	
+
+div.bootstrap 
+	.page-header {
+		padding-bottom: 9px;
+		margin: 0px 0 20px;
+		border-bottom: 1px solid #607890;
+	}
+	
+div.bootstrap  h1 {
+    font-size: 22px;
+	color: #607890;
+	}
+
+
+div.bootstrap h2 {
+		font-size: 20px;
+		color: #607890;
+	}
+
+div.bootstrap h3 {
+		font-size: 20px;
+		color: #607890;
+	}
+
+.navbar-shadow {
+    box-shadow: 2px 2px 5px #888888;
+}
+
+div.bootstrap 
+	.panel-heading {
+		padding-bottom: 3px;
+		padding-top: 3px;
+	}
+
+.form-control-limited-width
+    {
+    max-width: 600px;
+    }
+
+/* ----------------------------------------------------------------------
+   Documentation: breadcrumbs and previous/next links
+   ---------------------------------------------------------------------- */
+
+div.bootstrap .doc-breadcrumb {
+    padding: 8px 0;
+    margin-bottom: 5px;
+    background: none;
+    font-size: 0.9em;
+}
+
+div.bootstrap .doc-search {
+    margin-bottom: 20px;
+}
+
+/* The search form is the last thing on every documentation page, so the
+   container needs padding of its own to keep it off the bottom edge. */
+div.bootstrap .doc-container {
+    padding-bottom: 40px;
+}
+
+div.bootstrap .doc-pager {
+    margin-top: 35px;
+    padding-top: 15px;
+    border-top: 1px solid #CACCB6;
+}
+
+div.bootstrap .doc-pager-previous,
+div.bootstrap .doc-pager-next {
+    display: block;
+    max-width: 48%;
+    padding: 8px 12px;
+    border: 1px solid #CACCB6;
+    border-radius: 4px;
+    color: #607890;
+}
+
+div.bootstrap .doc-pager-previous {
+    float: left;
+}
+
+div.bootstrap .doc-pager-next {
+    float: right;
+    text-align: right;
+}
+
+div.bootstrap .doc-pager-previous:hover,
+div.bootstrap .doc-pager-next:hover {
+    background-color: #F2F0DF;
+    text-decoration: none;
+}
+
+div.bootstrap .doc-pager-label {
+    display: block;
+    color: #8E9E82;
+    font-size: 0.85em;
+}
+
+div.bootstrap .doc-pager-title {
+    display: block;
+}
+
+/* ----------------------------------------------------------------------
+   Documentation: COM API method/property listings
+   ---------------------------------------------------------------------- */
+
+div.bootstrap .api_method_name {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.95em;
+    background-color: #F2F0DF;
+    padding: 4px 8px;
+    margin-top: 1em;
+}
+
+/* ----------------------------------------------------------------------
+   Documentation: tables
+   ---------------------------------------------------------------------- */
+
+/* Most documentation tables come from Markdown and carry no attributes of
+   their own, so give the cells some breathing room. */
+div.bootstrap .doc-content table th,
+div.bootstrap .doc-content table td {
+    padding: 6px 12px;
+    vertical-align: top;
+}
+
+div.bootstrap .doc-content table th {
+    text-align: left;
+}
+
+div.bootstrap .api_description {
+    margin-left: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+}
+
+/* ----------------------------------------------------------------------
+   Downloads and changelog
+   ---------------------------------------------------------------------- */
+
+div.bootstrap table.download-archive {
+    width: 80%;
+    margin: 0 auto;
+}
+
+div.bootstrap table.download-archive th {
+    text-align: left;
+}
+
+div.bootstrap h1.changelog-production {
+    color: blue;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: #2b2b2b;
+  color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  z-index: 1000;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 14px;
+  flex: 1;
+}
+
+.cookie-banner a {
+  color: #00b7ff;
+  text-decoration: underline;
+}
+
+.cookie-banner button {
+  background-color: #00b7ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.cookie-banner button:hover {
+  background-color: #009ddc;
+}
+

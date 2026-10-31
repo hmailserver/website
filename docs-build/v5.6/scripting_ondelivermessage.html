@@ -1,0 +1,20 @@
+<h2>Signature</h2>
+
+<p>OnDeliverMessage(oMessage as hMailServer.Message)</p>
+
+<h2>Result values</h2>
+
+<ul><li>0 - Deliver the message</li><li>1 - Do not deliver the message</li></ul>
+
+<h2>Examples</h2>
+
+<p>VB-script:</p>
+
+<pre><code>If oMessage.Size &gt; 1000000 Then
+      &#039; This message is to big. We should not      
+      &#039; deliver it.      
+      Result.Value = 1                 
+Else      
+      &#039; Accept the message      
+      Result.Value = 0    
+End If</code></pre>

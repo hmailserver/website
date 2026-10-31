@@ -1,0 +1,25 @@
+<h2>Signature</h2>
+
+<p>OnClientConnect(oClient as hMailServer.Client)</p>
+
+<h3>Description</h3>
+
+<p>This event is fired directly after a TCP/IPÂ connection has been opened towards hMailServer. The event is fired before the user has logged on, which means that the oClient.Username property will return an empty string.</p>
+
+<h3>Result values</h3>
+
+<ul><li>0 - hMailServer accepts the connection</li><li>1 - hMailServer rejects the connection</li></ul>
+
+<h3>Examples</h3>
+
+<p>VB-script:</p>
+
+<pre><code>Sub OnClientConnect(oClient)   
+  Result.Value = 0   
+  If oClient.Port = 25 Then      
+     If StrComp(&quot;127.0.0.0&quot;, &quot;127.0.0.1&quot;) Then          
+       &#039; We only allow SMTP connections from local host.         
+       Result.Value = 1      
+     End if   
+  End If    
+End Sub</code></pre>

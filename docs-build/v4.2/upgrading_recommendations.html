@@ -1,0 +1,21 @@
+<h2>Overview</h2>
+
+<p>This document gives you a few general recommendations when it comes to upgrading hMailServer from one version to a newer.</p>
+
+<h2>Step 1: Backup everything</h2>
+
+<p>Before you upgrade hMailServer, you should back up all your email messages and settings. It&#039;s very rare that an upgrade of hMailServer fails, but if it does, you might need to restore a backup of your installation. Remember that if an upgrade fails, all your email may be lost so this is very important that you backup your system before upgrading.</p>
+
+<h2>Step 2: Uninstall old version before installing the new?</h2>
+
+<p>Generally, there&#039;s no need to uninstall the old hMailServer version before installing the new one. The hMailServer installation program will automatically stop the current hMailServer installation before installing the new version. The recommendation is therefore not to uninstall the existing version before installing the new one.</p>
+
+<p>The exception to this rule is if you upgrade from hMailServer 3.x to hMailServer 4.x. The hMailServer COM API has a new name in hMailServer 4.x. If you don&#039;t uninstall hMailServer 3.x before installing hMailServer 4.x, these old API will still exist on your system. This should never cause any problems. But if you don&#039;t want the old API to still be available, you should uninstall hMailServer 3.x before installing hMailServer 4.x.</p>
+
+<p>Uninstalling hMailServer does not remove any email messages, accounts or other settings. You can uninstall hMailServer and then install it again without loosing any messages.</p>
+
+<h2>Step 3: Install the new version</h2>
+
+<p>The below steps are the same for most hMailServer version. For version specific informtion, plese see the Upgrading topic in the documentation.</p>
+
+<ol><li>Download hMailServer from the hMailServer website.</li><li>Launch the setup executable by double-clicking it.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files. If you get a message that it can&#039;t overwrite the file libmysql.dll, restart Apache/IIS and then click Retry.</li><li>After the files have been copied, the setup software will automatically start hMailServer database upgrade if needed.</li><li>If hMailServer database upgrade is started, click Upgrade to upgrade the database to the new database structure.</li><li>After the upgrade of the database, the setup software will automatically start the hMailServer service.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>

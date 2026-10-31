@@ -1,0 +1,52 @@
+<h2>Signature</h2>
+
+<p>OnAcceptMessage(oClient as hMailServer.Client, oMessage as hMailServer.Message)</p>
+
+<h2>Result values</h2>
+
+<ul><li>0 - hMailServer accepts the message</li><li>1 - hMailServer rejects the message with the error <em>542 Rejected</em></li><li>2 - hMailServer rejects the message with a script-defined error.</li></ul>
+
+<h2>Examples</h2>
+
+<h3>Require authentication for local senders</h3>
+
+<p>The built-in SMTPÂ authentication functionality checks only the sender address to determine whether SMTPÂ authentication is required. Often, you want to check sender address as well. The following script makes hMailServer require authentication, if the senders address contains @example.com.</p>
+
+<p>VB-script:</p>
+
+<pre><code>Sub OnAcceptMessage(oClient, oMessage)
+
+Â  Â    if (InStr(1, oMessage.FromAddress, &quot;@example.com&quot;, 1) &gt; 0) Then
+Â  Â  Â  Â  Â 
+Â  Â  Â     &#039; Local user.
+Â  Â  Â  Â  Â If (oClient.Username = &quot;&quot;) Then
+Â  Â  Â  Â  Â  Â  Result.Message = &quot;You must be authenticated to send from local domain.&quot;
+Â  Â  Â  Â  Â  Â  Result.Value = 2
+Â  Â  Â  Â  Â End If
+Â  Â  Â  End If
+Â  Â  Â 
+Â  Â End Sub</code></pre>
+
+<h3>Reject message larger than a specific size.</h3>
+
+<p>VB-script:</p>
+
+<pre><code>Sub OnAcceptMessage(oClient, oMessage)       
+
+   If oMessage.Size &gt; 10 Then          
+      &#039; Reject the message since it&#039;s larger          
+      &#039; than 10 kb.          
+      Result.Message = &quot;This message is too large&quot;
+      Result.Value = 2
+   Else
+      &#039; Accept the message          
+      Result.Value = 0     
+   End If     
+
+End Sub</code></pre>
+
+<h2>Notes</h2>
+
+<ul><li>OnAcceptMessage is executed before hMailServer has accepted the email message and before it has been saved in the database. This means that you cannot access the ID of the message in this event.</li></ul>
+
+<p>Â </p>

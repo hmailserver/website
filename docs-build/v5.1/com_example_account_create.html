@@ -1,0 +1,30 @@
+<p>This example shows how to add a new account to an existing domain in your hMailServer installation. The script is written in VBA. To use it, follow these steps:</p>
+
+<ol><li>Copy the script to a text editor</li><li>Save it as a file with the extension .vbs, for example Example.vbs</li><li>In the Windows Explorer, double-click on the .vbs file to run it.</li></ol>
+
+<h1>Creating an account</h1>
+
+<p>``</p>
+
+<pre><code>Dim obApp
+   Set obApp = CreateObject(&quot;hMailServer.Application&quot;)
+
+   &#039; Authenticate. Without doing this, we won&#039;t have permission
+   &#039; to change any server settings or add any objects to the
+   &#039; installation.   
+   Call obApp.Authenticate(&quot;Administrator&quot;, &quot;your-main-hmailserver-password&quot;)
+   
+   &#039; Locate the domain we want to add the account to
+   Dim obDomain
+   Set obDomain = obApp.Domains.ItemByName(&quot;example.com&quot;)
+   
+   Dim obAccount
+   Set obAccount = obDomain.Accounts.Add
+   
+   &#039; Set the account properties
+   obAccount.Address = &quot;account@example.com&quot;
+   obAccount.Password = &quot;secret&quot;
+   obAccount.Active = True
+   obAccount.MaxSize = 100 &#039; Allow max 100 megabytes
+   
+   obAccount.Save</code></pre>

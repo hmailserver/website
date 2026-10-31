@@ -1,0 +1,67 @@
+<p><em>The below documentation is valid for hMailServer 4.x and later</em></p>
+
+<h1>Properties</h1>
+
+<h4>Property Accounts As <a href="?page=com_accounts">Accounts</a></h4>
+
+<div class="indented">
+Returns a collection containing the <a href="?page=com_accounts">accounts</a> connected to this domain.
+</div>
+
+<h4>Property Active As Boolean</h4>
+
+<div class="indented">
+Returns true if the domain is active. False otherwise.
+</div>
+
+<h4>Property ADDomainName As String</h4>
+
+<div class="indented">
+The active directory domain this domain will be synchronised to.
+</div>
+
+<h4>Property Aliases As <a href="?page=com_aliases">Aliases</a></h4>
+
+<div class="indented">
+Returns a collection containing the aliases connected to this domain.
+</div>
+
+<h4>Property DistributionLists As <a href="?page=com_distributionlists">DistributionLists</a></h4>
+
+<div class="indented">
+Returns a collection containing the distribution lists connected to this domain.
+</div>
+
+<h4>Property DomainAliases As <a href="?page=com_domainaliases">DomainAliases</a></h4>
+
+<div class="indented">
+Returns the domain aliases for this domain.
+</div>
+
+<h4>Property ID As Long</h4>
+
+<div class="indented">
+The unique database identifier for the domain.
+</div>
+
+<h4>Property Name As String</h4>
+
+<div class="indented">The name of this domain.</div>
+
+<h4>Property Postmaster As String</h4>
+
+<div class="indented">The post master address for this domain. Also called catch-all address.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Delete()</h4>
+
+<div class="indented">Deletes the domain from the database</div>
+
+<h4>Sub Save()</h4>
+
+<div class="indented">Saves the domain in the database.</div>
+
+<h4>Sub SynchronizeDirectory()</h4>
+
+<div class="indented">Synchronizes this domain towards active directory.</div>

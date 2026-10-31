@@ -1,0 +1,33 @@
+<h2>Overview</h2>
+
+<p>hMailServer supports both IPv4 and IPv6. Most email servers on the Internet is using IP version 4.</p>
+
+<h3>How does it work?</h3>
+
+<p>IPv6 support will be automatically enabled in hMailServer if it is enabled in the operating system. If you enable IPv6 in the operating system, you will need to restart the hMailServer service for hMailServer to become fully IPv6-aware.</p>
+
+<p>In all dialogs in Administrator and WebAdmin where you can enter IP addresses, you can enter both IPv4 and IPv6 addresses. The underlying database storage can store both IPv4 and IPv6-addresses.</p>
+
+<p>As an example, if you want to relay all outgoing email to a server in your network, you can specify one of the three values in the SMTP relay settings:</p>
+
+<ul><li>The server host name</li><li>The server IPv4 address</li><li>The server IPv6 address</li></ul>
+
+<p>Similarly, when you configure hMailServer to listen or bind to a specific IP address, you can enter either an IPv4 address or an IPv6 address.</p>
+
+<h3>Configuration</h3>
+
+<p>The default configuration of hMailServer does not listen to IPv6 addresses. If you want hMailServer to listen on IPv6 address, you must do two things. Note that these configuration modifications are only needed if you want hMailServer to listen on IPv6 addresses. If you only want to use IPv6 for example when delivering outgoing email, these changes are not needed.</p>
+
+<h4>Add a TCP/IP port.</h4>
+
+<p>In hMailServer Administrator, navigate to Settings, Advanced, TCP/IP ports. Add a new TCP/IP port and specify the IPv6 address you want to listen on. If you do not do this, hMailServer will not listen on any IPv6 address.</p>
+
+<h4>Add an IP range</h4>
+
+<p>Create a new IP range covering the IPv6 Internet - :: - ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff. In the IP range, choose the same settings as in the already existing Internet IP range. If you do not do this, hMailServer will still accept incoming connections over IPv6, but it will immediately disconnect the clients since the clients IP address will not match any IP range.</p>
+
+<h3>Limitations</h3>
+
+<p>The communication protocols used between Administrator / WebAdmin and hMailServer varies depending on your operating system configuration. Microsoft Windows 2003 supports DCOM over IPv6. Earlier versions of Windows may not support DCOM over IPv6. This is not really a limitation in hMailServer but limitations in the Windows operating system support for DCOM.</p>
+
+<p> </p>

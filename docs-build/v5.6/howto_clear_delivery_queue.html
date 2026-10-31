@@ -1,0 +1,11 @@
+<h2>Background</h2>
+
+<p>The hMailServer delivery queue consists of two parts, the queue message list in the database and the actual messages in the data folder. How you delete the delivery queue depends on which hMailServer version you use.</p>
+
+<h2>hMailServer 4.1 and earlier</h2>
+
+<p>To delete the delivery queue, delete all the files in the data directory root. If you have installed hMailServer in <em>C:\Program Files\hMailServer</em> you should delete all files in the directory, <em>C:\Program Files\hMailServer\Data\</em>. For every file you delete, hMailServer will delete the message from the database and report an error to the error log that the message could not be delivered since the message file has been removed. Do not delete any sub folders in the data directory, as they might contain messages for the user accounts.</p>
+
+<h2>hMailServer 4.2 and later</h2>
+
+<p>In the Status section in hMailAdmin, select the &quot;Undelivered messages&quot; tab and click <em>Clear queue</em>. hMailServer will then start to clear the entire queue.</p>

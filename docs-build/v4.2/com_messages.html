@@ -1,0 +1,25 @@
+<p>The Messages collection contains messages.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">The number of objects in the collection.</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_message">Message</a></h4>
+
+<div class="indented">Returns a message from the collection based on it's index in the collection.</div>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_message">Message</a></h4>
+
+<div class="indented">Returns a message from the collection based on it's database identifier.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">Deletes a message from the collection (and database) based on it's database identifier.</div>

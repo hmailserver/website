@@ -1,0 +1,17 @@
+<h2>Overview</h2>
+
+<p>This page describes how to upgrade from hMailServer version 3.2 to hMailServer version 3.3. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h2>Install the new version</h2>
+
+<ol><li>Download hMailServer 3.3 from the hMailServer website.</li><li>Launch the setup executable by double-clicking on it.</li><li>There is no need to stop or uninstall the previous version before installing 3.3. The hMailServer 3.3 setup will take care of that.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files.</li><li>After the files have been copied, the setup software will automatically start the hMailServer database upgrade.</li><li>Click Upgrade to upgrade the database to the 3.3 structure.</li><li>After the upgrade of the database, the setup software will automatically start the hMailServer service.</li><li>Click Exit to return to the setup wizard.</li><li>Click Finish to exit the setup and to start the hMailServer Administrator.</li></ol>
+
+<h2>After installation</h2>
+
+<h3>IP ranges</h3>
+
+<p>The IP Ranges functionality in hMailServer has been completely rewritten in version 3.3. The new version includes a number of settings that will make it easier to configure the hMailServer security. Because of this, IP ranges created in 3.2 will automatically be deleted when upgrading to 3.3. The two default IP ranges created in version 3.3 should work for most users.</p>
+
+<h3>Open relay</h3>
+
+<p>After an upgrade or reconfiguration, it is important that you run an open relay test, to make sure that no one can use your server to send spam. Click <a href="?page=open_relay_tests">here</a> for a list of free open relay tests.</p>

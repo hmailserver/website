@@ -1,0 +1,17 @@
+<p>As soon as you finish installing and configuring hMailServer, you should run some open relay tests. It ensures that your server will not be used for spamming.<a href="http://members.iinet.net.au/~remmie/relay/"></a></p>
+
+<ul><li><a href="http://www.aupads.org/test-relay.html">http://www.aupads.org/test-relay.html</a></li><li><a href="http://www.abuse.net/relay.html">http://www.abuse.net/relay.html</a></li></ul>
+
+<h2>False positives</h2>
+
+<p>In some cases, open relay tests may return false positives. This means that the open relay test claims that your server may be an open relay even though it&#039;s not. In other words, the server may give you a warning even though you have nothing to worry about.</p>
+
+<h3>Default domain and catch-all address</h3>
+
+<p>If you specify a default domain in hMailServer, this domain name will be appended to all email addresses which are missing a domain name (the setting is located in hMailServer Administrator under Settings-&gt;Advanced). If you specify the default doman example.com, and someone tries to send an email to webmaster, hMailServer will assume the messge should be sent to webmaster@example.com.</p>
+
+<p>If you specify a catch-all address for a domain, hMailServer will accept all email sent to this domain. If the recipient address does not match an account, the message will be forwarded to the catch-all address.</p>
+
+<p>Combining the default domain setting with the catch-all address setting may lead to false positives. If you have enabled both settings, and someone connects to your server and wants to deliver an email to &lt;any-random-string&gt;, hMailServer will accept the delivery. hMailServer will first append the default domain to the address - &lt;any-random-string&gt;@example.com. After that, it will try to find the account &lt;any-random-string&gt;@example.com. If this fails, the message will still be delivered to the catch-all account.</p>
+
+<p> </p>

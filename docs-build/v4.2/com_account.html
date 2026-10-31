@@ -1,0 +1,95 @@
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later</p>
+
+<h1>Properties</h1>
+
+<p><em>Property Active As Boolean</em></p>
+
+<div class="indented">If the account is active, true is returned. Otherwise false.</div>
+
+<p><em>Property ADDomain As String</em></p>
+
+<div class="indented">The active directory domain this account is connected to. If the account is not connected to a domain, this returns an empty string</div>
+
+<p><em>Property Address As String</em></p>
+
+<div class="indented">The address of this account. Includes the domain name</div>
+
+<p><em>Property AdminLevel As eAdminLevel</em></p>
+
+<div class="indented">The administration level for this account.</div>
+
+<p><em>Property ADUsername As String</em></p>
+
+<div class="indented">The active directory username this account is connected to.</div>
+
+<p><em>Property DomainID As Long</em></p>
+
+<div class="indented">The ID of the domain this account is connected to.</div>
+
+<p><em>Property FetchAccounts As <a href="?page=com_fetchaccounts">FetchAccounts</a></em></p>
+
+<div class="indented">External fetch accounts connected to this account.</div>
+
+<p><em>Property ID As Long</em></p>
+
+<div class="indented">The database identifier for the account.</div>
+
+<p><em>Property IMAPFolders As IMAPFolders</em></p>
+
+<div class="indented">Returns a collection of the IMAP folders owned by this account.</div>
+
+<p><em>Property IsAD As Boolean</em></p>
+
+<div class="indented">True if the account is connected to active directory. False otherwise.</div>
+
+<p><em>Property MaxSize As Long</em></p>
+
+<div class="indented">Maximum size of the account (MB).</div>
+
+<p><em>Property Messages As Messages</em></p>
+
+<div class="indented">A collection of the messages connected to the accounts mailbox.</div>
+
+<p><em>Property Password As String</em></p>
+
+<div class="indented">The password of this account. Might be encoded using MD5.</div>
+
+<p><em>Property QuotaUsed As Long</em></p>
+
+<div class="indented">Percentage of quota used. A value between 0 and 100. (4.2 and later)</div>
+
+<p><em>Property Rules As <a href="?page=com_rules">Rules</a></em></p>
+
+<div class="indented">A collection of the rules connected to this account.</div>
+
+<p><em>Property Size As Long</em></p>
+
+<div class="indented">The current size of this account.</div>
+
+<p><em>Property VacationMessage As String</em></p>
+
+<div class="indented">The vacation message for this account.</div>
+
+<p><em>Property VacationMessageIsOn As Boolean</em></p>
+
+<div class="indented">True if the vacation message is activated.</div>
+
+<p><em>Property VacationSubject As String</em></p>
+
+<div class="indented">The vacation subject for this account.</div>
+
+<h1>Methods</h1>
+
+<p><em>Sub DeleteMessages()</em></p>
+
+<div class="indented">Deletes all messages connected to this account.</div>
+
+<p><em>Sub Save()</em></p>
+
+<div class="indented">Saves the account in the database.</div>
+
+<p><em>Sub ValidatePassword(Password As String) as Boolean</em></p>
+
+<div class="indented">Used to validate a users password. Returns true if the given password is correct.</div>

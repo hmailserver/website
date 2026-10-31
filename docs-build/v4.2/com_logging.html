@@ -1,0 +1,61 @@
+<p>The Logging object holds the logging settings.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property AWStatsEnabled As Boolean</h4>
+
+<div class="indented">AWStats logs should be created by hMailServer.</div>
+
+<h4>Property Device As eLogDevice</h4>
+
+<div class="indented">The logging device. Currently only hLogDeviceFile (2). </div>
+
+<h4>Property Directory As String</h4>
+
+<div class="indented">The hMailServer log directory.</div>
+
+<h4>Property Enabled As Boolean</h4>
+
+<div class="indented">Logging is enabled.</div>
+
+<h4>Property LiveLog As String</h4>
+
+<div class="indented">Returns the current content of the live log and then empties it.</div>
+
+<h4>Property LogApplication As Boolean</h4>
+
+<div class="indented">Application-level events should be logged.</div>
+
+<h4>Property LogDebug As Boolean</h4>
+
+<div class="indented">Debug-level events should be logged.</div>
+
+<h4>Property LogFormat As eLogOutputFormat</h4>
+
+<div class="indented">This property is not used.</div>
+
+<h4>Property LogIMAP As Boolean</h4>
+
+<div class="indented">IMAP-level events should be logged.</div>
+
+<h4>Property LogPOP3 As Boolean</h4>
+
+<div class="indented">POP3-level events should be logged.</div>
+
+<h4>Property LogSMTP As Boolean</h4>
+
+<div class="indented">SMTP-level events should be logged.</div>
+
+<h4>Property LogTCPIP As Boolean</h4>
+
+<div class="indented">TCP/IP-level events should be logged.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub EnableLiveLogging(newVal As Boolean)</h4>
+
+<div class="indented">Enable live logging.</div>

@@ -1,0 +1,23 @@
+<h2>Overview</h2>
+
+<p><img src="images/scr_installation_small.jpg" alt=""> This page describes how to upgrade from hMailServer version 4.1 to hMailServer version 4.2. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, hMailServer database and hMailServer.ini, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h2>Install the new version</h2>
+
+<ol><li>IMPORTANT: Back up your hMailServer database, your data directory and the hMailServer.ini file.</li><li>Download hMailServer 4.2 from the hMailServer website.</li><li>Launch the setup executable by double-clicking it. There is no need to stop or uninstall the previous version before installing 4.2. The hMailServer 4.2 setup will take care of that.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files. If you get a message that it can&#039;t overwrite the file libmysql.dll, restart Apache/IIS and then click Retry.</li><li>After the files have been copied, the setup software will automatically start hMailServer database upgrade.</li><li>Click Upgrade to upgrade the database to the 4.2 structure.</li><li>After the upgrade of the database, the setup software will automatically start the hMailServer service.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>
+
+<h2>What&#039;s new</h2>
+
+<p>For a list over new features in hMailServer 4.2, <a href="?page=whats_new_42">click here.</a></p>
+
+<h2>Known issues</h2>
+
+<p>The following issues are currently open and under investigation.</p>
+
+<h3>Pocket Outlook and Base64</h3>
+
+<p>Messages where the entire text/html-parts are Base64 encoded are not displayed correctly when using Pocket Outlook 2003. It has not yet been fully confirmed that this is a hMailServer defect. If it is, it has most likely existed in earlier versions as well. Fully base64-encoded text/html parts of messages are rare.</p>
+
+<h3>External accounts</h3>
+
+<p>One user has reported that hMailServer occasionally downloads the same messages several times from external accounts.</p>

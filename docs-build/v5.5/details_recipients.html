@@ -1,0 +1,49 @@
+<h2>Overview</h2>
+
+<p>This document describes how recipients are resolved in hMailServer. When a SMTP client delivers a message to hMailServer, it specifies a sender and a recipient. The recipient address specified by the client may not be the final recipient address, if aliases, domain aliases and routing is used. If these features are used, hMailServer may modify the recipient address. This document describes the process of this.</p>
+
+<h3>Recipient rewriting</h3>
+
+<p>When a client specifies the recipient address (using the SMTP RCPT TO command), the following happens:</p>
+
+<ol><li>hMailServer checks if the recipient domain name matches a local domain name alias. If this is the case, the recipient address is rewritten to use the primary domain name. For instance, if the domain example.com has the alias sub.example.com, and a message is sent to someone@sub.example.com, the recipent address is rewritten to someone@example.com.</li></ol>
+
+<p>  
+2. If a domain exists matching the recipient domain:</p>
+
+<p>   1. If the domain is inactive, hMailServer returns an error to the sender.
+  2. hMailServer attempts to locate an account matching the recipient address.</p>
+
+<p>     - If an account is found, hMailServer will deliver the message to the account.
+    - If the account is inactive, hMailServer returns an error tot he sender.
+  3. hMailServer attempts to locate an alias matching the recipient address.</p>
+
+<p>     - If an alias is found, hMailServer restarts the entire rewriting process, but this time with the address specified in the alias value.
+    - If an alias if found, but it&#039;s inacitve, an error message is given to the sender.
+  4. hMailServer attempts to locate a distribution list matching the recipient address
+     - If a distribution list is found, hMailServer will add the recipients of the distribution list to the message, using the process described in this document.</p>
+
+<p>  
+3. If no domain exists matching the recipient domain:</p>
+
+<p>   1. hMailServer tries to locate a route matching the recipient address. Note that when this is done, the original address is used. For instance, if the domain example.com has the alias sub.example.com, and a message is sent to someone@sub.example.com, hMailServer will try to locate a route for the domain someone@sub.example.com.</p>
+
+<h3>Examples</h3>
+
+<p><strong>Simple delivery</strong></p>
+
+<p>The domain example.com and account user@example.com. A client sends a message to user@example.com.</p>
+
+<ol><li>hMailServer will locate the domain example.com and confirm it&#039;s enabled.</li><li>hMailServer will locate the account user@example.com and confirm it&#039;s enabled.</li><li>hMailServer will deliver the message to user@example.com.</li></ol>
+
+<p><strong>Delivery using aliases</strong></p>
+
+<p>The domain example.com and account user@example.com. An alias is set up pointing from someone@example.com at user@example.com. A client sends a message to someone@example.com.</p>
+
+<ol><li>hMailServer will locate the domain example.com and confirm it&#039;s enabled.</li><li>hMailServer will attempt to locate the account someone@example.com but will fail.</li><li>hmailServer will locate the alias someone@example.com and see that it&#039;s pointing at user@example.com.</li><li>hMailServer will locate the domain example.com and confirm it&#039;s enabled.</li><li>hMailServer will locate the account user@example.com and confirm it&#039;s enabled.</li><li>hMailServer will deliver the message to user@example.com.</li></ol>
+
+<p><strong>Delivery using routes</strong></p>
+
+<p>No domain is set up, but a route with the name example.com is set up. A message is sent to the domain someone@example.com.</p>
+
+<ol><li>hMailServer will attempt to locate the domain example.com but fail.</li><li>hMailServer will locate the route example.com and confirm its enabled.</li><li>hMailServer will deliver to the address in the route.</li></ol>

@@ -1,0 +1,61 @@
+<p>The Route object represents a hMailServer route.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Addresses As RouteAddresses</h4>
+
+<div class="indented">A collection containing the valid email addreses for this route.</div>
+
+<h4>Property AllAddresses As Boolean</h4>
+
+<div class="indented">hMailServer should route to all addresses.</div>
+
+<h4>Property DomainName As String</h4>
+
+<div class="indented">The route domain name.</div>
+
+<h4>Property ID As Long</h4>
+
+<div class="indented">The database identifier for the route.</div>
+
+<h4>Property MinutesBetweenTry As Long</h4>
+
+<div class="indented">Number of minutes between every try when delivering to the route SMTP server.</div>
+
+<h4>Property NumberOfTries As Long</h4>
+
+<div class="indented">The number of times hMailServer should try to deliver to the route SMTP server.</div>
+
+<h4>Property RelayerAuthUsername As String</h4>
+
+<div class="indented">The username hMailServer should use when delivering messages (if relayer requires SMTP authentication).</div>
+
+<h4>Property RelayerRequiresAuth As Boolean</h4>
+
+<div class="indented">The SMTP server used for the route requires SMTP authentication.</div>
+
+<h4>Property TargetSMTPHost As String</h4>
+
+<div class="indented">The SMTP server hMailServer should deliver to when delivering to this route.</div>
+
+<h4>Property TargetSMTPPort As Long</h4>
+
+<div class="indented">The TCP/IP port on the target SMTP server hMailServer should deliver to when delivering to this route.</div>
+
+<h4>Property TreatSecurityAsLocalDomain As Boolean</h4>
+
+<div class="indented">hMailServer should treat this route as a local domain when checking security against IP ranges.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Save()</h4>
+
+<div class="indented">Saves the route in the database.</div>
+
+<h4>Sub SetRelayerAuthPassword(newVal As String)</h4>
+
+<div class="indented">Sets the password in the database.</div>

@@ -1,0 +1,101 @@
+<h1>Overview</h1>
+
+<p>The hMailServer COM API lets you write your own scripts and applications that integrate with hMailServer. Almost all objects in hMailServer are accessible using the COM library. As an example, both hMailServer Administrator and the PHP WebAdmin is entirely based upon the COM library. Besides writing application like theese two, you can write scripts that are automatically run when certain events take place. For example, you can write a script that filters messages before they are delivered to the recipients.</p>
+
+<p>The <a href="?page=com_object_application">Application</a> object is the root object in hMailServers COM model. Using this object, you can access all hMailServer objects and settings. Before accessing any of the properties and methods on the Application object, you must call Application.Authenticate with valid credentials.</p>
+
+<p>The hMailServer API behaves as most other COM APIs, but there are some <a href="?page=com_api_structure">special behavior</a> which relates to exception handling and permissions.</p>
+
+<h1>Basic steps</h1>
+
+<p>These are the basic steps to perform when you want to access the hMailServer COM API.</p>
+
+<ol><li>Create an instance of the hMailServer Application object. How to do this depends on what programming language you use. In VBScript, you call CreateObject(&quot;hMailServer.Application&quot;).</li><li>Authenticate. Before you can call any other methods in the API, you need to authenticate. This is done using the Authenticate() method on the Application object. This is required to prevent unauthorized users to access your hMailServer installation.</li><li>Call the methods and use the properties you need.</li></ol>
+
+<h1>Change log</h1>
+
+<p>For a list of changes in the COM API, see the <a href="?page=com_changelog">COM API Changelog</a></p>
+
+<h1>Reference</h1>
+
+<ul><li>## Domain objects</li></ul>
+
+<p>   - <a href="?page=com_object_domains">Domains</a>
+  - <a href="?page=com_object_domain">Domain</a>
+     - <a href="?page=com_object_accounts">Accounts</a>
+    - <a href="?page=com_object_account">Account</a>
+       - <a href="?page=com_object_imapfolders">IMAPFolders</a>
+      - <a href="?page=com_object_imapfolder">IMAPFolder</a>
+         - <a href="?page=com_object_messages">Messages</a>
+        - <a href="?page=com_object_message">Message</a>
+           - <a href="?page=com_object_attachments">Attachments</a>
+          - <a href="?page=com_object_attachment">Attachment</a>
+          - <a href="?page=com_object_recipients">Recipients</a>
+          - <a href="?page=com_object_recipient">Recipient</a>
+      - <a href="?page=com_object_fetchaccounts">FetchAccounts</a>
+      - <a href="?page=com_object_fetchaccount">FetchAccount</a>
+    - <a href="?page=com_object_aliases">Aliases</a>
+    - <a href="?page=com_object_alias">Alias</a>
+    - <a href="?page=com_object_distributionlists">DistributionLists</a>
+    - <a href="?page=com_object_distributionlist">DistributionList</a>
+       - <a href="?page=com_object_distributionlistrecipients">DistributionListRecipients</a>
+      - <a href="?page=com_object_distributionlistrecipient">DistributionListRecipient</a>
+    - <a href="?page=com_object_domainaliases">DomainAliases</a>
+    - <a href="?page=com_object_domainalias">DomainAlias</a>
+- ## Settings</p>
+
+<p>   - <a href="?page=com_object_antispam">AntiSpam</a>
+  - <a href="?page=com_object_antivirus">AntiVirus</a>
+  - <a href="?page=com_object_cache">Cache</a>
+  - <a href="?page=com_object_backupsettings">BackupSettings</a>
+  - <a href="?page=com_object_blockedattachments">BlockedAttachments</a>
+  - <a href="?page=com_object_blockedattachment">BlockedAttachment</a>
+  - <a href="?page=com_object_dnsblacklists">DNSBlackLists</a>
+  - <a href="?page=com_object_dnsblacklist">DNSBlackList</a>
+  - <a href="?page=com_object_greylistingwhiteaddresses">GreyListingWhiteAddresses</a>
+  - <a href="?page=com_object_greylistingwhiteaddress">GreyListingWhiteAddress</a>
+  - <a href="?page=com_object_language">Language</a>
+  - <a href="?page=com_object_links">Links</a>
+  - <a href="?page=com_object_logging">Logging</a>
+  - <a href="?page=com_object_routes">Routes</a>
+  - <a href="?page=com_object_route">Route</a>
+     - <a href="?page=com_object_routeaddresses">RouteAddresses</a>
+    - <a href="?page=com_object_routeaddress">RouteAddress</a>
+  - <a href="?page=com_object_scripting">Scripting</a>
+  - <a href="?page=com_object_securityranges">SecurityRanges</a>
+  - <a href="?page=com_object_securityrange">SecurityRange</a>
+  - <a href="?page=com_object_servermessages">ServerMessages</a>
+  - <a href="?page=com_object_servermessage">ServerMessage</a>
+  - <a href="?page=com_object_surblservers">SURBLServers</a>
+  - <a href="?page=com_object_surblserver">SURBLServer</a>
+  - <a href="?page=com_object_tcpipports">TCPIPPorts</a>
+  - <a href="?page=com_object_tcpipport">TCPIPPort</a>
+  - <a href="?page=com_object_settings">Settings</a>
+  - <a href="?page=com_object_rules">Rules</a>
+  - <a href="?page=com_object_rule">Rule</a>
+     - <a href="?page=com_object_rulecriterias">RuleCriterias</a>
+    - <a href="?page=com_object_rulecriteria">RuleCriteria</a>
+    - <a href="?page=com_object_ruleactions">RuleActions</a>
+    - <a href="?page=com_object_ruleaction">RuleAction</a>
+  - <a href="?page=com_object_whitelistaddresses">WhiteListAddresses</a>
+  - <a href="?page=com_object_whitelistaddress">WhiteListAddress</a>
+- ## Server-wide objects</p>
+
+<p>   - <a href="?page=com_object_application">Application</a>
+  - <a href="?page=com_object_backup">Backup</a>
+  - <a href="?page=com_object_backupmanager">BackupManager</a>
+  - <a href="?page=com_object_database">Database</a>
+  - <a href="?page=com_object_deliveryqueue">DeliveryQueue</a>
+  - <a href="?page=com_object_globalobjects">GlobalObjects</a>
+  - <a href="?page=com_object_status">Status</a>
+  - <a href="?page=com_object_utilities">Utilities</a>
+- ## Scripting-wide objects</p>
+
+<p>   - <a href="?page=com_object_client">Client</a>
+  - <a href="?page=com_object_result">Result</a></p>
+
+<h1>Examples</h1>
+
+<p>The below examples are written in VBA. To use them, copy them to a text file, save the file with the extension .vbs and then double-click on the file in the Windows Explorer to run it. Before doing this, make sure that you fully understand the purpose of the script and what effect it may have on your hMailServer installation. We strongly recommend that you run scripts in an test environment before running them on a hMailServer installation used in production.</p>
+
+<ul><li><a href="?page=com_example_account_change_password">Changing password for an account</a></li><li><a href="?page=com_example_copy_message_to_imap_folder">Copying a message from one IMAP folder to another</a></li><li><a href="?page=com_example_account_create">Creating an account</a></li><li><a href="?page=com_example_account_delete">Deleting an account</a></li><li><a href="?page=com_example_domain_enable">Enabling a domain</a></li><li><a href="?page=com_example_folder_list">Listing IMAP folders belonging to a specific account</a></li><li><a href="?page=com_example_message_send">Sending a message</a></li></ul>

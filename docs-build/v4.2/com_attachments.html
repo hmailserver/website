@@ -1,0 +1,27 @@
+<p>The <em>Attachments</em> collection contains zero or more attachments. The attachments collection is normally connected to a specific e-mail message.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">
+The number of attachments in this collection.
+</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_attachment">Attachment</a></h4>
+
+<div class="indented">Returns the Attachment by an given index.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Add(sFilename As String)</h4>
+
+<div class="indented">Adds an attachment to the collection. sFilename should contain the full path to the file to add.</div>
+
+<h4>Sub Clear()</h4>
+
+<div class="indented">Removes all attachments from the message.</div>

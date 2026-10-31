@@ -1,0 +1,23 @@
+<h2>Overview</h2>
+
+<p>Aliases are used to forward email from one specific address to another. Imagine them as addresses without a mailbox; instead of having their own mailbox, they store received messages in another account&#039;s mailbox. This can be useful if you want to monitor several email addresses, but only have one real email account on the server. For example, you may want to receive email messages sent to webmaster@domain.com, feedback@domain.com and yourname@domain.com, but you just want to create the webmaster@domain.com account instead of 3 different accounts. Then feedback@domain.com and yourname@domain.com can be made aliases of webmaster@domain.com</p>
+
+<h3>Adding an alias</h3>
+
+<ol><li>Navigate to the domain in hMailServer Administrator</li><li>Select the <em>Aliases</em>node under the domain.</li><li>Click <em>Add...</em></li><li>Enter an email address in <em>Redirect from</em>. This is an alias email address, e.g. <code>feedback@domain.com</code> in the illustration above. Email messages sent to it will be forwarded to the address you specify in the <em>To</em> field.</li><li>Enter the main email address in the <em>To</em> field.</li><li>Click <em>Save</em></li></ol>
+
+<h3>Notes</h3>
+
+<ul><li>You cannot use an alias address that matches the email address of an existing account.</li><li>It is not possible to use an alias to forward an email to two different accounts. Use distribution lists instead.</li><li>An alias may forward email messages to any account - even to accounts for domains not residing in the same server.</li><li>When logging on the server, an alias cannot be used. Only account addresses may be used during log-on.</li></ul>
+
+<h2>Settings</h2>
+
+<h3>Redirect from</h3>
+
+<div class="indented">An alias email address from which messages are to be redirected. The email address can not be the same as an account address or an address in a distribution list.</div>
+
+<h3>To</h3>
+
+<div class="indented">The email address that the alias should redirect to. It can be any account, another alias, a distribution list or an email address on an external domain.</div>
+
+<p> </p>

@@ -1,0 +1,80 @@
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.x and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property AccountID As Long</h4>
+
+<div class="indented"> The ID of the account this rule is connected to. </div>
+
+<h4>Property Actions As <a href="?page=com_ruleactions">RuleActions</a></h4>
+
+<div class="indented"> A collection of rule actions connected to this rule. </div>
+
+<h4>Property Active As Boolean</h4>
+
+<div class="indented"> True if this rule is active. False otherwise. </div>
+
+<h4>Property Criterias As <a href="?page=com_rulecriterias">RuleCriterias</a></h4>
+
+<div class="indented"> A collection of rule criterias connected to this rule. </div>
+
+<h4>Property ID As Long</h4>
+
+<div class="indented"> The database identifier for this rule. </div>
+
+<h4>Property Name As String</h4>
+
+<div class="indented"> The name of this rule. </div>
+
+<h4>Property UseAND As Boolean</h4>
+
+<div class="indented"> True if AND should be used between the rule criterias. False if OR should be used instaed. </div>
+
+<h1>Methods</h1>
+
+<div class="indented">
+<h4>Sub MoveUp()</h4>
+<div class="indented">Moves this rule to the previous position in the list of rules.<br></div>
+</div>
+
+<h4>Sub MoveDown()</h4>
+
+<p>Moves this rule to the next position in the list of rules.</p>
+
+<h4>Sub Save()</h4>
+
+<div class="indented">Saves rule in the database.</div>
+
+<h1>Sample code</h1>
+
+<h2>Creating a forward rule</h2>
+
+<p>The following sample creates an account rule that forwards all messages larger than 0 bytes to someone@test.com.</p>
+
+<pre><code>Dim obRule As Rule    
+    Set obRule = obAccount.Rules.Add        
+    obRule.Name = &quot;My forward rule&quot;        
+
+    &#039; Add a If MessageSize Is Greater Than 0 criteria    
+    Dim obCriteria    
+    Set obCriteria = obRule.Criterias.Add        
+    obCriteria.MatchType = eMTGreaterThan    
+    obCriteria.PredefinedField = eFTMessageSize    
+    obCriteria.MatchValue = 0    
+    obCriteria.Save        
+
+    &#039; Create a forward action    
+    Dim obAction    
+    Set obAction = obRule.Actions.Add    
+    obAction.Type = eRAForwardEmail    
+    obAction.To = &quot;someone@test.com&quot;    
+    obAction.Save        
+
+    &#039; Save the entire rule    
+    obRule.Save</code></pre>
+
+<pre><code> </code></pre>
+
+<pre><code> </code></pre>

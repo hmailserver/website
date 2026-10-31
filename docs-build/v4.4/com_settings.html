@@ -1,0 +1,177 @@
+<p>The cache object contains settings that relates to the hMailServer caching functionality.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property AllowSMTPAuthPlain As Boolean</h4>
+
+<div class="indented">Allow plain SMTP authentication.</div>
+
+<h4>Property AntiVirus As <a href="?page=com_antivirus">AntiVirus</a></h4>
+
+<div class="indented">Returns an object of type AntiVirus that contains the anti virus settings.</div>
+
+<h4>Property Backup As <a href="?page=com_backupsettings">BackupSettings</a></h4>
+
+<div class="indented">Returns an object of type Backup that contains the backup settings.</div>
+
+<h4>Property Cache As <a href="?page=com_cache">Cache</a></h4>
+
+<div class="indented">Returns an object of type Cache that contains the cache settings.</div>
+
+<h4>Property DenyMailFromNull As Boolean</h4>
+
+<div class="indented">This property lets you specify whether hMailServer should allow SMTP-deliveries without sender address.</div>
+
+<h4>Property DNSBlackLists As <a href="?page=com_dnsblacklists">DNSBlackLists</a></h4>
+
+<div class="indented">Returns a collection of the DNS blacklists.</div>
+
+<h4>Property HostName As String</h4>
+
+<div class="indented">The host name used by hMailServer when delivering messages (used in SMTP HELO command).</div>
+
+<h4>Property IMAPPort As Long</h4>
+
+<div class="indented">The TCP/IP port that the IMAP server should use.</div>
+
+<h4>Property IPHomes As <a href="?page=com_iphomes">IPHomes</a></h4>
+
+<div class="indented">Returns a collection of IP homes used by hMailServer when multihoming is enabled.</div>
+
+<h4>Property ListenOnAllAddresses As Boolean</h4>
+
+<div class="indented">Should hMailServer listen on all available IP addresses?</div>
+
+<h4>Property Logging As <a href="?page=com_logging">Logging</a></h4>
+
+<div class="indented">Returns an object of type Logging that contain all log-related settings.</div>
+
+<h4>Property MaxDeliveryThreads As Long</h4>
+
+<div class="indented">The maximum number of SMTP delivery threads.</div>
+
+<h4>Property MaxMessageSize As Long</h4>
+
+<div class="indented">The maximum message size that this server should allow.</div>
+
+<h4>Property MaxPOP3Connections As Long</h4>
+
+<div class="indented">The maximum number of simultaneous POP3 connections.</div>
+
+<h4>Property MaxSMTPConnections As Long</h4>
+
+<div class="indented">The maximum number of simultaneous SMTP connections.</div>
+
+<h4>Property MirrorEMailAddress As String</h4>
+
+<div class="indented">The mirror address hMailServer should send messages to.</div>
+
+<h4>Property POP3Port As Long</h4>
+
+<div class="indented">The TCP/IP port used by the POP3 server.</div>
+
+<h4>Property Routes As Routes</h4>
+
+<div class="indented">Returns a collection containing the routes used by hMailServer.</div>
+
+<h4>Property RuleLoopLimit As Long</h4>
+
+<div class="indented">The maximum number of times a message can be processed by rules.</div>
+
+<h4>Property Scripting As <a href="?page=com_scripting">Scripting</a></h4>
+
+<div class="indented">Returns an object of type Scripting that contain all script-related settings.</div>
+
+<h4>Property SecurityRanges As <a href="?page=com_securityranges">SecurityRanges</a></h4>
+
+<div class="indented">Returns a collecton containing the SecurityRanges / IP ranges used by hMailServer.</div>
+
+<h4>Property SendStatistics As Boolean</h4>
+
+<div class="indented">This option lets you specify whether hMailServer should send delivery statistics to hMailServer.com</div>
+
+<h4>Property ServiceIMAP As Boolean</h4>
+
+<div class="indented">This option lets you specify whether IMAP should be enabled.</div>
+
+<h4>Property ServicePOP3 As Boolean</h4>
+
+<div class="indented">This option lets you specify whether POP3 should be enabled.</div>
+
+<h4>Property ServiceSMTP As Boolean</h4>
+
+<div class="indented">This option lets you specify whether SMTP should be enabled.</div>
+
+<h4>Property SMTPMinutesBetweenTry As Long</h4>
+
+<div class="indented">Number of minutes between each try when delivering an e-mail.</div>
+
+<h4>Property SMTPNoOfTries As Long</h4>
+
+<div class="indented">Number of retries when SMTP server delivers an e-mail.</div>
+
+<h4>Property SMTPPort As Long</h4>
+
+<div class="indented">The TCP/IP port to use  for the SMTP server.</div>
+
+<h4>Property SMTPRelayer As String</h4>
+
+<div class="indented">The SMTP server that hMailServer should deliver all messages to.</div>
+
+<h4>Property SMTPRelayerPort As Long</h4>
+
+<div class="indented">The SMTP port to use when delivering to the SMTP relayer.</div>
+
+<h4>Property SMTPRelayerRequiresAuthentication As Boolean</h4>
+
+<div class="indented">Set to true if the SMTP relayer requires authentication. False otherwise.</div>
+
+<h4>Property SMTPRelayerUsername As String</h4>
+
+<div class="indented">The user name that hMailServer should use when delivering e-mail to the SMTP relayer.</div>
+
+<h4>Property TarpitCount As Long</h4>
+
+<div class="indented">The tarpit count.</div>
+
+<h4>Property TarpitDelay As Long</h4>
+
+<div class="indented">The tarpit delay.</div>
+
+<h4>Property UseDeliveryLog As Boolean</h4>
+
+<div class="indented">True if hMailServer should use the delivery log. False otherwise.</div>
+
+<h4>Property UseMXChecks As Boolean</h4>
+
+<div class="indented">True if hMailServer should use MX checks during spam protection.</div>
+
+<h4>Property UserInterfaceLanguage As String</h4>
+
+<div class="indented">The language in which the user interface should be shown.</div>
+
+<h4>Property UseSPF As Boolean</h4>
+
+<div class="indented">Set this option to true if hMailServer should do SPF checks during spam protection. False otherwise.</div>
+
+<h4>Property WelcomeIMAP As String</h4>
+
+<div class="indented">The welcome / banner message that the IMAP server should use when a client has connected to the server.</div>
+
+<h4>Property WelcomePOP3 As String</h4>
+
+<div class="indented">The welcome / banner message that the POP3 server should use when a client has connected to the server.</div>
+
+<h4>Property WelcomeSMTP As String</h4>
+
+<div class="indented">The welcome / banner message that the SMTP server should use when a client has connected to the server.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub SetSMTPRelayerPassword(newVal As String)</h4>
+
+<div class="indented">Sets the password that hMailServer use when delivering a message to an external SMTP server and SMTP authentication is enabled.</div>

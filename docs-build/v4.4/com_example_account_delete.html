@@ -1,0 +1,26 @@
+<p>This example shows how to delete an account from your domain in your hMailServer installation. The script is written in VBA. To use it, follow these steps:</p>
+
+<ol><li>Copy the script to a text editor</li><li>Save it as a file with the extension .vba, for example Example.vba</li><li>In the Windows Explorer, double-click on the .vba file to run it.</li></ol>
+
+<h1>Deleting an account</h1>
+
+<p>``</p>
+
+<pre><code>Dim obApp
+   Set obApp = CreateObject(&quot;hMailServer.Application&quot;)
+
+   &#039; Authenticate. Without doing this, we won&#039;t have permission
+   &#039; to change any server settings or add any objects to the
+   &#039; installation.   
+   Call obApp.Authenticate(&quot;Administrator&quot;, &quot;your-main-hmailserver-password&quot;)
+   
+   &#039; Locate the domain we want to add the account to
+   Dim obDomain
+   Set obDomain = obApp.Domains.ItemByName(&quot;example.com&quot;)
+
+   &#039; To be able to delete an account, we need to know the database
+   &#039; identifier for it. Because of this, we first need to fetch the account object.      
+   Dim obAccount
+   Set obAccount = obDomain.Accounts.ItemByAddress(&quot;account@example.com&quot;)
+   
+   obDomain.Accounts.DeleteByDBID obAccount.ID</code></pre>

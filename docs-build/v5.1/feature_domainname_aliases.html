@@ -1,0 +1,11 @@
+<h2>Overview</h2>
+
+<p>It is possible to specify a list of alternate names for an hMailServer domain. Suppose you have the domains <code>mydomain.com</code>, <code>mydomain.org</code> and <code>mydomain.net</code>. You would like to host all of these on hMailServer, but do not want to add three separate domains. The solution is to add one single domain and then specify a list of valid names for that domain. However, every account will now have three aliases; if your account is <code>johndoe@mydomain.com</code>, you will also receive email sent to both <code>johndoe@mydomain.org</code> and <code>johndoe@mydomain.net</code>.</p>
+
+<h3>Creating a domain name alias</h3>
+
+<ol><li>Start hMailAdmin.</li><li>Expand the <em>Domains</em> node and select the domain (e.g. <code>mydomain.com</code>).</li><li>Select the <em>Names</em> tab.</li><li>Add the domain names to the list (e.g. <code>mydomain.org</code> and <code>mydomain.net</code>)</li></ol>
+
+<h3>Notes</h3>
+
+<ul><li>You should not add the primary name (in our example, <code>mydomain.com</code>) to the list.</li><li>You can not add the same domain name aliases to multiple domains.</li></ul>

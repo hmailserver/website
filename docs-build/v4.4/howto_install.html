@@ -1,0 +1,33 @@
+<h2>Overview</h2>
+
+<p>This page describes the required steps to install hMailServer. Before installing hMailServer, you should ensure that your computer fulfills the <a href="?page=system_requirements">system requirements</a>.</p>
+
+<h2>Step 1: Download</h2>
+
+<p>The first step is of to download hMailServer. The installation program is available for download at the <a href="http://www.hmailserver.com/?page=download">download page</a>. It is recommended that you download the latest stable version. The file you download has a name of the form <em>hMailServer-version-build.exe</em>. As an example, <em>version-build</em> might stand for <em>4.1-Build-136</em>.</p>
+
+<h2>Step 2: Install</h2>
+
+<ol><li>Double-click on the downloaded file to launch the setup. The first dialog which is shown is the Welcome dialog, in this one, simply click Next.</li><li>Select the destination folder and click Next. You should select a local drive and not a network folder. It is possible to install hMailServer on removable devices, but you will not be able to run hMailServer from the device on another computer.</li><li>Select which components you want to install and click Next. On the server, you should install all available components. If you have already installed the hMailServer server on another computer and you want to manage that remotely, you only need to install the Administrative tools.</li><li>Select database type and click Next. hMailServer needs a database server (MySQL or MSSQL) to store messages and configuration data. During installation you can select whether you wish to install hMailServer&#039;s own built-in MySQL database. If you already have a MySQL or MSSQL server running on your computer, select to use an external database.</li></ol>
+
+<p>If you choose the default, that is, the built-in MySQL, the installation software will automatically create the database and tables needed by hMailServer. On the other hand, if you wish to use an external database instead, you will have to manually run the hMailServer Database Setup wizard after the installation has completed. It will guide you through the process of creating the database and tables. Note that hMailServer Database Setup will create the database as well as all the tables that hMailServer needs.
+5. Select which start menu folder you want to place the hMailServer icons in and click Next.
+6. Click Install to begin the copying of the files.
+7. After the files have been installed, you need to provide the installation program with a main hMailServer password. In 4.3 and later, a main password is used to increase security. The password can be anything you like as long as it&#039;s longer than 5 characters. You will need the password later on when performing server administration, so don&#039;t forget it. You only need to specify the password the first time you install hMailServer
+8. After you have finished the installation, it&#039;s time to start hMailServer Administrator (found in the start menu). The first thing which appears is the <em>Connect</em> dialog. This dialog allows you to connect to different hMailServer installations in your network. Normally, you will want to connect to <em>localhost</em>. Select <em>localhost</em>, and click <em>Connect</em>. In the password dialog, enter your main hMailServer password and click OK.</p>
+
+<h2>Step 3: Post-installation tasks</h2>
+
+<h3>Service dependencies (hMailServer 4.x and later)</h3>
+
+<p>If you are using the built-in MySQL, you do not need to do anything about service dependency. If you are using MSSQL or an external version of MySQL already running on the same machine, you should run the appropriate script from the <em>hMailServer/Addons/Service dependencies</em> folder.</p>
+
+<p>The hMailServer installation automatically tries to set service dependency, but in some cases it&#039;s not possible for hMailServer to properly detect which service it should be dependent on. Because of this, you should manually set service dependency by running one of the scripts in the folder above. If you don&#039;t set the service dependency, there&#039;s a risk that hMailServer won&#039;t be able to connect to the database server after reboot. (This happens if hMailServer is started before the database server after reboot)</p>
+
+<h3>DNS configuration</h3>
+
+<p>After installing hMailServer, make sure you configure your DNS server correctly. For SMTP to work, you must define MX records for your domain. MX stands for Mail eXchanger. Simply put, the MX records tell other email servers what server in your domain is responsible for handling mail. Here is <a href="?page=ts_mx_problems">more information about MX records</a>.</p>
+
+<h2>Step 4: Configuring the server</h2>
+
+<p>The tutorial for configuring the server is <a href="?page=basic_configuration">found here</a>.</p>

@@ -1,0 +1,78 @@
+<p>The SecurityRange object represents a security range / IP range used by hMailServer.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property AllowDeliveryFromLocalToLocal As Boolean</h4>
+
+<div class="indented">Allow deliveries from local to local.</div>
+
+<h4>Property AllowDeliveryFromLocalToRemote As Boolean</h4>
+
+<div class="indented">Allow deliveries from local to remote.</div>
+
+<h4>Property AllowDeliveryFromRemoteToLocal As Boolean</h4>
+
+<div class="indented">Allow deliveries from remote to local.</div>
+
+<h4>Property AllowDeliveryFromRemoteToRemote As Boolean</h4>
+
+<div class="indented">Allow deliveries from remote to remote.</div>
+
+<h4>Property AllowIMAPConnections As Boolean</h4>
+
+<div class="indented">Allow IMAP connections from this IP range.</div>
+
+<h4>Property AllowPOP3Connections As Boolean</h4>
+
+<div class="indented">Allow POP3 connections from this IP range.</div>
+
+<h4>Property AllowSMTPConnections As Boolean</h4>
+
+<div class="indented">Allow SMTP connections from this IP range.</div>
+
+<h4>Property EnableSpamProtection As Boolean</h4>
+
+<div class="indented">Enable spam protection for this IP range.</div>
+
+<h4>Property ID As Long</h4>
+
+<div class="indented">The database identifier for this object.</div>
+
+<div class="indented">
+<h4>Property IsForwardingRelay As Boolean</h4>
+<div class="indented">Specifies whether the IP range matches the IP address of a forwarding relay (for example a MX backup record).<br></div>
+</div>
+
+<h4>Property LowerIP As String</h4>
+
+<div class="indented">The lower IP address.</div>
+
+<h4>Property Name As String</h4>
+
+<div class="indented">The name of this IP range.</div>
+
+<h4>Property Priority As Long</h4>
+
+<div class="indented">The priority of this IP range.</div>
+
+<h4>Property RequireAuthForDeliveryToLocal As Boolean</h4>
+
+<div class="indented">Require SMTP Auth for deliveries to local users.</div>
+
+<h4>Property RequireAuthForDeliveryToRemote As Boolean</h4>
+
+<div class="indented"> Require SMTP Auth for deliveries to remote users.</div>
+
+<h4>Property UpperIP As String</h4>
+
+<div class="indented">The upper IP address.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Save()</h4>
+
+<div class="indented"> Saves the IP address in the database. </div>

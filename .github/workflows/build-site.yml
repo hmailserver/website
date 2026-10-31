@@ -1,0 +1,76 @@
+# Builds the static site and deploys it to GitHub Pages.
+# Runs hourly to refresh download counts and the "latest" documentation.
+name: Build and deploy site
+
+on:
+  # All branches build; only main deploys (see the deploy job).
+  push:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One group per branch, so other branches can't replace a pending main run.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check out latest documentation
+        uses: actions/checkout@v7
+        with:
+          repository: hmailserver/hmailserver
+          ref: master
+          path: app-repo
+          sparse-checkout: hmailserver/documentation
+
+      # PHP comes preinstalled on the GitHub runner.
+      - run: php --version
+
+      # README.md describes the front matter for editors and is not a doc page.
+      - name: Build latest documentation
+        run: |
+          rm -rf docs-content/latest docs-build/latest
+          cp -r app-repo/hmailserver/documentation docs-content/latest
+          rm -f docs-content/latest/README.md
+          count=$(find docs-content/latest -name '*.md' | wc -l)
+          if [ "$count" -lt 50 ]; then echo "Only $count documentation pages found"; exit 1; fi
+          php scripts/build-docs-html.php latest
+
+      # Last known GitHub download counts, used if the GitHub API is unavailable.
+      - name: Restore download counts
+        uses: actions/cache@v6
+        with:
+          path: data/github-counts.json
+          key: github-counts-${{ github.run_id }}
+          restore-keys: github-counts-
+
+      - name: Build site
+        run: php scripts/build-site.php dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

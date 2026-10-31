@@ -1,0 +1,41 @@
+<h2>Operating system</h2>
+
+<p>hMailServer can be installed Windows 2000, 2003 and XP. </p>
+
+<p>hMailServer 4.2 and earlier was possible to run on Windows NT4 as well, but this is no longer supported since Microsoft no longer supports this operating system.</p>
+
+<h2>Other Software</h2>
+
+<h3>Database server</h3>
+
+<p>hMailServer was designed to provide, in one single download, everything you need to run an email server, with the exception of the NT component mentioned above. hMailServer even has its own database server, a light-weight version of the MySQL database server. Should you not wish to use it, you can select to use your own MySQL or Microsoft SQL database server. You might want to do that, for example, if you already have a Microsoft SQL Server or MySQL server running on your machine. hMailServer supports MySQL 4 and later, and MSSQL 2000 or later.</p>
+
+<h3>SquirrelMail</h3>
+
+<p>If you plan to use the hMailServer password changer plugin or auto-reply plug-in with SquirrelMail, you will need SquirrelMail 1.4.7 or later.</p>
+
+<h3>Web administration</h3>
+
+<p>If you plan to use PHPWebAdmin to manage your hMailServer installation via a web browser, you need to run a web server where support for PHP is available.</p>
+
+<h3>Incompatible software</h3>
+
+<p>hMailServer is incompatible with the following sotware:</p>
+
+<ul><li>NetLimiter from Locktime Software. NetLimiter has an incorrectly written Windows LSP (&quot;Winsock driver&quot;) which causes problems for hMailServer. NetLimiter works incorrectly with other software as well (including software from Microsoft) so it should never be installed on the same computer as hMailServer). The hMailServer Team has tried to get an explanation from Locktime Software about this but has not received any.</li><li>NOD32/IMON from ESET. hMailServer is not compatible with the IMON component in NOD32. During installation of NOD32, a warning is shown that the IMON component should not be installed on servers since it&#039;s known to cause issues with server software. (hMailServer has no problems coexisting and using NOD32 as long as the IMON component is note enabled)</li></ul>
+
+<h3>Virus scanners</h3>
+
+<p>For hMailServer to work properly, automatic virus scanning of the hMailServer Data directory must be disabled. You should configure your virus scanner to exclude the hMailServer Data directory from scanning. If you do this, it is recommended that you configure hMailServer to launch your virus scanner whenever a new e-mail is received.</p>
+
+<h2>Hardware</h2>
+
+<h3>Performance</h3>
+
+<p>The hardware requirements are very much dependent on the number of users. They also depend on whether or not you will be using IMAP support, virus scanning, filters, etc. POP3 uses much less CPU resources than IMAP, so, if you have a lot of users, POP3 is recommended. hMailServer normally uses less than 100MB of memory.</p>
+
+<h3>Screen resolution</h3>
+
+<p>The administration program for hMailServer, hMailServer Administrator, requires a screen resolution of 800x600 or above.</p>
+
+<p> </p>

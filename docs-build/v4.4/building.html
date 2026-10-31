@@ -1,0 +1,38 @@
+<h2>Overview</h2>
+
+<p>This page describes how to build hMailServer from source. The source code is stored in a CVS repository. If you want to make any changes to the source code and to submit the code back to the community, you will need a username and password. You may use anonymous access as described below, if you just want to download the source code.</p>
+
+<h2>Requirements</h2>
+
+<ul><li><a href="http://www.tortoisecvs.org/">TortoiseCVS</a> - An open source CVS client.</li><li>Visual Studio 2003.NET for hMailServer 4.2 and earlier(used to build the server)</li><li>Visual Studio 2005 for hMailServer 4.3 and later (used to build the server). You will need Professional edition or better.</li><li>Visual Basic 6 (used to build hMailAdmin, database setup etc)</li></ul>
+
+<h2>Steps</h2>
+
+<h3>1: Downloading the source code</h3>
+
+<ol><li>Install TortoiseCVS.</li><li>Create a development folder, for example <code>C:Dev</code> (or anything you like).</li><li>Open that folder using Windows Explorer.</li><li>Right-click to select <em>CVS Checkout</em>.</li></ol>
+
+<p>Now the <em>TortoiseCVS - Checkout Module dialog</em> is shown. This dialog lets you specify what you want to check out.</p>
+
+<ol><li>In the <em>CVSROOT</em> field, enter <code>:ext:anonymous@forgecvs1.novell.com:/cvsroot/hmailserver</code></li><li>In the Module field, enter <code>hmailserver</code></li><li>Select the <em>Revision</em> tab</li><li>Select <em>Choose branch or tag</em></li><li>Enter the branch name:</li></ol>
+
+<p>   - H-3-4 for hMailServer 3.4.
+  - H-4-0 for hMailServer 4.0.
+  - H-4-1 for hMailServer 4.1.
+  - H-4-2 for hMailServer 4.2.
+  - H-4-3 for hMailServer 4.3
+  - If you want the latest build, just leave the branch name empty or use HEAD. However, please note that the latest build is normally very unstable.
+6. Click OK to download the source. <br>
+If you are asked for a password, enter <code>anonymous</code>.</p>
+
+<h3>2: Building it</h3>
+
+<ol><li>In VS2003.NET or VS2005 (depending on hMailServer version), open <code>hMailServer\hMailServer.sln</code></li><li>Select <em>Build hMailServer</em> from the <em>Build</em> menu</li></ol>
+
+<h3>3: Running the server</h3>
+
+<ol><li>Open the project properties for hMailServer</li><li>Select <em>Configuration Parameters-&gt;Debugging</em></li><li>Add <code>/Debug</code> to Command arguments</li><li>Click <em>OK</em> to save the settings.</li><li>Select <em>Start</em> from the <em>Debug</em> menu..</li></ol>
+
+<h3>Building the tools</h3>
+
+<p>To build hMailServer Administrator, Database setup and the other tools, use Visual Basic 6</p>

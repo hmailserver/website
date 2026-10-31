@@ -1,0 +1,52 @@
+<h2>Overview</h2>
+
+<p>hMailServer has built-in support for the Open Source antivirus software, <a href="http://www.clamwin.org/">ClamWin</a>. To use a different
+virus scanner, apply the <em>External virus scanner</em> feature.
+It enables you to run any anti virus scanner that supports command
+line scanning. In the <em>Scanner executable</em> - field, you specify the
+command line that should be used when scanning. In the <em>Return value</em> - field,
+you specify the value that the virus scanner will return when
+a virus is found. This value varies depending on the virus scanner. See the
+bottom of this page for a list of virus scanners and their command lines.</p>
+
+<p>A useful tip. If you use the macro %FILE% in the command line, hMailServer will replace
+%FILE% with the full path to the file that needs to be scanned.</p>
+
+<h2>Example</h2>
+
+<p>This example shows how to set up hMailServer to use <em>AVG Free</em> in hMailServer 4.0 build 85 and later versions.
+It assumes you have <em>AVG Free</em> installed in <code>C:\Program Files\Grisoft\AVG Free</code>.</p>
+
+<ol><li>Start hMailAdmin and navigate to <em>Settings -&gt; Protocols -&gt; SMTP -&gt; AntiVirus</em></li><li>Select the <em>External virus scanner</em> page.</li><li>Select <em>Use external scanner</em></li><li>Specify <code>&quot;C:\Program Files\Grisoft\AVG Free\avgscan.exe&quot; /EXT=* /NOBOOT /NOMEM /SCAN /NOSELF /NOHIMEM /ARC &quot;%FILE%&quot;</code> as the command line. The quotation marks (&quot;) should be included.</li><li>Enter <code>6</code> as the return value. (<code>Avgscan.exe</code> will return a value of 6 if a virus is found.)</li></ol>
+
+<h2>Notes</h2>
+
+<ul><li>The %FILE%-macro functionality only applies to hMailServer 4.0 build 85 and later.</li></ul>
+
+<h2>Scanner command lines</h2>
+
+<table width="100%">
+<tr>
+ <td width="200"><b>Virus scanner</b></td>
+ <td><b>Command line</b></td>
+ <td width="150"><b>Return value</b></td>
+</tr>
+<tr>
+ <td valign="top">AVG Free</td>
+ <td valign="top"><code>"C:\Program Files\Grisoft\AVG Free\avgscan.exe" <br>/EXT=* /NOBOOT /NOMEM /SCAN /NOSELF /NOHIMEM /ARC "%FILE%"</code></td>
+ <td valign="top">6</td>
+</tr>
+
+<p>&lt;/table&gt;</p>
+
+<h2>Testing it</h2>
+
+<p>Since testing with real viruses is risky, you can use the Eicar anti-virus test file. It is treated as a virus by anti-virus scanners, but is safe to use since it is not a real virus.</p>
+
+<p>These sites enable you to send out email containing the Eicar anti-virus test file:</p>
+
+<ul><li><a href="http://www.aleph-tec.com/eicar/index.php">Alpha-tec</a>.</li><li><a href="http://www.webmail.us/testvirus?co=&amp;emailAddr=jack%40sharepointmatrix%2Ecom&amp;cset=27&amp;auth=0">Webmail.us</a>.</li></ul>
+
+<h2>More information</h2>
+
+<ul><li><a href="?page=feature_antivirus_external_returnvalue">How to determine the return value of a virus scanner</a></li></ul>

@@ -1,0 +1,35 @@
+---
+title: "Backup"
+slug: reference_backup
+parent: book_referenceguide
+index: 0
+is_book: false
+---
+
+## Backup
+
+**Note**: Since backup is a critical part of running a server, and hMailServer 4.2 is the first version to include built-in backup support, you should consider the hMailServer backup feature to be experimental. Do not rely on it for business critical purposes.
+
+The built-in backup functionality is designed for small installations. If you have more than 50 accounts or 10 000 messages on the server, we **strongly recommend** that you use external tools to perform the backup.
+
+### Destination
+
+<div class="indented">The path where the hMailServer backup will be stored.</div>
+
+### Settings
+
+<div class="indented">If this option is selected, hMailServer will backup the settings. The option includes global rules, SMTP, POP3, IMAP settings, cache, multihoming and the other options found under the <em>Settings</em> node in hMailServer Administrator.</div>
+
+### Domains
+
+<div class="indented">This option includes all hMailServer domains and the objects connected to the domains. This means that if you chose to backup domains, accounts, external accounts, account level rules, aliases, distribution lists and other objects that belongs to a domain will be backuped. This option does not include IMAP folders connected to accounts.</div>
+
+### Messages
+
+<div class="indented">If you've choosen to backup domains, you can choose to backup messages as well. If you choose this option, hMailServer will backup IMAP folders and the messages stored in these IMAP folders. Messages in the hMailServer delivery queue are not backuped.</div>
+
+## More information
+
+More information about backups can be found in the [user guide](?page=feature_backup).
+
+ 

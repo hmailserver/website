@@ -1,0 +1,41 @@
+<h2>Example 1, Delete email</h2>
+
+<p>Automatically delete all email messages whose subject-line contains the word <em>SPAM</em></p>
+
+<ol><li>Start hMailAdmin, and select <em>Rules</em> in the tree to the left, under <em>Domains</em></li><li>Click on <em>Add</em>. Enter the name <code>MyRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>Subject</em></li><li>Under <em>Search type</em>, select <em>Contains</em>.</li><li>In the <em>Value</em> textbox, enter the word <code>SPAM</code></li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Delete email</em> from the drop-down list</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the rule</li></ol>
+
+<h2>Example 2, forward messages</h2>
+
+<p>Forward all messages addressed to an external email address. The original message will still be delivered normally. Don&#039;t set up a rule that forwards email to yourself, since that would cause an endless loop.</p>
+
+<ol><li>Start hMailAdmin and navigate to the account settings.</li><li>Select the <em>Rules</em> tab.</li><li>Click on <em>Add</em>. Enter the name <code>ForwardRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>Message size</em></li><li>Under <em>Search type</em>, select <em>Greater than</em>.</li><li>In the <em>Value</em> textbox, enter the value <code>0</code>. This will cause all messages larger than 0 bytes to be affected by the rule.</li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Forward email</em> from the drop down. Enter the external address to forward to.</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the entire rule</li></ol>
+
+<h2>Example 3, move messages to IMAP folder</h2>
+
+<p>Move all messages from a specific sender to a specific IMAP folder</p>
+
+<ol><li>Start hMailAdmin and navigate to the account settings.</li><li>Select the <em>Rules</em> tab.</li><li>Click on <em>Add</em>. Enter the name <code>MoveRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>From</em></li><li>Under <em>Search type</em>, select <em>Contains</em>.</li><li>In the <em>Value</em> textbox, enter the value <code>someone@somedomain.com</code>. This will cause all messages that contain someone@somedomain.com in the From header field to be affected by the rule.</li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Move to IMAP folder</em> from the drop down. Enter the name of the IMAP folder to move it to.</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the entire rule</li></ol>
+
+<h2>Example 4, update subject of email message</h2>
+
+<p>The following tutorial will guide you through how to call a VBA-script depending on the contents of a message. The below example will show how you update the subject of a message depending on the size of the message.</p>
+
+<h3>Setting up the rule</h3>
+
+<ol><li>Start hMailServer Administrator</li><li>Select <em>Rules</em></li><li>Click on <em>Add</em>. Enter the name <code>SizeRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>MessageSize</em></li><li>Under <em>Search type</em>, select Greater than.</li><li>In the <em>Value</em> textbox, enter the value 4000. This will cause all messages that is larger than 4000 bytes to be effected by this rule.</li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Run function</em> from the drop down. Enter the name <em>OnSizeRule</em></li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the entire rule</li></ol>
+
+<h3>Creating the script</h3>
+
+<ol><li>Open the file Events\EventHandlers.vbs.</li><li>Add the following lines to it and save the changes:</li></ol>
+
+<p> **Sub OnSizeRule(oMessage)</p>
+
+<p>    oMessage.Subject = &quot;[4000] &quot; &amp; oMessage.Subject</p>
+
+<p>    oMessage.Save</p>
+
+<p> End Sub**</p>
+
+<h3>Enable scripting in hMailServer</h3>
+
+<ol><li>Start hMailServer Administrator</li><li>Navigate to Settings, Advanced, Scripts</li><li>Click Check syntax to confirm that the syntax is correct</li><li>Select Active</li><li>Click Save to enable scripting.</li></ol>

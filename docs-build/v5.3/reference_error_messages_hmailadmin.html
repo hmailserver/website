@@ -1,0 +1,7 @@
+<h2>hMailServer Administrator errors</h2>
+
+<h3>The remote server machine does not exist or is unavailable</h3>
+
+<p>When you connect to a hMailServer instance using hMailServer Administrator, DCOM is used. hMailServer connects to the hMailServer service using the DCOM API and then manages the server via the API. hMailServer Administrator (and PHPWebAdmin) does not connect directly to the database server. Because of this, to be able to run hMailServer Administrator, the hMailServer service must be running.</p>
+
+<p>If hMailServer Administrator is unable to connect to the hMailServer service, you may see the error above. By default, hMailServer Administrator tries to connect to the hMailServer instance running on localhost. If you get this error message, make sure that the host name you&#039;re trying to connect to in the connection dialog really is correct. If it is, you need to do <a href="?page= 	 howto_administer_remote">further troubleshooting</a>.</p>

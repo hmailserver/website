@@ -1,0 +1,37 @@
+<p>The DomainAliases collection contains the aliases of a domain set up in hMailServer.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">The number of objects in the collection.</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_domainalias">DomainAlias</a></h4>
+
+<div class="indented">Returns an domain alias from the collection based on it's index in the collection.</div>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_domainalias">DomainAlias</a></h4>
+
+<div class="indented">Returns an domain alias from the collection based on it's database identifier.</div>
+
+<h1>Methods</h1>
+
+<h4>Function Add() As <a href="?page=com_domainalias">DomainAlias</a></h4>
+
+<div class="indented">Adds a new domain alias to the collection.</div>
+
+<h4>Sub Delete(Index As Long)</h4>
+
+<div class="indented">Deletes the domain alias with the specified index.</div>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">Deletes the domain alias with the specified database identifier.</div>
+
+<h4>Sub Refresh()</h4>
+
+<div class="indented">Refreshes the collection from the database.</div>

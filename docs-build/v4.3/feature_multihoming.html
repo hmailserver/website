@@ -1,0 +1,17 @@
+<h2>Applies to</h2>
+
+<p>Version 4.1 and later</p>
+
+<h2>Overview</h2>
+
+<p>By default, hMailServer listens on all available IP addresses. This means that, if your machine has multiple IP addresses, an email client can connect to any of them. However, in certain cases, you might want hMailServer to listen on only one or two of all the available IP addresses. The multihoming feature enables a computer to listen on a restricted number of IP addresses. You may apply multihoming, for example, if you are running another email server, and only want to test hMailServer. You will then use multihoming to configure hMailServer to only listen on a local address.</p>
+
+<h2>How does it work?</h2>
+
+<p>When hMailServer starts, it creates one TCP/IP socket for every IP address it should listen on. If you have configured hMailServer to listen on all available sockets, it will create a single socket that listens on the address <code>0.0.0.0</code>.</p>
+
+<h2>Configuring multihoming using hMailAdmin</h2>
+
+<ol><li>Start hMailAdmin</li><li>Select <em>Settings -&gt; Advanced -&gt; Multihoming</em></li><li>Select whether you want hMailServer to listen on all TCP/IP addresses or only on a specific list of addresses</li><li>Click on <em>Save</em> to save your changes</li></ol>
+
+<p>If you select that hMailServer should only listen on a specific list of addresses, you should add at least one IP address to that list. Otherwise, hMailServer won&#039;t listen on any addresses at all, hence will be redundant.</p>

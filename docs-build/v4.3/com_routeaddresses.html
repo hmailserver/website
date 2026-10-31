@@ -1,0 +1,33 @@
+<p>The RouteAddresses collection contains the email addresses connected to a hMailServer route.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.1 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">The number of objects in the collection.</div>
+
+<h4>Property Item(Index As Long) As RouteAddress</h4>
+
+<div class="indented">Returns an RouteAddress from the collection based on it's index in the collection.</div>
+
+<h4>Property ItemByDBID(DBID As Long) As RouteAddress</h4>
+
+<div class="indented">Returns an RouteAddress from the collection based on it's database identifier.</div>
+
+<h1>Methods</h1>
+
+<h4>Function Add() As RouteAddress</h4>
+
+<div class="indented">Adds a new IP address to the collection.</div>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">Deletes the given email address from the collecton.</div>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">Deletes the email address with the specified database identifier.</div>

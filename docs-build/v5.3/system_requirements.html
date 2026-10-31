@@ -1,0 +1,63 @@
+<h2>Operating system</h2>
+
+<p>hMailServer can be installed in the following operating systems. The latest available Windows service pack must be installed. hMailServer has only been tested on the following operating systems. hMailServer may work on other operating system versions as well, but only the versions below are officially and regulary tested.</p>
+
+<h3>hMailServer 5</h3>
+
+<ul><li>Microsoft Windows 2008 (all editions, except for <em>Core</em>)</li><li>Microsoft Windows Vista</li><li>Microsoft Windows 2003 (all editions)</li><li>Microsoft Windows XP Professional</li><li>Microsoft Windows 2000 (all editions)</li></ul>
+
+<h3>hMailServer 4.3 and 4.4</h3>
+
+<ul><li>Microsoft Windows 2003 (all editions)</li><li>Microsoft Windows XP Professional</li><li>Microsoft Windows 2000 (all editions)</li></ul>
+
+<p>Windows NT support has been removed since Microsoft no longer supports this operating system.</p>
+
+<h3>hMailServer 4.2</h3>
+
+<ul><li>Microsoft Windows 2003 (all editions)</li><li>Microsoft Windows XP Professional</li><li>Microsoft Windows 2000 (all editions)</li><li>Microsoft Windows NT</li></ul>
+
+<h2>Other Software</h2>
+
+<h3>Database server</h3>
+
+<p>hMailServer was designed to provide, in one single download, everything you need to run an email server. hMailServer has its own integrated database server, a light-weight version of the MSSQL database server. Should you not wish to use it, you can <a href="?page=choosing_database_engine">select one</a> of the following database engines:</p>
+
+<ul><li>MySQL 4 and MySQL 5</li><li>Microsoft SQL Server 2000, 2005 and 2008 (including Express, Standard and Enterprise edition)</li><li>PostgreSQL 8</li></ul>
+
+<p>Notice that hMailServer is only tested with production releases of database engines. If you install an alpha or beta of for example MySQL, you should not expect hMailServer to work with it.</p>
+
+<h3>SquirrelMail</h3>
+
+<p>If you plan to use the hMailServer password changer plugin or auto-reply plug-in with SquirrelMail, you will need SquirrelMail 1.4.7 or later.</p>
+
+<h3>Web administration</h3>
+
+<p>If you plan to use PHPWebAdmin to manage your hMailServer installation via a web browser, you need to run a web server where support for PHP is available.</p>
+
+<h3>Incompatible software</h3>
+
+<p>hMailServer is incompatible with the following sotware:</p>
+
+<ul><li>NetLimiter from Locktime Software. NetLimiter has an incorrectly written Windows LSP (&quot;Winsock driver&quot;) which causes problems for hMailServer. NetLimiter works incorrectly with other software as well (including software from Microsoft) so it should never be installed on the same computer as hMailServer). The hMailServer Team has tried to get an explanation from Locktime Software about this but has not received any.</li><li>NOD32/IMON from ESET. hMailServer is not compatible with the IMON component in NOD32. During installation of NOD32, a warning is shown that the IMON component should not be installed on servers since it&#039;s known to cause issues with server software. (hMailServer has no problems coexisting and using NOD32 as long as the IMON component is not enabled)</li></ul>
+
+<h3>Virus scanners</h3>
+
+<p>For hMailServer to work properly, automatic virus scanning of the hMailServer Data directory must be disabled. You should configure your virus scanner to exclude the hMailServer Data directory from scanning. If you do this, it is recommended that you configure hMailServer to launch your virus scanner whenever a new e-mail is received.</p>
+
+<h2>Hardware</h2>
+
+<h3>Performance</h3>
+
+<p>The hardware requirements are very much dependent on the number of users. They also depend on whether or not you will be using IMAP support, virus scanning, filters, etc. POP3 uses much less CPU resources than IMAP, so, if you have a lot of users, POP3 is recommended. hMailServer normally uses less than 100MB of memory. The largest hMailServer installations have over 20 000 user accounts hosted on a single server.</p>
+
+<h3>Screen resolution</h3>
+
+<p>The administration program for hMailServer, hMailServer Administrator, requires a screen resolution of 800x600 or above.</p>
+
+<h2>Technical knowledge</h2>
+
+<p>To be able to successfully set up an email server, you need to know the basics about certain techniques related to Internet and email. While some parts of the hMailServer documentation describes and discusses these things, the hMailServer documentation should not be seen as a reference documentation for these areas. You need to have a basic understanding of the following items to be able to successfully set up an email server on Windows.</p>
+
+<ul><li>Microsoft Windows</li><li>Domain names and host names</li><li>Firewalls and routers</li><li>DNS, Domain Name System</li><li>TCP/IP ports</li></ul>
+
+<p> </p>

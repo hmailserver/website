@@ -1,0 +1,29 @@
+<p>The <em>IMAPFolders</em> collection contains zero or more IMAP folders.</p>
+
+<h2>Version</h2>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h2>Properties</h2>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented"> The number of IMAP folders in this collection.  </div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_imapfolder">IMAPFolder</a></h4>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_imapfolder">IMAPFolder</a></h4>
+
+<h4>Property ItemByName(Name As String) As <a href="?page=com_imapfolder">IMAPFolder</a></h4>
+
+<div class="indented"> Returns the <a href="?page=com_imapfolder">imap folder</a> by it's given Index, database identifier or name. If the IMAP folder does not exist, an exception is thrown. </div>
+
+<h2>Methods</h2>
+
+<h4>Function Add(sName As String) As IMAPFolder</h4>
+
+<p>Adds an IMAP folder with the given name to the collection. It is saved immediately.</p>
+
+<h4>Sub DeleteByDBID(lDBID As Long)</h4>
+
+<p>Deletes an IMAP folder with the given database identifier.</p>

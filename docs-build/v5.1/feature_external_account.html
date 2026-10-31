@@ -1,0 +1,27 @@
+<h2>Overview</h2>
+
+<p>Using the external account functionality, you can configure hMailServer to download email from other e-mail servers, using the POP3 protocol. After the messages have been downloaded, global rules, virus scanning and etc are applied on the messages. After that, they are normally delivered to one or several local accounts.</p>
+
+<h2>Creating an external account</h2>
+
+<h3>Scenario 1:</h3>
+
+<p>You have a hMailServer installation where you host email for your domain. You want to download email from another email server and put it in one of the local accounts.</p>
+
+<h3>Steps</h3>
+
+<ol><li>Open the account settings for the account you want to download email to</li><li>Select the <em>External accounts</em> tab</li><li>Click <em>Add</em> to add a new account.</li><li>Enter a name for the external account.</li><li>Enter the login information.</li><li>De-select &quot;Deliver to recipients in MIME-headers&quot; (if it is selected)</li><li>Specify how often you want hMailServer to download messages, and how long they should be stoerd on the remote POP3 server.</li><li>Save the account</li></ol>
+
+<p>After you have performed the steps above, hMailServer will download the messages and put them in the account in which you created the external account.</p>
+
+<h3>Scenario 2:</h3>
+
+<p>Your domain is hosted by your ISP. They have created a &quot;catch all&quot; email account for you. Whenever anyone sends you an email to a recipient on the domain, it ends up in the catch-all account.</p>
+
+<h3>Steps</h3>
+
+<ol><li>Create the domain in hMailServer  </li></ol>
+
+<p>After you have performed the steps above, hMailServer will download the messages and deliver them to the recipients in the MIME headers of the email message. If hMailServer cannot determine who the message should be delivered to (if no local recipients exists in the MIME headers), it will be delivered to your account (the account in which you added the external account)</p>
+
+<ul><li><a href="?page=reference_external_account">Reference guide</a></li></ul>

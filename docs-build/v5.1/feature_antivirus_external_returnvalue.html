@@ -1,0 +1,17 @@
+<h2>Overview</h2>
+
+<p>If you intend to use an external antivirus scanner in hMailServer, you must configure the return value in hMailAdmin. There are two ways to determine what value to enter. Either read the documentation for your antivirus scanner or test it yourself. There now follows a description of how to test it yourself. Note that you should never perform the test on an hMailServer system that is in production, since there&#039;s a risk that even email without viruses would be deleted during the testing.</p>
+
+<p>The return value is normally a value between 1 and 255.</p>
+
+<h2>Determining the value</h2>
+
+<h3>Step 1: Enable the virus scanner</h3>
+
+<ol><li>Start hMailAdmin</li><li>Browse to the settings for the external virus scanner.</li><li>Select <em>Use external virus scanner</em>.</li><li>Specify the full path to your virus scanner.</li><li>Enter return value 250.</li></ol>
+
+<h3>Step 2: Turn on logging and check return values</h3>
+
+<ol><li>Turn on application and debug logging.</li><li>Send an email that contains the eicar test virus.</li><li>Check the return value in the log file.</li><li>Send an email that does not contain the eicar test virus.</li><li>Check the return value in the log file.</li></ol>
+
+<p>In hMailAdmin, you should specify the return value that was given in the logs when you sent the eicar test virus. If you find that the return value is the same when you attach the eicar test virus and when you don&#039;t, then there is a problem. In that case, you should not specify any value. Report this to the forum and you should get assistance.</p>

@@ -1,0 +1,11 @@
+<h2>Overview</h2>
+
+<p>ClamWin is an open source virus scanner which runs on Windows.</p>
+
+<h2>Configuring hMailServer to use ClamWin</h2>
+
+<ol><li>Install ClamWin from <a href="http://www.clamwin.com/">http://www.clamwin.com/</a></li><li>Start hMailAdmin</li><li>Select <em>Settings -&gt; Protocols -&gt; SMTP -&gt; Anti Virus</em></li><li>Click on the <em>ClamWin</em> tab</li><li>Select <em>Use ClamWin</em></li><li>Click <em>Auto-detect</em></li></ol>
+
+<h2>Notes</h2>
+
+<ul><li>If the autodetection of the paths fails, you will have to enter the paths manually.</li><li>To test the virus scanning capability, <a href="http://www.eicar.org/anti_virus_test_file.htm">download a test virus</a> from eicar. Practically all virus scanners treat the test virus, <code>eicar.com</code>, as if it was a real virus. The file contains a string that makes the scanners think they&#039;ve detected a real virus. To test the antivirus functionality in hMailServer, attach the <code>eicar.com</code> file to an email and send it through hMailServer.</li></ul>

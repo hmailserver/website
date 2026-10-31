@@ -1,0 +1,35 @@
+<p>This page describes how to connect to the hMailServer MSSQL database to execute statements.</p>
+
+<h2>Step 1: Determine MSSQL password</h2>
+
+<p>If you are using an external version of MSSQL, you should already know your MSSQL password. If you are using the built-in MSSQL version that comes with hMailServer, you might not know your password. To determine it, follow these steps:</p>
+
+<ol>
+    <li>Open up hMailserver.ini, located in your Windows directory.</li>
+    <li>If you can't find <i>passwordencryption=1</i> in the file, locate the password in the file and go to <i>Step 2: Connect to the server</i> below.</li>
+    <li>Run the script <span class="Code">\hMailServer\Addons\Utilities\DecryptBlowfish.vbs</span>.</li>
+    <li>Copy the password from hMailServer.ini to the DecryptBlowfish dialog.</li>
+    <li>Click OK in DecryptBlowfish to view your password. DecryptBlowfish will now show your password. Either keep the dialog open or memorize the password.</li>
+</ol>
+
+<h2>Step 2: Install required software</h2>
+
+<p>To be able to connect to the Microsoft SQL Server Compact database, you need Microsoft SQL Server 2008 Studio Express. The following software needs to be installed for Microsoft SQL Server 2008 Studio Express.</p>
+
+<ul><li><a href="http://www.microsoft.com/downloads/details.aspx?familyid=5A58B56F-60B6-4412-95B9-54D056D6F9F4&amp;displaylang=en">Windows Installer 4.5 or later</a></li><li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=AB99342F-5D1A-413D-8319-81DA479AB0D7&amp;displaylang=en">.NET Framework 3.5 Service pack 1</a></li><li><a href="http://www.microsoft.com/windowsserver2003/technologies/management/powershell/download.mspx">Windows Powershell</a></li></ul>
+
+<p>After these tools have been installed, you can install <a href="http://www.microsoft.com/downloads/details.aspx?familyid=08e52ac2-1d62-45f6-9a4a-4b76a8564a2b&amp;displaylang=en">Microsoft SQL Server 2008 Studio Express</a>. During the installation, make sure you select to install the Management Tools.</p>
+
+<h2>Step 3: Connect to the server</h2>
+
+<ol><li>Start SQL Server Management Studio found in the start menu.</li><li>Select File -&gt; Connect Object Explorer</li><li>Select SQL Server Compact Edition from the Server type list.</li><li>Select the hMailServer database file, typically C:\Program Files\hMailServer\Database\hMailServer.sdf</li><li>Type in the password you retrieved in step 1</li><li>Click Connect to connect to the database server</li></ol>
+
+<p>Now you have connected to MSSQL</p>
+
+<h2>Step 3: Executing statements</h2>
+
+<p>After you have connected to MSSQL, you can execute statements by following these steps:</p>
+
+<ol><li>In the tree-menu to the left, right click on the hmailserver database.</li><li>Select New Query from the context menu.</li></ol>
+
+<p> </p>

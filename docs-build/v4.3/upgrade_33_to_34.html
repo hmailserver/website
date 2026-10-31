@@ -1,0 +1,39 @@
+<h2>Overview</h2>
+
+<p>This page describes how to upgrade from hMailServer version 3.3 to hMailServer version 3.4. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h2>Install the new version</h2>
+
+<ol><li>IMPORTANT: Back up your database, your data directory and the hMailServer.ini file.</li><li>Download hMailServer 3.4 from the hMailServer website.</li><li>Launch the setup executable by double-clicking on it.</li><li>There is no need to stop or uninstall version 3.3 before installing version 3.4. The hMailServer 3.4 setup will take care of that.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files.</li><li>After the files have been copied, the setup software will automatically start the hMailServer database upgrade.</li><li>Click Upgrade to upgrade the database to the 3.4 structure.</li><li>After the upgrade of the database, the setup software will automatically start the hMailServer service.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>
+
+<h2>What&#039;s new</h2>
+
+<h3>Custom DNS black lists</h3>
+
+<p>In 3.4, you can define your own DNS black lists. If you used any black lists in the previous version, you will need to re-enable them after the upgrade.</p>
+
+<h3>SPF support</h3>
+
+<p>hMailServer now supports the <a href="http://spf.pobox.com/">Sender Policy Framework(SPF)</a>. This is used to reduce the amount of spam, by letting domain owners specify a list of hosts that are allowed to send email from their domain. When hMailServer receives an email, it will check that the sender is authorized to send email from the specific domain.</p>
+
+<h3>MX check</h3>
+
+<p>hMailServer can now check that the domain name in the sender&#039;s email address has MX records. Spammers sometimes send email from non-existent domains. If you configure hMailServer to check the MX records, hMailServer will reject email from such senders. Note that not all domains have valid MX records, so there is a risk that legitimate email would be dropped.</p>
+
+<h3>Encrypted passwords</h3>
+
+<p>In 3.4, passwords in the database and in .INI files are encrypted. The passwords in the database are encrypted using MD5. MD5 is a non-reversible type of encryption; even if someone gets access to your database files and can read the MD5-password, they can&#039;t use it for anything. Passwords in hMailServer.ini are encrypted using Blowfish. Please note that the password used for the Blowfish encryption isn&#039;t secret. Hence the database password in hMailServer.ini isn&#039;t really encrypted but encoded. The reason for this is to make it a little bit harder to see the database password when using MySQL.</p>
+
+<p>If you upgrade from an earlier version, existing passwords won&#039;t be automatically encrypted. To encrypt the password in hMailServer.ini, run hMailServer Database Setup and chose to select a new default database. Then select the old one. To encrypt the passwords in the database, run Program FileshMailServerAddonsUtilitiesEncryptAllPasswords.vbs</p>
+
+<h3>External virus scanners</h3>
+
+<p>It is possible to define an external virus scanner in the AntiVirus settings. To do this, you need to specify the path to the scanner&#039;s executable and the return value it gives when it detects a virus. If you wish to use a command line virus scanner but you don&#039;t know what return values to enter, post a message in the hMailServer forum and we should be able to help you.</p>
+
+<h3>Delivery log</h3>
+
+<p>In 3.4, you can turn on the delivery log in the advanced SMTP settings. If you do this, messages delivered by the server will be logged to the hm_deliverylog and hm_deliverylogrecipients table in the hMailServer database. Please note that the server software will never empty these tables. So, if you turn on this feature, it&#039;s your responsibility to write a script to purge the tables before they become too large.</p>
+
+<h3>MySQL 4.1 support</h3>
+
+<p>The server now works directly with MySQL 4.1. A new version of libmysql.dll is distributed together with hMailServer.</p>

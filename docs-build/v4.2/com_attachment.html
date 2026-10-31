@@ -1,0 +1,31 @@
+<p>The <em>Attachment</em> object represents an attachment connected to an email <a href="?page=com_message">message</a>.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later</p>
+
+<h1>Properties</h1>
+
+<h4>Property Filename As String</h4>
+
+<div class="indented">
+The original filename of the attachment.
+</div>
+
+<h4>Property Size As Long</h4>
+
+<div class="indented">
+Returns the size of the attachment.
+</div>
+
+<h1>Methods</h1>
+
+<h4>Sub SaveAs(sName As String)</h4>
+
+<div class="indented">
+Extracts the content of the attachment from the MIME message and stores it on disk. sName should contain the full path and name of the new file.
+</div>
+
+<h4>Sub Delete()</h4>
+
+<div class="indented">Removes this attachment from the message.</div>

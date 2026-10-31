@@ -1,0 +1,9 @@
+<h2>Overview</h2>
+
+<p>You can control hMailServer&#039;s server in hMailAdmin. To do so, open hMailServer and click on <em>Status</em> from the tree to the left. On the right-hand menu, select the <em>Server</em> tab. This enables you to start and stop the server.</p>
+
+<h2>Notes</h2>
+
+<ul><li>When you start or stop the server from here, you do not actually start or stop the actual server <em>service</em>. Even if you click on Stop, the hMailServer service will continue running. That is, the server stops, not the service as a whole. The service is the executable file, hMailServer.exe, whereas the server is the sub-component in the executable, that accepts connections from clients.</li></ul>
+
+<p>The hMailServer COM library on which hMailAdmin is built is a part of the executable, hMailServer.exe. If hMailServer.exe could be stopped in the Administrator, the COM library would no longer be available. That would result in hMailAdmin itself losing connection to the service.</p>

@@ -1,0 +1,21 @@
+<p>The ServerMessages collection contains the auto-generated messages that hMailServer sends to clients, for example when a virus has been detected in a message. The list of messages is pre-defined and it&#039;s not possible to add or delete messages - just to modify them.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">The number of objects in the collection.</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_servermessage">ServerMessage</a></h4>
+
+<div class="indented">Returns an object from the collection based on it's index in the collection.</div>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_servermessage">ServerMessage</a></h4>
+
+<div class="indented">Returns an object from the collection based on it's database identifier.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Refresh()</h4>
+
+<div class="indented">Refreshes the collection from the database.</div>

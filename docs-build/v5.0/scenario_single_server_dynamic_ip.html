@@ -1,0 +1,37 @@
+<h2>Scenario:</h2>
+
+<p>You have a single server which you wants to use as emails erver. You Internet service provider (ISP) has given you a dynamic IP address.</p>
+
+<h3>Step 1: Checking the requirements</h3>
+
+<p>Before you continue, you should check that your Internet service provider (ISP) allows you to run your own email server in your network. You should also check that your ISP has not blocked port 25 for incoming traffic. You also needs to know whether they are blocking outgoing traffic on port 25.</p>
+
+<h3>Step 2: Setting up MX records</h3>
+
+<p>To be able to receive email from other servers, you must set up MX records for your domain. The MX records are entries in the DNS server that tells other computers on the Internet which computer (host name) is hosting the email for your domain.</p>
+
+<p>Since you&#039;re using a dynamic IP address, you must register a host name which is automatically updated whenever your IP address changes. There are several companies that offers this service for free. The following tutorial assumes that you have registered a free subdomain at <a href="http://www.no-ip.com/">No-IP</a>, called <em>something.no-ip.com</em> and that this host name points at your computers IP address. (No-IP offers a small (free) Windows utility that automatically updates the host name whenever your IP address changes.)</p>
+
+<p>If you have access to a web interface that lets you modify DNS settings, you can set up your MX records yourself. If you don&#039;t have access, you should contact the company that registered your domain and ask them to set up the MX records for your domain.</p>
+
+<p>So in this example, you should enter <em>something.no-ip.com</em> as MX record for your domain.</p>
+
+<h3>Step 3: Changing firewall settings</h3>
+
+<p>If you have a firewall (which you hopefully have) you need to modify its settings to allow hMailServer to receive email. Email is normally sent and received on TCP/IP port 25. This means that you must configure your firewall to allow incoming and outgoing traffic on TCP/IP port 25. If you&#039;re behind some kind of router, you need to configure the router to forward all traffic on port 25 to the computer where hMailServer is running.</p>
+
+<h3>Step 4: Install hMailServer</h3>
+
+<ol><li>Download the latest hMailServer version</li><li>Run through the installation wizard.</li><li>Start hMailServer Administrator.</li><li>Click <em>Add Domain...</em></li><li>Enter the name of your domain and click Save.</li><li>Click <em>Add account...</em> and add a new email account.</li><li>Go to <em>Settings-&gt;Protocols-&gt;SMTP</em> and choose the <em>Delivery of email tab</em>.</li><li>In the Host name setting, enter the host name of your computer, in this example <em>something.no-ip.com</em></li></ol>
+
+<h3>Step 5: Configuring outgoing email</h3>
+
+<p>If your Internet service provider is blocking outgoing traffic on port 25, hMailServer will not be able to deliver email to other servers since all SMTP servers normally only receives email on port 25. If your ISP is blocking outgoing traffic on port 25, the easiest solution is normally to configure hMailServer to forward all outgoing email through your ISP&#039;s SMTP server. To do this, follow these steps:</p>
+
+<ol><li>Start hMailServer Administrator</li><li>Go to the SMTP settings and choose Delivery of email.</li><li>In the SMTP relayer setting, enter the name of your ISP&#039;s smtp server, for example <em>smtp.myisp.com</em>.</li><li>If your ISP requires a username / password when sending email through their server, select Server requires authentication and enter the username and password.</li></ol>
+
+<h3>Step 6: Configuring your email client</h3>
+
+<p>In your email client, add a new account. Enter the following information:</p>
+
+<ul><li>Hostname - The host name or IP address of the computer where hMailServer runs</li><li>Username - Your full email address. Same as the account address you added in hMailServer Administrator.</li><li>Password - The password you defined in hMailServer Administrator</li></ul>

@@ -1,0 +1,46 @@
+<p>This example shows how to list a users IMAP folders using the hMailServer COM API. The script will display a message box listing all the IMAP folders (including sub folders) belonging to the account test@example.com.</p>
+
+<h1>Listing user folders</h1>
+
+<p>``</p>
+
+<pre><code>Dim obApp
+   Set obApp = CreateObject(&quot;hMailServer.Application&quot;)
+
+   &#039; Authenticate. Without doing this, we won&#039;t have permission
+   &#039; to change any server settings or add any objects to the
+   &#039; installation.   
+   Call obApp.Authenticate(&quot;Administrator&quot;, &quot;&lt;administrator-password&gt;&quot;)
+   
+   &#039; Locate the domain we want to add the account to
+   Dim obDomain
+   Set obDomain = obApp.Domains.ItemByName(&quot;example.com&quot;)
+   
+   Dim obAccount
+   Set obAccount = obDomain.Accounts.ItemByAddress(&quot;test@example.com&quot;)
+   
+   MsgBox ListFolders(obAccount.IMAPFolders, 0)
+
+   Function ListFolders(obFolders, iRecursion)
+      &#039; Loop over all folders
+      
+      iRecursion = iRecursion +1
+      
+      Dim sMessage
+      
+        dim i
+   	for i = 0 to obFolders.Count -1
+		   
+           Dim obFolder
+           Set obFolder = obFolders.Item(i) 
+		   
+           sMessage = sMessage &amp; String(iRecursion*3, &quot; &quot;) &amp; obFolder.Name &amp; vbNewLine
+           sMessage = sMessage &amp; ListFolders(obFolder.SubFolders, iRecursion)
+   		
+        Next
+   	
+   	iRecursion = iRecursion -1
+   	
+   	ListFolders = sMessage
+	
+   End Function</code></pre>

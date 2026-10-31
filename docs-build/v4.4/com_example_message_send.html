@@ -1,0 +1,5 @@
+<p>This example shows how to send an email using the hMailServer COM API.</p>
+
+<h1>Sending a message</h1>
+
+<p><code>dim oMessage  Set oMessage = CreateObject(&quot;hMailServer.Message&quot;) oMessage.From = &quot;Me&quot; oMessage.FromAddress = &quot;myaddress@mydomain.com&quot;  oMessage.Subject = &quot;Hi&quot;  oMessage.AddRecipient &quot;My friend&quot;, &quot;myfriend@myfriend.com oMessage.Body = &quot;This is the contents of the email.&quot;  oMessage.Save</code></p>

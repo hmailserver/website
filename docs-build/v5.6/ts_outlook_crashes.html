@@ -1,0 +1,5 @@
+<p>The Outlook 2003 IMAP implementation behaves a bit differently from the IMAP implementation in other email clients. There are problems encountered with Outlook, that are not specific to hMailServer. They will occur regardless of which IMAP server you are using.</p>
+
+<p>Outlook 2003 sometimes crashes if it can&#039;t connect to the IMAP server. This is an Outlook bug and has nothing to do with hMailServer.</p>
+
+<p>Outlook 2003 may sometimes show an error message that says it can&#039;t open a folder named Null. For some reason, international versions of Outlook use international names for the INBOX folder, even though the IMAP specification states that the name should always be INBOX. To override Outlook&#039;s behaviour, go to Tools-&gt;E-mail accounts-&gt;View, or change the account. In the properties for the IMAP account, click More Settings, select Advanced and then enter INBOX as Root folder path. This text box is not available in the English version of Outlook.</p>

@@ -1,0 +1,41 @@
+<p>The Database object contains methods and properties that are needed for database access.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property CurrentVersion As Long</h4>
+
+<div class="indented">The current hMailServer database. This value is stored in the table <code>hm_dbversion</code></div>
+
+<h4>Property DatabaseType As eDBtype</h4>
+
+<div class="indented">The database server type.</div>
+
+<h4>Property RequiredVersion As Long</h4>
+
+<div class="indented">The database version hMailServer requires to run.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub ExecuteSQL(sSQLStatement As String)</h4>
+
+<div class="indented">Executes an SQL statement in the hMailServer database.</div>
+
+<h4>Function UtilGetFileNameByMessageID(MessageID As Long) As String</h4>
+
+<div class="indented">This method returns a value by the given message database ID.</div>
+
+<h1>Sample code</h1>
+
+<h2>Display the current database version</h2>
+
+<p>`Dim obBaseApp
+   Set obBaseApp = CreateObject(&quot;hMailServer.Application&quot;)</p>
+
+<p>   Dim obDatabase
+   set obDatabase = obBaseApp.Database</p>
+
+<p>   MsgBox &quot;hMailServer database version: &quot; &amp; obDatabase.CurrentVersion`</p>

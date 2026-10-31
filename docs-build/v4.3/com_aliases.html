@@ -1,0 +1,45 @@
+<p>The <em>Aliases</em> collection contains zero or more aliases.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">
+The number of aliases in this collection.
+</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_alias">Alias</a></h4>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_alias">Alias</a></h4>
+
+<h4>Property ItemByName(Name As String) As <a href="?page=com_alias">Alias</a></h4>
+
+<div class="indented">
+Returns the <a href="?page=com_alias">alias</a> by it's given Index, database identifier or name. If the alias does not exist, an exception is thrown.
+</div>
+
+<h1>Methods</h1>
+
+<h4>Function Add() As <a href="?page=com_domain"></a><a href="?page=com_alias">Alias</a></h4>
+
+<div class="indented">
+Creates and returns a new alias. Call Save() on the returned alias to add it to the collection.
+</div>
+
+<h4>Sub Refresh()</h4>
+
+<div class="indented">
+Refreshes the collection from the database.
+</div>
+
+<h4>Sub Delete(Index As Long)</h4>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<div class="indented">
+Deletes an object in the collection by it's index or database identifier. 
+</div>

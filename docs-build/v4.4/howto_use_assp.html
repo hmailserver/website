@@ -1,0 +1,51 @@
+<h2>Background</h2>
+
+<p>How to configure hMailserver and ASSP to filter SPAM (Jason Weir: jason.weir@comcast.net, April 14, 2004)</p>
+
+<p>This configuration was tested with both hMailserver and ASSP running on the same Windows 2000 Professional box, but it should work for practically any system that will run hMailServer.</p>
+
+<h2>Software Versions</h2>
+
+<ul><li>ASSP v1.0.9 -</li></ul>
+
+<ul><li>hMailServer v2.0.x and 3.x</li></ul>
+
+<ul><li>Activestate Perl v5.6.1</li></ul>
+
+<h2>Requirements</h2>
+
+<p>hMailserver up and running, configured correctly and is processing mail</p>
+
+<p>Perl installed with Win32</p>
+
+<p>Daemon module installed</p>
+
+<h2>Configuring hMailServer</h2>
+
+<ol><li>Open hMailServer Administrator</li><li>Under Settings-&gt;SMTP, change SMTP Port to 125, save settings and restart server</li></ol>
+
+<h2>ASSP Installation &amp; Configuration</h2>
+
+<ol><li>Installation is straightfoward, download and unzip files to c:\ASSP</li><li>Create the following directories:</li></ol>
+
+<p>   - c:/assp/spam
+  - c:/assp/notspam
+  - c:/assp/errors
+  - c:/assp/errors/spam
+  - c:/assp/errors/notspam
+3. Open a command prompt from c:\assp. Run: perl assp.pl
+4. Point your browser to http://127.0.0.1:55555/ blank username, password is <em>nospam4me</em>
+5. Check the &quot;Show Advanced Configuration Options&quot; checkbox and click the <em>Apply Changes</em> Button
+6. Change the following Settings:</p>
+
+<p>   - SMTP Destination = 127.0.0.1:125
+  - Check &quot;As a Service&quot; checkbox
+  - Listen port = 25
+  - Local Domains = list the domains you have hMailServer configured for
+7. Click the <em>Apply Changes</em>
+8. Press Ctrl-C to stop the assp.pl process
+9. Run: perl addservice.pl -i c:\assp\assp.pl c:\assp
+10. Start the Anti-Spam Smtp Proxy service
+11. Test by trying to telnet to 127.0.0.1:25; you should see the mail server banner.</p>
+
+<p>This gets ASSP working in Test Mode. Mail should now pass through ASSP to hMailServer. You will notice messages building up in the spam and notspam directories. If you see spam in the notspam folder or vice versa you must manually move those messages to the correct folder. Once you have a build-up of 100 or so messages in the spam and notspam folders, run the rebuildspamdb.pl script. This builds the spam database. Read the ASSP documentation on <a href="http://assp.sourceforge.net/cgi-bin/fom?_highlightWords=test%20mode&amp;file=115">turning off test mode</a> and on <a href="http://assp.sourceforge.net/cgi-bin/fom?_highlightWords=test%20mode&amp;file=115">automating rebuildspamdb.pl</a></p>

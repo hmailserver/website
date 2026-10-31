@@ -1,0 +1,21 @@
+<h2>Overview</h2>
+
+<p>This howto describes how to administer hMailServer remotely. <em>Computer A</em> is the computer where hMailServer should be running, and <em>Computer B</em> is the computer you want to administer hMailServer from. Both computers are in the same Windows domain.</p>
+
+<p>Remote administration is made using DCOM.</p>
+
+<h2>Computer A</h2>
+
+<p>Install hMailServer as normal.</p>
+
+<h2>Computer B</h2>
+
+<p>You need to have hMailServer Administrator installed, and the hMailServer COM library must be registered. Since there is no installation that does only this, you have to install a full hMailServer installation and then disable the hMailServer service.</p>
+
+<p>To install hMailServer, follow these steps:</p>
+
+<ol><li>Install the same version of hMailServer as on Computer A.</li><li>Open up the Control Panel, Administrative tools, Services.</li><li>Locate the hMailServer service, stop it and disable it.</li></ol>
+
+<p>Next, you need to tell Windows that when you&#039;re running hMailServer Administrator, you want to administer the hMailServer installation running on <em>Computer A</em>. This is done by modifying the settings for the hMailServer COM object on Computer B.</p>
+
+<ol><li>Open the Control panel, Administrative tools, Component services.</li><li>Expand <em>Component services-&gt;Computers-&gt;My computer-&gt;DCOM config</em>.</li><li>Locate the hMailServer</li><li>Right-click on it, and select Properties</li><li>On the <em>Location</em>-tab, de-select <em>Run application on this computer</em> and select &quot;Run application on the following computer</li><li>Specify the name of Computer A</li><li>Start hMailAdmin.</li></ol>

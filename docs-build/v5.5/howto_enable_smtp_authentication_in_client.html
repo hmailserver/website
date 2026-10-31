@@ -1,0 +1,15 @@
+<h1>Overview</h1>
+
+<p>This page describes how to enable SMTP authentication in your email client. By default, hMailServer requires SMTP authentication to be enabled in the email client.</p>
+
+<h2>Outlook Express 6</h2>
+
+<ol><li>Select <em>Accounts</em> from the <em>Tools</em> menu.</li><li>Select the <em>Mail</em> tab.</li><li>Double-click on the account you want to modify.</li><li>Select the <em>Servers</em> tab.</li><li>Under <em>Outgoing Mail Server</em>, select <em>My server requires authentication</em>.</li></ol>
+
+<h2>Outlook 2003</h2>
+
+<ol><li>Select <em>E-mail accounts</em> from the <em>Tools</em> menu.</li><li>Select <em>View or change existing e-mail accounts</em></li><li>Double-click on the account you want to modify.</li><li>Click <em>More settings</em>.</li><li>Select the <em>Outgoing Server</em> tab.</li><li>Select <em>My outgoing server (SMTP) requires authentication</em>.</li><li>Check that <em>Use same settings as my incoming mail server is selected</em>.</li></ol>
+
+<h2>PHP/mail()</h2>
+
+<p>The PHP mail() function does not support SMTP authentication. Either disable SMTP authentication for the IP range matching the computer where PHP runs, or use another command to send the email.</p>

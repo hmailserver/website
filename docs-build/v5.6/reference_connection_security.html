@@ -1,0 +1,50 @@
+<p>When hMailServer communicates with other clients and servers (called peers), it is possible to enable encryption of the TCP/IP connection. In hMailServer, this is called Connection security.</p>
+
+<p>There are different types of connection security which can be enabled, and what to use depends on requirements and the functionality available in servers the hMailServer installation communicates with. Before selecting connection security, make sure that the remote peers supports it.</p>
+
+<h3>Connection security types</h3>
+
+<ul><li>None</li></ul>
+
+<p> This option means that there is no connection security. If you select this option, the communication will not be encrypted.
+- SSL/TLS</p>
+
+<p> With this option enabled, the communication will be encrypted using either SSLv3 or TLS. Directly after hMailServer has established a connection with the remote peer, it will perform a SSL/TLS handshake. If the handshake fails, the connection will be terminated.
+- STARTTLS (Optional)</p>
+
+<p> With this option enabled, hMailServer will attempt to use STARTTLS with SSL/TLS. If the remote peer does not support STARTTLS, or if the peers can not agree on a cryptographic protocol and cipher, hMailServer will fallback to a connection with no security. If the peers agree on a cryptographic protocol and cipher, but the certificate verification fails, the connection will be used despite the failed certificate verification. In this case, a message will be logged in the debug log.
+- STARTTLS (Required)</p>
+
+<p> With this option enabled, hMailServer will attempt to use STARTTLS with SSL/TLS. If the remote peer does not support STARTTLS, or if the SSL/TLS handshake fails, the connection will be terminated. No fallback to a connection without security is made.</p>
+
+<h3>SSLv3 or TLS</h3>
+
+<p>During SSL/TLS handshake, the peers will agree on what cryptographic protocol and cipher to use. This is based on the implemented support in the two peers, and the configuration of them. For example, if a client which only supports SSLv3 connects to a server which supports both SSLv3 and TLS1.1, then SSLv3 will be used. If there is no protocol support in common, the handshake will fail.</p>
+
+<p>In hMailServer, it&#039;s possible to override the default SSL/TLS cipher list. To do this, open hMailServer Administrator and navigate to Settings -&gt; Advanced -&gt; Security. In the SSL/TLS ciphers text box, you can enter an OpenSSL cipher list.</p>
+
+<h3>Certificate verification</h3>
+
+<p>As a part of the SSL/TLS handshake, hMailServer will verify that the server it connects to has a correct certificate. This includes several things, for example:  </p>
+
+<ul><li>The remote peer has a certificate</li><li>The certificate is currently valid</li><li>The certificate is trusted, according to the Windows certificate store</li><li>The certificate is issued for a host name which matches the host name hMailServer connected to.</li><li>The certificate has not been revoked.</li></ul>
+
+<p>If one of these steps fail, the certificate check fails.</p>
+
+<p>Note that hMailServer does not verify remote client certificates - it only verifies the certificates of servers it connects to. If a end-user connects to hMailServer using for example Thunderbird or Outlook, he does not have to provide a certificate. A remote server which delivers a mail to hMailServer does not have to provide a certificate either. In these scenarios - where a client is connecting to hMailServer, hMailServer will present a certificate which will be used to encrypt the session.</p>
+
+<p><strong>Disabling verification</strong></p>
+
+<p>During testing, you may want to disable certificate verification completely. To do this you need to either use the API or access the hMailServer database directly. Using the API, you can set <span class="Code">VerifyRemoteSslCertificate = False</span> on the <span class="Code">Settings</span> object. If you want to update the database manually, issue the following command and then restart the hMailServer service.</p>
+
+<p><span class="Code">UPDATE hm_settings SET settinginteger = 0 WHERE settingname = 'VerifyRemoteSslCertificate'</span></p>
+
+<p>Keeping certificate verification enabled in production is strongly recommended.</p>
+
+<h3>Certificate trust</h3>
+
+<p>hMailServer uses Windows functionality to verify peer certificates and will hence trust certificates which Windows is configured to trust. </p>
+
+<h3>MX-resolved deliveries</h3>
+
+<p>When a MX-resolved delivery is performed, hMailServer will use connection security <em>STARTTLS (Optional)</em>. This means that hMailServer will attempt to set up an encrypted communication channel but if this fails it will fall back to a connection with no security.</p>

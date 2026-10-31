@@ -1,0 +1,25 @@
+<p>This document briefly lists the changes made to the COM API.</p>
+
+<h2>hMailServer 4.3</h2>
+
+<h3>Changes breaking compatibility</h3>
+
+<p>In hMailServer 4.3, COM clients must call the Authenticate() function on the hMailServer.Application object prior to accessing any other function in the API. This change was made to increase the security of the hMailServer COM API.</p>
+
+<p>The exception for this is the Message object. COM clients can create and send messages using the hMailServer.Message object without calling the Authenticate method.</p>
+
+<p>If you are in a situation where you need to upgrade to hMailServer 4.3, but am unable to upgrade your COM client, a workaround is to set AdministratorPassword in hMailServer.ini to empty. If you do this, you do not have to call the Authenticate method()</p>
+
+<h3>New objects</h3>
+
+<ul><li><a href="?page=com_surblservers">SURBLServers</a> - Collection of all SURBL servers set up in the system</li><li><a href="?page=com_surblserver">SURBLServer</a> - Contains properties for a single SURBL server</li><li><a href="?page=com_antispam">AntiSpam</a> - AntiSpam related settings</li><li><a href="?page=com_blockedattachments">BlockedAttachments</a> - Collection of all objects set up in virus scanning / block attachments.</li><li><a href="?page=com_blockedattachment">BlockedAttachment</a> - Properties for a single attachment listed under virus scanning / blocked attachments</li><li><a href="?page=com_servermessages">ServerMessages</a> - Collection of text messages used by the server (for example, virus notification)</li><li><a href="?page=com_servermessage">ServerMessage</a> - A single text message used by the server</li><li><a href="fckblank.html?page=com_greylistingwhiteaddresses">GreyListingWhiteAddresses</a> - A collection of all the white addresses specified in the greylisting options</li><li><a href="?page=com_greylistingwhiteaddress">GreyListingWhiteAddress</a> - A single grey listing white address</li><li><a href="fckblank.html?page=com_tcpippors">TCPIPPorts</a> - A collection of all the TCP/IP ports which should be used</li><li><a href="?page=com_tcpipport">TCPIPPort</a> - Properties for a single TCP/IP port</li></ul>
+
+<h3>New enums</h3>
+
+<ul><li>eRuleActionType, Added value: eRARunScriptFunction, - Run script function</li><li>eAntiSpamAction - Action to take when spam has been detected</li><li>eDistributionListMode - Distribution list mode</li><li>eSessionType - Session type (SMTP/POP3/IMAP)</li><li>eDomainSignatureMethod - Specfies how signatures should be applied (append, overwrite and so on)</li><li>eMessageFlag - Contains message flags (seen, deleted and so on)</li></ul>
+
+<h3>Changes to existing objects</h3>
+
+<p>No properties or methods have been removed in hMailServer 4.3. Below is a list of added properties</p>
+
+<ul><li>Application</li><li>Account</li><li>AntiVirus</li><li>Database</li><li>DeliveryQueue</li><li>DistributionList</li><li>Domain</li><li>FetchAccount</li><li>Logging</li><li>Message</li><li>RuleAction</li><li>Status</li><li>Settings</li><li>Utilities</li></ul>

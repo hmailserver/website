@@ -1,0 +1,21 @@
+<h2>Overview</h2>
+
+<p><img src="images/scr_installation_small.jpg" alt=""> This page describes how to upgrade from hMailServer version 4.2 to hMailServer version 4.3. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, hMailServer database and hMailServer.ini, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h2>Install the new version</h2>
+
+<ol><li>IMPORTANT: Back up your hMailServer database, your data directory and the hMailServer.ini file.</li><li>Download hMailServer 4.3 from the hMailServer website.</li><li>Launch the setup executable by double-clicking it. There is no need to stop or uninstall the previous version before installing 4.3. The hMailServer 4.3 setup will take care of that.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files. If you get a message that it can&#039;t overwrite the file libmysql.dll, restart Apache/IIS and then click Retry.</li><li>After the files have been copied, the setup software will automatically start hMailServer database upgrade. If you see the text &quot;<em>Creating the hMailServer database</em>&quot; in the installation wizard for more than 15 seconds, and no &quot;<em>Database upgrade</em>&quot;-dialog is shown, it&#039;s likely that the upgrade dialog is located &quot;behind&quot; the wizard. So if the upgrade dialog is not shown, try moving the installation wizard window.</li><li>Click Upgrade to upgrade the database to the 4.3 structure.</li><li>After the upgrade of the database, you need to specify a main administration password for your hMailServer installation. This password will be needed when managing your hMailServer installation later.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>
+
+<h2>What&#039;s new</h2>
+
+<p>For a list over new features in hMailServer 4.3, <a href="?page=whats_new_43">click here.</a></p>
+
+<h2>Known issues</h2>
+
+<p>The following issues are currently open and under investigation:</p>
+
+<p>hMailServer currently does not have full unicode support. While it&#039;s possible to send email containing characters with Unicode encoding, it&#039;s not possible to specify non-ANSII characters in any of the settings. This means that you cannot specify for example greek characters in the auto-reply settings. This issue will be resolved in the next version.</p>
+
+<p>When adding a signature to an email message, the signature is appended to the email body as clear text regarding of body encoding. This means that the signature will not be encoded properly if the original email body is encoded, for example using base64. The reason for this is the lack of Unicode support mentioned above.</p>
+
+<p>These limitations have existed in all previous hMailServer version as well. They will be resolved in the next version.</p>

@@ -1,0 +1,15 @@
+<h2>Question: Why not store only attachments on disk?</h2>
+
+<p>The question seems to imply that the &quot;body&quot; and the &quot;attachments&quot; are separate entities, which they are not. An email message is a contiguous stream of bytes, which includes headers, body, attachments and all. When hMailServer sends or receives data, it does so as MIME-encoded data, not as binary data; this includes the attachments. Each message is delivered to the email client exactly as it was received; it&#039;s then up to the client what to do with it.</p>
+
+<p>Presently, what hMailServer does is to get a stream of data from the network, store it as a file precisely as it was received, and deliver it to the email client when requested. Eventually, if a virus scanner is present, it will have to MIME-decode the whole message and scan it for viruses.</p>
+
+<p>However, per your suggestion, every message would have to be MIME-decoded at the server, the attachments would be stripped from the message and stored as binary data, and then the rest of the email message would be stored in the database. Attachments needed to be plain binary data (not MIME-encoded using base64 or any other algorithm); otherwise they couldn&#039;t be scanned for viruses.</p>
+
+<p>This scenario would lead to at least two problems:</p>
+
+<p><em>Problem 1:</em> When hMailServer accepts a message, it should then decode it from Base64/Quoted-Printable and store every attachment to disk, actually having to MIME-decode the entire message before it could save it. This not only raises the memory requirements, but also consumes a lot of CPU.</p>
+
+<p><em>Problem 2:</em> When a POP3 client requests that message, the server would have to MIME-encode all of the attachments and put them back into one single stream before sending them. This would, again, increase memory usage and CPU usage.</p>
+
+<p>So, having hMailServer extract the attachments would serve no useful purpose, because it would actually involve more work, not less. That&#039;s why extracting the attachments from the message is traditionally a role for the email client, not for the server.</p>

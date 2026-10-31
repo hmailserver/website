@@ -1,0 +1,45 @@
+<p>The cache object contains settings that relates to the hMailServer caching functionality.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property AccountCacheTTL As Long</h4>
+
+<div class="indented">The number of seconds hMailServer should keep accounts in the cache</div>
+
+<h4>Property AccountHitRate As Long</h4>
+
+<div class="indented">The account hit rate</div>
+
+<h4>Property DomainCacheTTL As Long</h4>
+
+<div class="indented">The number of seconds hMailServer should keep domains in the cache</div>
+
+<h4>Property DomainHitRate As Long</h4>
+
+<div class="indented">The domain hit rate</div>
+
+<h4>Property Enabled As Boolean</h4>
+
+<div class="indented">Cache is enabled.</div>
+
+<h1>Methods</h1>
+
+<h4>Sub Clear()</h4>
+
+<div class="indented">Clears the cache</div>
+
+<h1>Sample code</h1>
+
+<h2>Enabling the cache</h2>
+
+<p>`Dim obBaseApp
+   Set obBaseApp = CreateObject(&quot;hMailServer.Application&quot;)</p>
+
+<p>   Dim obCache
+   Set obCache = obBaseApp.Settings.Cache</p>
+
+<p>   obCache.Enabled = True`</p>

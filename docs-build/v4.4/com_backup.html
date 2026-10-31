@@ -1,0 +1,45 @@
+<p>The backup object contains information regarding a backup made by hMailServer.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property ContainsDomains As Boolean</h4>
+
+<div class="indented">True if the backup contain domains.</div>
+
+<h4>Property ContainsMessages As Boolean</h4>
+
+<div class="indented">True if the backup contain messages.</div>
+
+<h4>Property ContainsSettings As Boolean</h4>
+
+<div class="indented">True if the backup contain settings.</div>
+
+<h4>Property DeleteObjectsNotInBackup As Boolean</h4>
+
+<div class="indented">If this property is set to true, hMailServer will delete objects that does not exist in the backup when restoring.</div>
+
+<h4>Property OverwriteObjects As Boolean</h4>
+
+<div class="indented">If this property is set to true, hMailServer will overwrite objects in the installation that exists in the backup file, when restoring.</div>
+
+<h4>Property RestoreDomains As Boolean</h4>
+
+<div class="indented">Set this property to true if you want hMailServer to restore domains in the backup when running the restore</div>
+
+<h4>Property RestoreMessages As Boolean</h4>
+
+<div class="indented">Set this property to true if you want hMailServer to restore messages in the backup when running the restore</div>
+
+<h4>Property RestoreSettings As Booleann</h4>
+
+<div class="indented">Set this property to true if you want hMailServer to restore settings from the backup when running the restore</div>
+
+<h1>Methods</h1>
+
+<h4>Sub StartRestore()</h4>
+
+<div class="indented">This option restores the backup. This is done asynchronously - the method returns immediately. Restore result can be found in the hMailServer backup/restore-log.</div>

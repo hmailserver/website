@@ -1,0 +1,53 @@
+<h2>Overview</h2>
+
+<p>hMailServer 4.0 and later enable you to write your own scripts to extend the server&#039;s functionality. Support for Microsoft VBScript and Microsoft JScript currently exists in the server. You will find at hMailServer.com useful sample scripts written in VBScript. For general script syntax, you should consult the <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/vtoriMicrosoftWindowsScriptTechnologies.asp">Microsoft MSDN</a> library.</p>
+
+<p>All hMailServer scripts should be placed in a file called EventHandlers.vbs. The file is found in the hMailServer Events directory, normally C:Program FileshMailServerEvents.</p>
+
+<p>hMailServer offers the following pre-defined events:</p>
+
+<table width="650" cellspacing="10">
+    <tbody>
+        <tr>
+            <td><strong>Event</strong></td>
+            <td><strong>Purpose</strong></td>
+            <td><strong>Implemented in</strong></td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_onbackupcompleted">OnBackupCompleted</a></td>
+            <td valign="top">Executed when a backup has completed.</td>
+            <td valign="top">4.2</td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_onbackupcompleted">OnBackupFailed</a></td>
+            <td valign="top">Executed when a backup has failed.</td>
+            <td valign="top">4.2</td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_onclientconnect">OnClientConnect</a></td>
+            <td valign="top">Executed when a client is connected.</td>
+            <td valign="top">4.0</td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_onacceptmessage">OnAcceptMessage</a></td>
+            <td valign="top">Executed when an e-mail has been delivered to the server          using the SMTP protocol.</td>
+            <td valign="top">4.0</td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_ondeliverystart">OnDeliveryStart</a></td>
+            <td valign="top">Executed directly when the delivery of an email has started, before any rules are executed.</td>
+            <td valign="top">4.4</td>
+        </tr>
+        <tr>
+            <td valign="top"><a href="?page=feature_scripting_ondelivermessage">OnDeliverMessage</a></td>
+            <td valign="top">Executed when an e-mail is beeing delivered. Executed after global rules are executed, but before account-level rules.</td>
+            <td valign="top">4.0</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Enable scripting</h2>
+
+<p>Follow these steps to enable scripting:</p>
+
+<ul><li>Start hMailServer Administrator</li><li>Navigate to <em>Settings-&gt;Advanced-&gt;Scripting</em></li><li>Select <em>Active</em></li><li>Click on <em>Save</em> to save your changes</li></ul>

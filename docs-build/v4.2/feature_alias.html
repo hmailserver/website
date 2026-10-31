@@ -1,0 +1,11 @@
+<h2>Overview</h2>
+
+<p>Aliases are used to forward email from one specific address to another. Imagine them as addresses without a mailbox; instead of having their own mailbox, they store received messages in another account&#039;s mailbox. This can be useful if you want to monitor several email addresses, but only have one real email account on the server. For example, you may want to receive email messages sent to <code>webmaster@domain.com</code>, <code>feedback@domain.com</code> and <code>yourname@domain.com</code>, but you just want to create the <code>webmaster@domain.com</code> account instead of 3 different accounts. Then <code>feedback@domain.com</code> and <code>yourname@domain.com</code> can be made aliases of <code>webmaster@domain.com</code>.</p>
+
+<h2>Adding an alias</h2>
+
+<ol><li>Navigate to the domain in hMailAdmin</li><li>Click <em>Add alias</em></li><li>Enter an email address in <em>Redirect from</em>. This is an alias email address, e.g. <code>feedback@domain.com</code> in the illustration above. Email messages sent to it will be forwarded to the address you specify in the <em>To</em> field.</li><li>Enter the main email address in the <em>To</em> field.</li><li>Click <em>Save</em></li></ol>
+
+<h2>Notes</h2>
+
+<ul><li>You cannot use an alias address that matches the email address of an existing account.</li><li>It is not possible to use an alias to forward an email to two different accounts. Use distribution lists instead.</li><li>An alias may forward email messages to any account - even to accounts for domains not residing in the same server.</li></ul>

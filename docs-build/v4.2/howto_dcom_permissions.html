@@ -1,0 +1,9 @@
+<h2>Overview</h2>
+
+<p>By default, IIS6 is not allowed to connect to hMailServer because of the Distributed COM permissions that Windows uses.</p>
+
+<h2>Steps</h2>
+
+<p>Follow these steps to give IIS the required permissions to connect to hMailServer using DCOM.</p>
+
+<ol><li>From the Windows Control Panel, go to Administrative Tools</li><li>Open Component Services</li><li>Expand the Component Services folder</li><li>Expand down to Computers | My Computer | DCOM Config</li><li>Right-click on hMailServer and select properties</li><li>Select Security tab</li><li>Under Launch and Activation Permissions, select Customize and click on Edit</li><li>Set the Local Launch and Local Activation permissions of the built-in anonymous IIS user to Allow.</li></ol>

@@ -1,0 +1,38 @@
+<h1>Overview</h1>
+
+<p>This example shows how to copy a message from one IMAP folder to another. The script requires hMailServer 5 or later.</p>
+
+<h2>Copying a message</h2>
+
+<p>``</p>
+
+<pre><code>Dim obApp
+   Set obApp = CreateObject(&quot;hMailServer.Application&quot;)
+
+   &#039; Authenticate. Without doing this, we won&#039;t have permission
+   &#039; to change any server settings or add any objects to the
+   &#039; installation.   
+   Call obApp.Authenticate(&quot;Administrator&quot;, &quot;secret&quot;)
+   
+   &#039; Locate the domain we want to add the account to
+   Dim obDomain
+   Set obDomain = obApp.Domains.ItemByName(&quot;example.com&quot;)
+   
+   Dim obAccount
+   Set obAccount = obDomain.Accounts.ItemByAddress(&quot;test@example.com&quot;)
+   
+   Dim obInboxFolder 
+   Set obInboxFolder = obAccount.IMAPFolders.ItemByName(&quot;Inbox&quot;)
+
+   &#039; Assume that the backup folder already exists. This may
+   &#039; not be the case.      
+   Dim obBackupFolder 
+   Set obBackupFolder = obAccount.IMAPFolders.ItemByName(&quot;Backup&quot;)
+   
+   &#039; Copy all messages in Inbox to the backup folder
+   Dim obMessages
+   Set obMessages = obInboxFolder.Messages
+   
+   For i = 0 to obMessages.Count - 1
+      Call obMessages.Item(i).Copy(obBackupFolder.ID)
+   Next</code></pre>

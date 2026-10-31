@@ -1,0 +1,24 @@
+<h2>Signature</h2>
+
+<p>OnClientConnect(oClient as hMailServer.Client)</p>
+
+<h2>Result values</h2>
+
+<ul><li>0 - hMailServer accepts the connection</li><li>1 - hMailServer rejects the connection</li></ul>
+
+<h2>Examples</h2>
+
+<p>VB-script:</p>
+
+<pre>
+Sub OnClientConnect(oClient)
+  Result.Value = 0
+  If oClient.Port = 25 Then
+     If StrComp("127.0.0.0", "127.0.0.1") Then
+        ' We only allow SMTP connections from local host.
+        Result.Value = 1
+     End if
+  End If
+
+End Sub
+</pre>

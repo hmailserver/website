@@ -1,0 +1,43 @@
+<p>The <em>RuleActions</em> collection contains zero or more rule criterias connected to a rule.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.x and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Count As Long</h4>
+
+<div class="indented">
+The number of objects in this collection.
+</div>
+
+<h4>Property Item(Index As Long) As <a href="?page=com_rulecriteria">RuleCriteria</a></h4>
+
+<h4>Property ItemByDBID(DBID As Long) As <a href="?page=com_rulecriteria">RuleCriteria</a></h4>
+
+<div class="indented">
+Returns the <a href="?page=com_rulecriteria">RuleCriteria</a> by it's given Index or database identifier. If the rule does not exist, an exception is thrown.
+</div>
+
+<h1>Methods</h1>
+
+<h4>Function Add() As <a href="?page=com_rulecriteria">RuleCriteria</a></h4>
+
+<div class="indented">
+Creates and returns a new rule. Call Save() on the returned RuleCriteria to add it to the collection.
+</div>
+
+<h4>Sub Refresh()</h4>
+
+<div class="indented">
+Refreshes the collection from the database.
+</div>
+
+<h4>Sub DeleteByDBID(DBID As Long)</h4>
+
+<h4>Sub Delete(Index As Long)</h4>
+
+<div class="indented">
+Deletes an object in the collection by it's database identifier or index in the collection.
+</div>

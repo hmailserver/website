@@ -1,0 +1,75 @@
+<h1>Overview</h1>
+
+<p>The hMailServer COM API lets you write your own scripts and applications that integrate with hMailServer. Almost all objects in hMailServer are accessible using the COM library. As an example, both hMailServer Administrator and the PHP WebAdmin is entirely based upon the COM library. Besides writing application like theese two, you can write scripts that are automatically run when certain events take place. For example, you can write a script that filters messages before they are delivered to the recipients.</p>
+
+<p>The <a href="?page=com_application">Application</a> object is the root object in hMailServers COM model. Using this object, you can access all hMailServer objects and settings.</p>
+
+<h1>Reference</h1>
+
+<ul><li>## Domain objects</li></ul>
+
+<p>   - <a href="?page=com_domains">Domains</a>
+  - <a href="?page=com_domain">Domain</a>
+     - <a href="?page=com_accounts">Accounts</a>
+    - <a href="?page=com_account">Account</a>
+       - <a href="?page=com_imapfolders">IMAPFolders</a>
+      - <a href="?page=com_imapfolder">IMAPFolder</a>
+         - <a href="?page=com_messages">Messages</a>
+        - <a href="?page=com_message">Message</a>
+           - <a href="?page=com_attachments">Attachments</a>
+          - <a href="?page=com_attachment">Attachment</a>
+          - <a href="?page=com_recipients">Recipients</a>
+          - <a href="?page=com_recipient">Recipient</a>
+      - <a href="?page=com_fetchaccounts">FetchAccounts</a>
+      - <a href="?page=com_fetchaccount">FetchAccount</a>
+    - <a href="?page=com_aliases">Aliases</a>
+    - <a href="?page=com_alias">Alias</a>
+    - <a href="?page=com_distributionlists">DistributionLists</a>
+    - <a href="?page=com_distributionlist">DistributionList</a>
+       - <a href="?page=com_distributionlistrecipients">DistributionListRecipients</a>
+      - <a href="?page=com_distributionlistrecipient">DistributionListRecipient</a>
+    - <a href="?page=com_domainaliases">DomainAliases</a>
+    - <a href="?page=com_domainalias">DomainAlias</a>
+- ## Settings</p>
+
+<p>   - <a href="?page=com_antivirus">AntiVirus</a>
+  - <a href="?page=com_cache">Cache</a>
+  - <a href="?page=com_backupsettings">BackupSettings</a>
+  - <a href="?page=com_dnsblacklists">DNSBlackLists</a>
+  - <a href="?page=com_dnsblacklist">DNSBlackList</a>
+  - <a href="?page=com_language">Language</a>
+  - <a href="?page=com_logging">Logging</a>
+  - <a href="?page=com_routes">Routes</a>
+  - <a href="?page=com_route">Route</a>
+     - <a href="?page=com_routeaddresses">RouteAddresses</a>
+    - <a href="?page=com_routeaddress">RouteAddress</a>
+  - <a href="?page=com_scripting">Scripting</a>
+  - <a href="?page=com_securityranges">SecurityRanges</a>
+  - <a href="?page=com_securityrange">SecurityRange</a>
+  - <a href="?page=com_settings">Settings</a>
+  - <a href="?page=com_iphomes">IPHomes</a>
+  - <a href="?page=com_iphome">IPHome</a>
+  - <a href="?page=com_rules">Rules</a>
+  - <a href="?page=com_rule">Rule</a>
+     - <a href="?page=com_rulecriterias">RuleCriterias</a>
+    - <a href="?page=com_rulecriteria">RuleCriteria</a>
+    - <a href="?page=com_ruleactions">RuleActions</a>
+    - <a href="?page=com_ruleaction">RuleAction</a>
+- ## Server-wide objects</p>
+
+<p>   - <a href="?page=com_application">Application</a>
+  - <a href="?page=com_backup">Backup</a>
+  - <a href="?page=com_backupmanager">BackupManager</a>
+  - <a href="?page=com_database">Database</a>
+  - <a href="?page=com_deliveryqueue">DeliveryQueue</a>
+  - <a href="?page=com_globalobjects">GlobalObjects</a>
+  - <a href="?page=com_status">Status</a>
+  - <a href="?page=com_utilities">Utilities</a>
+- ## Scripting-wide objects</p>
+
+<p>   - <a href="?page=com_client">Client</a>
+  - <a href="?page=com_result">Result</a></p>
+
+<h1>Examples</h1>
+
+<ul><li><a href="?page=com_example_message_send">Sending a message</a></li></ul>

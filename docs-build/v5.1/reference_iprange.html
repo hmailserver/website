@@ -1,0 +1,51 @@
+<h2>General</h2>
+
+<h3>Name</h3>
+
+<div class="indented">The name of the IP range. Any text between 1 and 40 characters. Give IP ranges names that describes the ranges, for example <em>My computer</em>, <em>My LAN</em> and so on.</div>
+
+<h3>Priority</h3>
+
+<div class="indented">The priority of the IP range. You can specify a value between 0 and 1000. A higher value means higher priority. If hMailServer matches two IP ranges, the IP range with the highest priority will be used. For example, if a client is matching one IP range with priority 5, and one IP range with priority 10, hMailServer will use the IP range with priority 10. If a client is matching two IP ranges with the same priority, the choice hMailServer will make is undefined.</div>
+
+<h3>Lower IP &amp; Upper IP</h3>
+
+<div class="indented">All IP addresses between (and including) Lower IP and Upper IP will be effected by this IP range. For example, the IP address <code>127.0.0.4</code> matches an IP range where the Lower IP is <code>127.0.0.1</code> and the Upper IP is <code>127.0.0.5</code>. The IP address <code>255.255.255.0</code> matches an IP range where both the Lower IP and Upper IP is <code>255.255.255.0</code>.</div>
+
+<h3>Expires</h3>
+
+<p>If you want the IP range to be automatically removed, select Expire and specify what date and time you want it to be removed.</p>
+
+<p>The expiry time is not exact to the second - the internal task which removes expired IP ranges runs once every minute. </p>
+
+<h3>Allow connections</h3>
+
+<div class="indented">These settings lets you define which protocols hMailServer will allow, from TCP/IP connections originating from this IP range.</div>
+
+<h3>Allow deliveries</h3>
+
+<div class="indented">Define whether hMailServer should allow SMTP deliveries for this IP range. <em>Local accounts</em> means addresses matching an active account on the server. External accounts means every other address. Note that when sending an email from an alias address, the sender is treated as an external account.</div>
+
+<p>If you select &quot;<em>External to external</em>&quot;, people will be able to send email via the server even if the sender address does not match an account on the server. If you select this option you should make sure that you select the corresponding setting under &quot;<em>Require SMTP authentication</em>&quot; as well. Not doing so will open up your server for spammers.</p>
+
+<div class="indented">
+<h3>Require SMTP authentication</h3>
+<div class="indented">Select who needs to use SMTP authentication to send email via the server. <em>External to external</em> should typically always be selected. If you do not require authentication when external users sends messages through your server, your server will be abused by spammers.</div>
+</div>
+
+<h3>Anti-spam</h3>
+
+<div class="indented">If this option is enabled, hMailServer will run spam protection (such as SPF, DNS blacklists and MX check) for SMTP deliveries originating from this IP range. You may want to disable this option for your local network.</div>
+
+<div class="indented">
+<h3>Anti-virus</h3>
+<div class="indented">If this option is enabled, hMailServer will run virus protection on deliveries originating from this IP range. You may want to disable this option for your local network.</div>
+</div>
+
+<h2>Recommendations</h2>
+
+<h3>Run open relay tests</h3>
+
+<p>After you&#039;ve changed or added an IP range, you should run at least one <a href="?page=open_relay_tests">open relay test</a> to ensure that no-one can use your server to send spam.</p>
+
+<p> </p>

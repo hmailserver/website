@@ -1,0 +1,33 @@
+---
+title: "Domain"
+slug: reference_domain
+parent: book_referenceguide
+index: 0
+is_book: false
+---
+
+## Overview
+
+Every email account in hMailServer must belong to a domain. The domains specified in hMailServer can be local network domains or global internet domains such as hMailServer.com.
+
+## General
+
+### Domain name
+
+<div class="indented">
+The name of the domain. To be considered valid, a domain name must include a dot. You must set up your DNS servers so that email can be sent to your mail server. 
+</div>
+
+### Names
+
+<div class="indented">
+   One domain can have several names. These are also known as domain aliases. For example, your organization might own the domain, company.com, but it might also own company.org, company.se and company.de. If you want to be able to receive email for all these domains, you will have two options:
+   <ol>
+      <li>
+         Add all four domains to hMailServer. The problem with this is that you then have to add every email account 4 times, once for each domain.
+      </li>
+      <li>
+         Add company.com as a domain, and then, under it, in the <i>Names</i>-tab, add company.org, company.se and company.de. That is, you add company.org, company.se and company.de as aliases of company.com. That, usually, is the route most users prefer.
+      </li>
+   </ol>
+</div>

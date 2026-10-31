@@ -1,0 +1,16 @@
+<h2>Overview</h2>
+
+<p>It is possible to specify an email address that receives all emails
+being sent to non-existent addresses on your domain. For example, you
+may have <code>sales@mydomain.com</code>, <code>webmaster@mydomain.com</code> and
+<code>support@mydomain.com</code> as existing accounts. But there&#039;s a risk that someone might misspell an email address, writing <code>sails@mydomain.com</code> instead of <code>sales@mydomain.com</code>.</p>
+
+<p>The solution is to specify an account - either a previously existing one, or one created for the purpose - to be the <em>catch-all account</em>. All email sent to non-existent addresses on the domain will then be delivered to the catch-all account.</p>
+
+<h2>Example</h2>
+
+<ol><li>Start hMailAdmin</li><li>Expand the <em>Domains</em> node and select the domain, say, <code>mydomain.com</code></li><li>Create a new account with the name <code>catchall@mydomain.com</code></li><li>Select your domain, and enter <code>catchall@mydomain.com</code> as catch-all address</li><li>Save the changes</li></ol>
+
+<h2>Notes</h2>
+
+<ul><li>The catch-all address can be any email address you like. It does not have to be strictly of the form <code>catchall@myDomain.com</code></li><li>The catch-all address does not have to belong to an account on your domain or even on hMailServer. You can forward messages to external servers.</li><li>If you want hMailServer to reject any messages sent to non-existent addresses in your domain, you should not specify a catch-all address.</li></ul>

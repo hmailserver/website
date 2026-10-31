@@ -1,0 +1,19 @@
+<h2>Background</h2>
+
+<p>Many ISPs (companies providing users a connection to the Internet) block outgoing traffic on port 25.
+This makes it impossible for hMailServer to connect directly to other SMTP servers on the Internet. 
+A workaround for this is to route all your outgoing email through your ISP&#039;s mail server.</p>
+
+<h2>Steps</h2>
+
+<ol><li>Start up hMailAdmin.</li><li>Go to the Settings</li><li>Click on the SMTP settings</li><li>Select the <em>delivery of e-mail</em> tab.</li><li>Specify the following settings:</li></ol>
+
+<p> SMTP relay server - Your ISP&#039;s email server hostname or, preferably, IP address.</p>
+
+<p> TCP Port - The TCP/IP port your ISP&#039;s server is listening on, usually 25.
+6. If your ISP&#039;s server requires authentication, select the <em>Server requires authentication</em>
+ and enter username and password.</p>
+
+<p>The above instructions are valid for 3.4 and later.</p>
+
+<p><img src="images/howto_route_through_isp.gif" alt=""></p>

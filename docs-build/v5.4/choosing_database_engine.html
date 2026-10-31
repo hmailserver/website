@@ -1,0 +1,30 @@
+<h2>Overview</h2>
+
+<p>hMailServer supports 5 different database engines</p>
+
+<ul><li><a href="http://www.microsoft.com/SQL/default.mspx">Microsoft SQL Server 2000 and later</a></li><li><a href="http://www.microsoft.com/sql/editions/compact/default.mspx">Microsoft SQL Server Compact Edition (CE)</a></li><li><a href="http://www.mysql.com">MySQL 4 and later</a></li><li><a href="http://www.postgresql.org/">PostgreSQL</a></li></ul>
+
+<h2>Choosing database</h2>
+
+<p>If you are going to be running a commercial hosting service, you should choose one of the following servers:</p>
+
+<ul><li>Microsoft SQL Server 2000 or later</li><li>MySQL</li><li>PostgreSQL</li></ul>
+
+<p>Microsoft SQL Server Compact Edition <strong>may not</strong> be used with commercial hosting services.</p>
+
+<p>The biggest benefit with SQL Server Compact Edition is the small memory and disk footprint and the fact that it does not require any external software to run on the computer. The database engine runs inside of hMailServer which means that hMailServer has no dependencies on external database engines.  Previous versions of hMailServer (4 and older) included MySQL but this was changed to MSSQL CE in version 5. There are downsides with the default database though:</p>
+
+<p>It may only be used for personal installations; not in commercial environments. The Microsoft SQL Server Compact Edition installation which comes with hMailServer is limited to 4GB . If you expect that your installation will become large (hundreds of thousands of e-mail messages or many accounts) it&#039;s recommended that you choose either Microsoft SQL Server or MySQL. A MSSQL CE database of 4GB can hold references to about 10 million email messages. Performance-wise, MSSQL CE is slower than the other supported database engine. Also, there are few tools avaiable if the SQL CE database becomes corrupt, for example due to hardware failure or a system crash.</p>
+
+<h2>Recommendations</h2>
+
+<p>Microsoft SQL Server or MySQL is recommended if...</p>
+
+<ul><li>... sending or receiving of email is critical to you and you cannot risk any loss of data</li></ul>
+
+<p>  
+- ... you plan to do an integration which involves the hMailServer database. There are more client tools available for Microsoft SQL Server and MySQL compared to PostgreSQL.</p>
+
+<p>PostgreSQL is recommended if you have used it before and feel comfortable with it.</p>
+
+<p> </p>

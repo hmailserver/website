@@ -1,0 +1,39 @@
+<h2><span style="color: rgb(119, 119, 119); font-size: 18px;">Settings</span></h2>
+
+<h3>Name</h3>
+
+<div class="indented">The name of the SSL certificate. The name is only used for displaying and must not have any connection to the SSL certificate.</div>
+
+<h3>Certificate file</h3>
+
+<p>The certificate file to use.</p>
+
+<h3>Private key file</h3>
+
+<p>The private key file to use.</p>
+
+<p>hMailServer will be unable to read the private key if it has a password. Be sure to strip the password from the key before configuring hMailServer to use the file.</p>
+
+<h3>Other</h3>
+
+<p>For general information about how hMailServer uses SSL certificates, see <a href="?page=reference_connection_security">Connection security</a>.</p>
+
+<h2>Configuring hMailServer to use a SSL certificate</h2>
+
+<p>There are two tasks involved with configuring hMailServer to use an SSL certificate:</p>
+
+<h3><strong>Adding the SSL certificate to hMailServer</strong></h3>
+
+<ol><li>Start hMailServer Administrator</li><li>Navigate to Settings-&gt;Advanced-&gt;SSL certificate</li><li>Click Add</li><li>Type in a SSL certificate name. This can be anything you like, but it&#039;s suggested that you set it to the host name in the SSL certificate.</li><li>Select the certificate file and private key filed</li><li>Save the changes</li></ol>
+
+<p>After following these steps, hMailServer knows about the SSL certificate, but you also need to tell hMailServer when to use it.</p>
+
+<h3><strong>Configuring hMailServer to use the SSL certificate</strong></h3>
+
+<ol><li>Start hMailServer Administrator</li><li>Navigate to Settings-&gt;Advanced-&gt;TCP/IP ports</li><li>Select a port </li><li>Select &quot;Use SSL&quot; or STARTTLS and the certificate. For more info about these options, please see <a href="?page=reference_connection_security">Connection security</a>.</li><li>Save the changes</li><li>Restart hMailServer</li></ol>
+
+<p> </p>
+
+<h3> </h3>
+
+<p> </p>

@@ -1,0 +1,60 @@
+<p>The Application object is the root object in the hMailServer COM hirearchy. Via this object, you can access all properties, settings and objects in your hMailServer installation.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property BackupManager As <a href="?page=com_backupmanager">BackupManager</a></h4>
+
+<div class="indented">Returns the backup manager. Contains backup settings and functions to initiate backup and restore tasks.</div>
+
+<h4>Property Database As <a href="?page=com_database">Database</a></h4>
+
+<div class="indented">Returns an instance of the database object. Used check database version, run SQL statements etc.</div>
+
+<h4>Property Domains As <a href="?page=com_domains">Domains</a></h4>
+
+<div class="indented">Returns a collection of all the domains. Use this to access domains, accounts, aliases, distribution lists, etc.</div>
+
+<h4>Property GlobalObjects As <a href="?page=com_globalobjects">GlobalObjects</a></h4>
+
+<div class="indented">Miscilaneous global objects, such as the delivery queue.</div>
+
+<h4>Property InitializationFile As String</h4>
+
+<div class="indented">The hMailServer.ini hMailServer is currently using.</div>
+
+<h4>Property Rules As <a href="?page=com_rules">Rules</a></h4>
+
+<div class="indented">Returns a collection containing all global rules.</div>
+
+<h4>Property ServerState As eServerState</h4>
+
+<div class="indented">Returns the current state of the server.</div>
+
+<h4>Property Settings As <a href="?page=com_settings">Settings</a></h4>
+
+<div class="indented">Returns an instance of the settings object. Use this to modify server settings such as TCP/IP ports, virus scanning, black lists etc.</div>
+
+<h4>Property Status As <a href="?page=com_status">Status</a></h4>
+
+<div class="indented">Returns the status object. This object contains server metrics such as delivered messages, number of viruses detected etc.</div>
+
+<h4>Property Utilities As <a href="?page=com_utilities">Utilities</a></h4>
+
+<div class="indented">Returns the Utilities object. This object contains misc functions, such as decrypting, MD5 routines, test suites, GUID generator and more.</div>
+
+<h4>Property Version As String</h4>
+
+<div class="indented">The hMailServer version.</div>
+
+<h1>Sample code</h1>
+
+<h2>Display the current version</h2>
+
+<p>`Dim obBaseApp
+   Set obBaseApp = CreateObject(&quot;hMailServer.Application&quot;)</p>
+
+<p>   MsgBox &quot;hMailServer version: &quot; &amp; obBaseApp.Version`</p>

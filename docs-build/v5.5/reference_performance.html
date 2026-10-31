@@ -1,0 +1,31 @@
+<h2>Overview</h2>
+
+<p>These setting lets you fine tune hMailServer performance.</p>
+
+<h3>Cache</h3>
+
+<p>Use these settings to configure the hMailServer cache. hMailServer can cache objects located in the database. If an object is cached, hMailServer does not have to contact the database to access it. Enabling the cache may dramatically increase the hMailSever performance. Please see <a href="?page=details_cache">the user guide</a> for information regarding these settings.</p>
+
+<h3>Threading</h3>
+
+<h4>Max number of command threads</h4>
+
+<p>When an SMTP, POP3 or IMAP client sends a command to hMailServer, this is handled by something called a <a href="?page=internals_commandhandlers">command thread</a>. The command threads typically handles simple commands, such as &quot;log in&quot;, &quot;retrieve message&quot; and &quot;add recipient to message&quot;. This number specifies how many simultanoeus commands can be run by clients. If you increase this value, more commands can run at the same time, but all of them will run slower. If you decrease this value, less commands can run at the same time, but they will be executed faster.</p>
+
+<h4>Delivery threads</h4>
+
+<p>hMailServer can deliver several email messages at the same time. This setting lets you define how many messages hMailServer should deliver simultaneously. A higher value will require more CPU usage. A lower value may result in slower deliveries. The best setting depends on your hardware and on the volume of messages you wish your server to deliver. For small installations, 3 simultaneous deliveries should be enough. For larger installations, you may want to raise this value to 15 or 20. For very large installations it should be set to a value between 50 and 100. The actual values which are optimal vary depending on user patterns, messages sent per day and so on.</p>
+
+<h4>Max number of asynchronous task threads</h4>
+
+<p>This setting defines how many parallell connections hMailServer will make to external software while running anti-spam protection. The settings defines for example how many connections hMailServer will open up to SpamAssassin at most.</p>
+
+<h4>Worker thread priority</h4>
+
+<p>hMailServer is a multi-threaded application. This means that inside the hMailServer service, several different things are done at the exact same time. For example, email is being received, delivered and clients are downloading email at the same moment. These different tasks are performed by something called worker threads. You can change the priority of worker threads, to change the amount of time the operating system should spend on these threads. If you lower this value, hMailServer will run slower and more CPU resources will be available to other tasks in the operating system. If you increase the priority, hMailServer will run faster but other software on your computer may run slower.</p>
+
+<h3>Message indexing</h3>
+
+<p>When message indexing is enabled, some additional message meta data is stored in the database. This can greatly improve browsing speed in large folders when using a webmail client in combination with server side sort. The performance is achived since hMailServer can sort the messages by retrieving parsed data from the database, rather than having to read all files in the folder and parse the content one at a time.</p>
+
+<p>The downside of this feature is that the database size will increase. It&#039;s not recommended to enable this feature unless you&#039;re experiencing performance problems related to large folders in web mail.</p>

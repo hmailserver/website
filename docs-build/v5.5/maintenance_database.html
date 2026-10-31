@@ -1,0 +1,17 @@
+<h2>Background</h2>
+
+<p>There is a built-in limitation in hMailServer which occurs when 2 billion messages has passed the server.</p>
+
+<p>Every message in a hMailServer installation has a unique numeric identifier.</p>
+
+<ul><li>When the first message is received in a hMailServer installation it receives ID 1.</li><li>When it is copied to the recipients inbox it receives ID 2.</li><li>If it&#039;s copied to another IMAP folder by the user it receives ID 3.</li></ul>
+
+<p>This message ID is used in the communication with IMAP clients. The IMAP protocol specifies that this value must never be higher than about  4 billion. This means that if you receive 2 billion messages, you will reach this limit. If you&#039;re using IMAP, you&#039;ll reach the limit sooner since a message receives a new ID when it&#039;s copied to a new folder.</p>
+
+<h3>Determine current situation</h3>
+
+<p>If you want to determine the current situation, you can run the following SQL statement in the hMailServer database. It will show you the currently highest assigned message id in your database.</p>
+
+<p style="margin-left: 40px;"><span class="Code">select max(messageid) from hm_messages</span></p>
+
+<p>If this value is higher than 4 000 000 000, you will soon run into this probem.</p>

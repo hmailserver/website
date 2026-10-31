@@ -1,0 +1,16 @@
+<h2>Overview</h2>
+
+<p>This event is executed directly when the delivery of a message has started. The event is executed before any global rules are executed</p>
+
+<h2>Signature</h2>
+
+<p>OnDeliveryStart(oMessage as hMailServer.Message)</p>
+
+<h2>Result values</h2>
+
+<ul><li>0 - Deliver the message</li><li>1 - Do not deliver the message</li></ul>
+
+<h2>Examples</h2>
+
+<p>VB-script:<br>
+<pre>Sub OnDeliveryStart(oMessage)              If oMessage.Size &gt; 1000000 Then                   ' This message is to big. We should not                   ' deliver it.                   Result.Value = 1                         Else                   ' Accept the message                    Result.Value = 0            End If      End Sub  </pre></p>

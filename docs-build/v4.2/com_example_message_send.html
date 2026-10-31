@@ -1,0 +1,17 @@
+<p>It is possible to send an email using the hMailServer COM library. Please note that the functions for this are very basic. If you want to be able to send complex messages, for example messages with both HTML and plain/text part, or messages containing attachments, hMailServer does not offer enough functionality.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<pre>
+dim oMessage
+Set oMessage = CreateObject("hMailServer.Message")
+
+oMessage.From = &quot;Me &lt;myaddress&gt;&quot;
+oMessage.FromAddress = &quot;myaddress@mydomain.com&quot;
+oMessage.Subject = &quot;Hi&quot;
+oMessage.AddRecipient &quot;My friend&quot;, &quot;myfriend@myfriend.com&quot;
+oMessage.Body = &quot;This is the contents of the email.&quot;
+oMessage.Save
+&lt;/myaddress&gt;</pre>

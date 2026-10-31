@@ -1,0 +1,69 @@
+---
+title: "Error messages"
+slug: reference_error_messages
+parent: book_referenceguide
+index: 0
+is_book: false
+---
+
+## SMTP
+
+### Delivery is not allowed to this address
+
+This error means that the sender is trying to send an email to an address which he is not allowed to send to. This message is generated after hMailServer has checked the IP range settings. As an example, the defualt IP range configuration does not allow external users to send messages to other external users. This is to prevent people from using your server to send spam. So if an external user tries to send a message to another external user, he will get this message.
+
+### SMTP authentication is required.
+
+You have enabled SMTP authentication for the IP range that the user is connecting from, but the user has not configured his client to use SMTP authentication. There's two ways to solve this problem. Either configure your email client to use SMTP authentication. This setting is normally found in the account settings in your email client. Or, disable SMTP authentication for the IP range. The first solution is recommended since it reduces the risk that anyone will send spam through your server.
+
+By default, hMailServer does not require SMTP authentication for connections coming from localhost / 127.0.0.1. For connections coming from other hosts, SMTP authentication is required for deliveries to external recipients. By default, hMailServer never requires SMTP authentication for deliveries to local accounts, since that would prevent other e-mail servers to deliver email to your installation. For information on how to enable SMTP authentication, check the [HOWTO](?page=howto_enable_smtp_authentication_in_client).
+
+### Sender verification failed
+
+When hMailServer deliver an email to another server, the receiving SMTP server may try to validate that the email sender really exist. If this verification fails, it may respond with the error message 'Sender verification failed'. In these cases, the email will be bounced back to the sender. This verification works the following way:
+
+<ol>
+    <li>hMailServer connects to the recipients SMTP server</li>
+    <li>hMailServer tells the recipients SMTP server that the email is from example@example.com</li>
+    <li>The recipients SMTP server looks up a MX record for the domain example.com.</li>
+    <li>The recipients SMTP server connects to the host specified in the MX record - which is likely where your hMailServer server is running if the MX records are set up properly.<br></li>
+    <li>After this, the recipients SMTP server issues the commands <span class="Code">HELO</span>, <span class="Code">MAIL FROM&lt;&gt;</span> and <span class="Code">RCPT TO:</span></li>
+    <li>If hMailServer confirms that the recipient example@example.com exist, the recipients SMTP server will allow the delivery initiated in step 2 above.</li>
+</ol>
+
+There are a few things which can go wrong in these steps:
+
+- If the MX records for the domain example.com is not set up properly, the recipients SMTP server may correct to an incorrect SMTP host and the sender address verification will fail.
+- If the account example@example.com does not exist, the sender verification will fail.
+- If you have disabled *Allow empty sender address*, the sender verification will fail, since the recipients SMTP server tries to verify by using an empty sender address.
+
+### The mail server software tried to deliver e-mail to the local machine
+
+This error message typically indicates a server configuration error. hMailServer does a number of checks before message delivery to prevent infinite message looping. When an email is sent and the recipient can not be found in the local installation, hMailServer will normally try to connect to the recipients email server to deliver the email message.
+
+Before hMailServer connects to the recipients email server, hMailServer checks that the IP it is going to connect to is not a local IP address. If the IP is a local IP address, this would mean that hMailServer would connect to itself, which would likely cause a message loop. In this case, hMailServer rejects the message delivery and returns an error message to the sender instead.
+
+The following causes are common for this problem:
+
+- A host name or IP address which points at the local computer has been entered as SMTP relayer. Go to the *Delivery of e-mail* section in the SMTP settings. Check the SMTP Relayer setting. If you have entered *localhost*, 127.0.0.1, *your-own-domain-name.com*, or something similar in this textbox, this is likely the cause of the problem. If this is the case, read more about this setting in the SMTP reference guide, and then correct it.
+- One of the MX records for the domain points at your server, but the domain has not been added to your installation.
+
+## Database errors
+
+### MySQL server has gone away
+
+If hMailServer looses the connection to the database server during a query, hMailServer tries to re-open the connection and re-run the query. If this fails, the error MySQL server has gone away is logged. This can happen if the MySQL server is run on another computer, and the network connection is dropped. It can also happen when the MySQL server is about to be stopped, for example just before a computer reboot. In most cases, this failure will not have any side effects.
+
+## DNS errors
+
+### General information
+
+hMailServer uses the Windows API to query the DNS server. hMailServer itself does not not ask Windows to use a specific DNS server. The DNS query is made using the Windows API function DnsQuery. Depending on what DNS error that has occured, DnsQuery return different values. If an error occurs, this error is listed in the hMailServer log.
+
+### 1460, ERROR_TIMEOUT
+
+DNS error 1460 means that there was a timeout when the DnsQuery was made. This can occur if the DNS server is rebooting or isn't available due to network problems.
+
+### 9002, DNS_ERROR_RCODE_SERVER_FAILURE
+
+Error number 9002 means that there was a DNS server failure.

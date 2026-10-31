@@ -1,0 +1,27 @@
+---
+title: "POP3 settings"
+slug: reference_pop3
+parent: book_referenceguide
+index: 0
+is_book: false
+---
+
+<h3>TCP Port / POP3 port
+
+<div class="indented">
+This setting lets you define what TCP/IP port the hMailServer POP3 server should listen on. By default, port 110 is used. You should normally not change this setting.
+</div>
+
+<h3>Connections</h3>
+
+<div class="indented">
+This setting defines the maximum number of simultaneous connections that will be allowed to the POP3 server. If zero is specified, an unlimited number of connections will be allowed.
+</div>
+
+<h3>Welcome message</h3>
+
+<div class="indented">
+The welcome message is sent to POP3 clients directly after they connect to the server. One reason to change the welcome message is to make it harder for others to determine what server software you are running.
+</div>
+
+</h3>

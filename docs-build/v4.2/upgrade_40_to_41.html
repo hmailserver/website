@@ -1,0 +1,39 @@
+<h2>Overview</h2>
+
+<p><img src="images/scr_installation_small.jpg" alt=""> This page describes how to upgrade from hMailServer version 4.0 to hMailServer version 4.1. If you follow these steps, the server downtime will only be a few minutes. Before upgrading, you should make sure that you have a backup of the entire hMailServer directory, hMailServer database and hMailServer.ini, in case something goes wrong. The steps below are the same regardless of the database server type that hMailServer is using. Please read through this entire page before you upgrade.</p>
+
+<h2>Install the new version</h2>
+
+<ol><li>IMPORTANT: Back up your hMailServer database, your data directory and the hMailServer.ini file.</li><li>Download hMailServer 4.1 from the hMailServer website.</li><li>Launch the setup executable by doubleclicking it. There is no need to stop or uninstall the previous version before installing 4.1. The hMailServer 4.1 setup will take care of that.</li><li>Run through the setup dialogs and click Install in the Ready to install dialog.</li><li>The setup software now makes a copy of the files. If you get a message that it can&#039;t overwrite the file libmysql.dll, restart Apache/IIS and then click Retry.</li><li>After the files have been copied, the setup software will automatically start hMailServer database upgrade.</li><li>Click Upgrade to upgrade the database to the 4.1 structure.</li><li>After the upgrade of the database, the setup software will automatically start the hMailServer service.</li><li>Click Exit to return to the setup wizard</li><li>Click Finish to exit the setup and start hMailAdmin.</li></ol>
+
+<h2>What&#039;s new</h2>
+
+<h3>Better support for multihoming</h3>
+
+<p>In the hMailAdmin you can configure hMailServer to listen on a specific list of IP addresses, instead of listening on all available addresses, as was previously the case.</p>
+
+<h3>Maximum message size</h3>
+
+<p>It&#039;s now possible to specify maximum message size at domain and server level. These can be used to prevent users from sending huge messages.</p>
+
+<h3>Caching of domain names</h3>
+
+<p>hMailServer can now cache local domain names. If the domain cache is turned on, hMailServer does not have to communicate with the database when it needs domain information, which improves performance.</p>
+
+<h3>Live logging</h3>
+
+<p>Live logging now works when using Terminal Services or Remote desktop connection. It also works if the server is remotely administered using DCOM.</p>
+
+<h3>Improved Message interface in COM API</h3>
+
+<p>The COM API object, hMailServer.Message, now has several new properties that let you modify or add header fields, or to edit the HTML body of email messages.</p>
+
+<h3>Updated user interface in hMailAdmin</h3>
+
+<p>The hMailServer Administrator has been updated with a new structure and new icons.</p>
+
+<h3>Bug fixes</h3>
+
+<ul><li>When hMailServer delivered messages to other servers, sockets could, under certain conditions, be left behind with status CLOSE_WAIT. Now fixed.</li><li>If hMailServer can&#039;t connect to the DNS server, that is now treated as a temporary error.</li><li>Recipient addresses are now shown in <em>Undelivered messages</em></li><li>Under certain conditions, the SMTP deliverer could start more delivery threads than it should. Now fixed.</li><li>When using Mail on Apple, only partial attachments were sometimes downloaded. Now fixed.</li><li>The external accounts feature could not download messages from other servers if the message headers were incorrectly formatted. Now fixed.</li></ul>
+
+<p>For a complete list of all changes, read the change log.</p>

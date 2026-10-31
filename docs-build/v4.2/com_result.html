@@ -1,0 +1,19 @@
+<p>The Result com objects are used from within hMailServer events, to return value from the event to hMailServer. Instead of returning a value by using <em>return</em> or <em>FunctionName=returnvalue</em>, you use <em>Result.Value=returnvalue</em></p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Properties</h1>
+
+<h4>Property Message As String</h4>
+
+<div class="indented">
+The message to return from the event to hMailServer. This can be used in some events to return a textual message to the client.
+</div>
+
+<h4>Property Value As Long</h4>
+
+<div class="indented">
+The value to return to hMailServer. Different events supports different return values. See the Events documentation for more information on this.
+</div>

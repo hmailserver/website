@@ -1,0 +1,90 @@
+<p>The <em>Message</em> object is available in several events and let you retrieve information on the active message.</p>
+
+<h1>Version</h1>
+
+<p>The below documentation is valid for hMailServer 4.2 and later.</p>
+
+<h1>Methods</h1>
+
+<h4>Sub AddRecipient(sName As String, sAddress As String)</h4>
+
+<div class="indented"> This method lets you add an recipient to the message. If the recipient name is unknown, specify an empty string for that parameter. </div>
+
+<h4>Sub ClearRecipients()</h4>
+
+<div class="indented"> This method clears all recipients for the current message. All recipients are removed (To/CC/BCC). The MIME-header of the email is cleared as well. </div>
+
+<h4>Sub Save()</h4>
+
+<div class="indented"> Saves the changes made to the object. If the message is new, this method will cause the message being delivered. </div>
+
+<h1>Properties</h1>
+
+<h4>Property Attachments As <a href="?page=com_attachments">Attachments</a></h4>
+
+<div class="indented"> This property returns an collection containing the attachments connected to the message. </div>
+
+<h4>Property Body As String</h4>
+
+<div class="indented"> Returns the plain-text contents of this message. </div>
+
+<h4>Property Date As String</h4>
+
+<div class="indented"> Returns the Date-header for this message. In hMailServer 4.0 and earlier, this property was read-only. Note that there is no guarantee that  the value of this header is correct, since it is the sender that puts a value in this header.<br> </div>
+
+<h4>Property Filename As String</h4>
+
+<div class="indented"> Every hMailServer message is stored on a file on the disk. This property returns the name of this file. </div>
+
+<h4>Property EncodeFields As Boolean</h4>
+
+<div class="indented"> Instructs hMailServer to try to MIME-decode and encode the contents of header fields when they are being edited using the API.  When a header field value is updated using the COM API, and EncodeFields is true, hMailServer will try to MIME-encode any non-ascii characters. If EncodeFields is set to true (default), hMailServer will try to MIME-decode the value of header fields before being returned to the COM client. </div>
+
+<h4>Property From As String</h4>
+
+<div class="indented"> This property returns the content of the From MIME-header of the email. </div>
+
+<h4>Property FromAddress As String</h4>
+
+<div class="indented"> Returns the address that the sender gave in the MAIL FROM SMTP-command. </div>
+
+<h4>Property HeaderValue(FieldName) As String</h4>
+
+<div class="indented"> The HeaderValue property lets you read, modify and add MIME-headers in the email message. For example, you can change the subject header by calling Message.HeaderValue("Subject") = "Something new". HeaderValue was added in hMailServer 4.1. </div>
+
+<h4>Function HasBodyType(BodyType As String) As Boolean</h4>
+
+<div class="indented"> Use HasBodyType to determine whether a specific bode type exists. The body type should be a MIME main type plus a sub type, for example text/html. HasBodyType was added in hMailServer 4.1. </div>
+
+<h4>Property HTMLBody As String</h4>
+
+<div class="indented"> The HTML body for this email. If this is empty, no HTML body exist. In hMailServer 4.0 and earlier, this property is read only. </div>
+
+<h4>Property ID As Long</h4>
+
+<div class="indented">The unique database identifier for this email.</div>
+
+<div class="indented">
+<h4>Property InternalDate As Variant</h4>
+<div class="indented">The internal date and time of this message. Use this property to retrieve a timestamp for when the message was created in the hMailServer installation. This property is read-only.<br> </div>
+</div>
+
+<h4>Property Recipients As <a href="?page=com_recipients">Recipients</a></h4>
+
+<div class="indented"> Returns a collection containing all recipients for this email.  </div>
+
+<h4>Property Size As Long</h4>
+
+<div class="indented"> Returns the current size of the email message. For performance reasons, this property might not return the correct value for unsaved messages. </div>
+
+<h4>Property State As Long</h4>
+
+<div class="indented"> Returns the current state of this message. 1 means that it is in the delivery queue. 2 means that it has been delivered. </div>
+
+<h4>Property Subject As String</h4>
+
+<div class="indented"> Returns the subject MIME header for this message. </div>
+
+<h4>Property To As String</h4>
+
+<div class="indented"> Returns the To MIME header for this message. </div>

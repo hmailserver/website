@@ -1,0 +1,13 @@
+<h2>Troubleshooting blocked ports</h2>
+
+<p>If you can&#039;t receive e-mail from other servers, and you are sure that your MX records are defined correctly, try the following:  From outside your network, telnet your computer on port 25. If this fails, then there is some software or hardware blocking connection to your port 25.</p>
+
+<p>Possible reasons:</p>
+
+<ul><li>You have not opened up port 25 in your software firewall.</li><li>A router / switch in your network which receives the traffic from the Internet does not forward the traffic to the computer where hMailServer is running.</li><li>Your ISP (Internet service provide) is blocking port 25 for incoming traffic.</li></ul>
+
+<p>Windows XP SP2&#039;s firewall is turned on by default, and may block incoming connections. Earlier versions of XP also have a built-in firewall, but it&#039;s turned off by default. If you are sure that you have not blocked port 25 in your firewall, but you still cannot connect from the outside of your network, you should ask your ISP whether they have blocked port 25. Some ISPs block server ports (such as e-mail, FTP and HTTP) because they don&#039;t want their users to set up servers.</p>
+
+<h2>Workarounds</h2>
+
+<p>If your ISP has blocked port 25, <a href="?page=ts_using_nondefault_smtp_port">there are some alternatives</a>.</p>

@@ -1,0 +1,21 @@
+<h2>Background</h2>
+
+<p>IP range is one of the mechanisms hMailServer uses for security. Using IP ranges, you can give different access to different computers depending on their IP addresses. For example, you can enable IMAP for your network while people outside the network (e.g. on the Internet), can only access POP3.</p>
+
+<p>Normally, there should be no reason to add or remove IP ranges. You should not do this unless you are sure of what you want and how to achieve it. The default IP ranges created during installation should work for most users.</p>
+
+<p>The steps below describe a way to set up IP ranges for a home network with 3 computers. It is assumed that you have a home network where the computers have been assigned IP addresses starting with 192.168.1.</p>
+
+<h3>Steps</h3>
+
+<ol><li>Start up hMailAdmin.</li><li>Expand the settings node</li><li>Select IP ranges in the tree and click Add</li><li>Enter the following information:<ul><li>Name: My home network</li></ul></li><ul><li>Priority: 25</li></ul></ol>
+
+<p> When hMailServer determines what IP range to use, there might be several IP ranges matching the connected users. If so, the IP range with the highest priority is used. For this IP range to work properly, it needs to have higher priority than all other IP ranges.
+  - Lower IP: 192.168.1.0
+  - Upper IP: 192.168.1.255
+  - Allow connections: SMTP, POP3 and IMAP
+  - For the remaining settings, use the same settings as in the Internet IP range.</p>
+
+<p>The above instructions are valid for 5.2 and later.</p>
+
+<p><img src="images/howto_setup_ipranges_for_home_network.gif" alt=""></p>

@@ -1,0 +1,30 @@
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: DuckDuckBot
+User-agent: Applebot
+# Function-only endpoints: forms and panels, no indexable content.
+Disallow: /forum/posting.php
+Disallow: /forum/ucp.php
+Disallow: /forum/mcp.php
+Disallow: /forum/report.php
+Disallow: /forum/cron.php
+Disallow: /forum/viewonline.php
+# Search results and per-user pages: unlimited, thin URLs.
+Disallow: /forum/search.php
+Disallow: /forum/memberlist.php
+# Duplicate or unstable views of topics that are already indexed.
+Disallow: /forum/*view=print
+Disallow: /forum/*view=unread
+Disallow: /forum/*view=next
+Disallow: /forum/*view=previous
+Disallow: /forum/*hilit=
+# Sort permutations: same posts, different order, one URL each.
+Disallow: /forum/*&sk=
+Disallow: /forum/*&sd=
+Disallow: /forum/*&st=
+Disallow: /forum/*&sid=
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://www.hmailserver.com/sitemap.xml

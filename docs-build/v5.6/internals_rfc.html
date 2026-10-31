@@ -1,0 +1,43 @@
+<h2>Overview</h2>
+
+<p>This page describes RFC&#039;s which are relevant to hMailServer.</p>
+
+<h3>Protocols</h3>
+
+<ul><li><a href="http://www.ietf.org/rfc/rfc5321.txt">RFC 5321</a> - Simple Mail Transfer Protocol, SMTP</li><li><a href="http://tools.ietf.org/html/rfc3501">RFC 3501</a> - Internet Message Access Protocol, IMAP, v4</li><li><a href="http://www.ietf.org/rfc/rfc1939.txt">RFC 1939</a> - Post Office Protocol, POP, v3</li></ul>
+
+<h3>Message encoding</h3>
+
+<ul><li><a href="http://www.ietf.org/rfc/rfc2047.txt">RFC 2047</a> - MIME (Multipurpose Internet Mail Extensions) Part Three: Message Header Extensions for Non-ASCII Text<ul><li>RFC 2045 describes a mechanism for denoting textual body parts which are coded in various character sets, as well as methods for encoding such body parts as sequences of printable US-ASCII characters.  This memo describes similar techniques to allow the encoding of non-ASCII text in various portions of a RFC 822 [2] message header, in a manner which is unlikely to confuse existing message handling software.</li></ul></li></ul>
+
+<p>  
+- <a href="http://www.ietf.org/rfc/rfc2184.txt">RFC 2184</a> - MIME Parameter Value and Encoded Word Extensions: Character Sets, Languages, and Continuations</p>
+
+<p>   - a means to specify parameter values in character sets other than US-ASCII
+  - to specify the language to be used should the value be displayed, and
+  - a continuation mechanism for long parameter values to avoid problems with header line wrapping.</p>
+
+<h3>IMAP extensions</h3>
+
+<ul><li><a href="http://tools.ietf.org/html/rfc2177">RFC 2177</a> - IMAP4 IDLE command</li></ul>
+
+<p> This command allows IMAP servers to notify connected clients when a new message has arrived (rather than having the clients poll for new messages).
+- <a href="http://tools.ietf.org/html/rfc4314">RFC 4314</a> - IMAP4 Access Control List</p>
+
+<p> This extension is used to create public folders shared among several folders. The document specifies for example how access is granted by an IMAP client.
+- <a href="http://tools.ietf.org/html/rfc2087">RFC 2087</a> - IMAP Quota extension</p>
+
+<p> With this extension, IMAP cients can check how much of their server disk quota has been used and how much is available.
+- <a href="http://tools.ietf.org/html/rfc5256">RFC 5256</a> - SORT and THREAD Extensions</p>
+
+<p> The SORT extension provides server side sorting capabilities. This adds performance, since IMAP clients does not have to download all messages in a mailbox to be able to sort them. The Thread extension is not implemented in hMailServer.</p>
+
+<p>  </p>
+
+<h3>Other</h3>
+
+<ul><li><a href="http://tools.ietf.org/html/rfc4871">RFC 4871</a> - DKIM specification</li></ul>
+
+<p> DomainKeys Identified Mail (DKIM) defines a domain-level authentication framework for email using public-key cryptography and key server technology to permit verification of the source and contents of messages by either Mail Transfer Agents (MTAs) or Mail User Agents (MUAs).</p>
+
+<p> </p>

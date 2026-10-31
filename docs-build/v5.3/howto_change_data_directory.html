@@ -1,0 +1,11 @@
+<h2>Background</h2>
+
+<p>By default, all emails are stored in the hMailServer data directory, under C:\Program Files\hMailServer\Data. In some cases, you might want to change this to a different path. For example, if you have more disk space on another drive. Though it is possible to change the path, existing emails will not be moved to the new path. If you move the existing files from the old Data directory to the new, your email client will not be able to download them.</p>
+
+<h2>Steps</h2>
+
+<ol><li>Open up hMailServer.ini</li><li>Locate <em>DataFolder</em> under the <em>Directories</em>-section</li><li>Specify the new path</li></ol>
+
+<h2>Notes</h2>
+
+<ul><li>If you want to move your existing email message files, you must connect to the database server and update the hm_messages table manually.</li></ul>

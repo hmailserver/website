@@ -1,0 +1,17 @@
+<h2>Example 1, Delete email</h2>
+
+<p>Automatically delete all email messages whose subject-line contains the word <em>SPAM</em></p>
+
+<ol><li>Start hMailAdmin, and select <em>Rules</em> in the tree to the left, under <em>Domains</em></li><li>Click on <em>Add</em>. Enter the name <code>MyRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>Subject</em></li><li>Under <em>Search type</em>, select <em>Contains</em>.</li><li>In the <em>Value</em> textbox, enter the word <code>SPAM</code></li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Delete email</em> from the drop-down list</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the rule</li></ol>
+
+<h2>Example 2, forward messages</h2>
+
+<p>Forward all messages addressed to an external email address. The original message will still be delivered normally. Don&#039;t set up a rule that forwards email to yourself, since that would cause an endless loop.</p>
+
+<ol><li>Start hMailAdmin and navigate to the account settings.</li><li>Select the <em>Rules</em> tab.</li><li>Click on <em>Add</em>. Enter the name <code>ForwardRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>Message size</em></li><li>Under <em>Search type</em>, select <em>Greater than</em>.</li><li>In the <em>Value</em> textbox, enter the value <code>0</code>. This will cause all messages larger than 0 bytes to be affected by the rule.</li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Forward email</em> from the drop down. Enter the external address to forward to.</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the entire rule</li></ol>
+
+<h2>Example 3, move messages to IMAP folder</h2>
+
+<p>Move all messages from a specific sender to a specific IMAP folder</p>
+
+<ol><li>Start hMailAdmin and navigate to the account settings.</li><li>Select the <em>Rules</em> tab.</li><li>Click on <em>Add</em>. Enter the name <code>MoveRule</code></li><li>Under <em>Criteria</em>, click on <em>Add</em>.</li><li>Under <em>Pre-defined field</em>, select <em>From</em></li><li>Under <em>Search type</em>, select <em>Contains</em>.</li><li>In the <em>Value</em> textbox, enter the value <code>someone@somedomain.com</code>. This will cause all messages that contain someone@somedomain.com in the From header field to be affected by the rule.</li><li>Click on <em>Save</em> to add the criteria to the rule.</li><li>Under <em>Actions</em>, click on Add.</li><li>Select <em>Move to IMAP folder</em> from the drop down. Enter the name of the IMAP folder to move it to.</li><li>Click on <em>Save</em> to save the Action</li><li>Click again on <em>Save</em> to save the entire rule</li></ol>

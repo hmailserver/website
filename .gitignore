@@ -1,0 +1,8 @@
+# "latest" docs are built from the hmailserver repo by the GitHub Actions workflow.
+# Archived versions (v4.2-v5.6) are committed under docs-content/ and docs-build/.
+/docs-content/latest/
+/docs-build/latest/
+
+# Static site build output and download counts fetched at build time.
+/dist/
+/data/github-counts.json
