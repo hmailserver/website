@@ -1,4 +1,4 @@
-# Cloudflare Worker for www.hmailserver.com (and the static.hmailserver.com preview, once proxied).
+# Cloudflare Worker for www.hmailserver.com.
 # Deployed by .github/workflows/deploy-worker.yml.
 #
 # Secrets, set in the Cloudflare dashboard (Worker → Settings → Variables and Secrets, type "Secret"):
@@ -13,10 +13,9 @@ compatibility_date = "2026-10-01"
 workers_dev = false
 
 # Keep "routes" above [vars]: in TOML, every key after a [table] header belongs to that table.
-# The Worker runs only on these paths; everything else goes straight to GitHub Pages (or to Linode for /forum).
+# The Worker runs only on these paths; everything else goes straight to GitHub Pages (/forum is redirected to forum.hmailserver.com by a Cloudflare Redirect Rule).
 # A pattern without a trailing "*" matches that exact path. Query strings aren't part of the match.
 routes = [
-    # www (live site).
     { pattern = "www.hmailserver.com/", zone_name = "hmailserver.com" },
     { pattern = "www.hmailserver.com/index.php*", zone_name = "hmailserver.com" },
     { pattern = "www.hmailserver.com/functionality.php*", zone_name = "hmailserver.com" },
@@ -34,24 +33,6 @@ routes = [
     { pattern = "www.hmailserver.com/changelog*", zone_name = "hmailserver.com" },
     { pattern = "www.hmailserver.com/documentation*", zone_name = "hmailserver.com" },
     { pattern = "www.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
-
-    { pattern = "static.hmailserver.com/", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/index.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/functionality.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/download.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/download_archive.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/docs.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/contact.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/contact_received.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/sitemap.php*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/welcome*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/contactform*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/statistics/*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/download_file*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/download_getfile*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/changelog*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/documentation*", zone_name = "hmailserver.com" },
-    { pattern = "static.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
 ]
 
 # Request logs in the dashboard (Workers & Pages → hmailserver-edge → Logs), including errors from the contact form.
@@ -66,4 +47,4 @@ SMTP_SECURITY = "none"
 SMTP_USER = "website@hmailserver.com"
 MAIL_FROM = "website@hmailserver.com"
 # Turnstile tokens are only accepted when issued for one of these hostnames.
-ALLOWED_HOSTNAMES = "www.hmailserver.com,static.hmailserver.com"
+ALLOWED_HOSTNAMES = "www.hmailserver.com"

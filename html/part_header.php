@@ -43,7 +43,7 @@
                     <li<?php echo $nav_class("functionality"); ?>><a href="/functionality">Functionality</a></li>
                     <li<?php echo $nav_class("download"); ?>><a href="/download">Download</a></li>
                     <li<?php echo $nav_class("documentation"); ?>><a href="/documentation/latest/">Documentation</a></li>
-                    <li><a href="https://forum.hmailserver.com/forum/">Forum</a></li>
+                    <li><a href="https://forum.hmailserver.com/">Forum</a></li>
                     <li><a href="https://github.com/hmailserver/hmailserver" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     <li<?php echo $nav_class("contact"); ?>><a href="/contact">Contact</a></li>
                 </ul>

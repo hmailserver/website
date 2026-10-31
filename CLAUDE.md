@@ -4,7 +4,7 @@ Guidance for Claude Code when working in this repository.
 
 ## Purpose
 
-Source for www.hmailserver.com, the website of hMailServer (a Windows email server). The site is static: PHP runs only at build time, in GitHub Actions, and the output is published to GitHub Pages. The forum (phpBB) is not part of this repo; it runs on a separate server behind the same domain.
+Source for www.hmailserver.com, the website of hMailServer (a Windows email server). The site is static: PHP runs only at build time, in GitHub Actions, and the output is published to GitHub Pages. The forum (phpBB) is not part of this repo; it runs on a separate server at https://forum.hmailserver.com/.
 
 ## Layout
 
@@ -37,7 +37,7 @@ php scripts/build-site.php               # writes dist/
 php -S localhost:8000 -t dist            # preview
 ```
 
-The build fails on any PHP warning, and on doc HTML outside the allowlist in `scripts/lib/doc-safety.php` (tags, attributes, URL schemes, CSS properties). The `latest` docs come unreviewed from the hmailserver repo and the forum shares the domain, so don't loosen the allowlist to allow scripts, event handlers or non-http(s) links. Download counts come from the GitHub Releases API; without network access (or the openssl extension), the counts kept from the last run or the baselines in `data/downloads.json` are used.
+The build fails on any PHP warning, and on doc HTML outside the allowlist in `scripts/lib/doc-safety.php` (tags, attributes, URL schemes, CSS properties). The `latest` docs come unreviewed from the hmailserver repo, so don't loosen the allowlist to allow scripts, event handlers or non-http(s) links. Download counts come from the GitHub Releases API; without network access (or the openssl extension), the counts kept from the last run or the baselines in `data/downloads.json` are used.
 
 ## How pages are rendered
 
