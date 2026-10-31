@@ -19,10 +19,16 @@ set_error_handler(function (int $severity, string $message, string $file, int $l
 });
 
 $outputDir = $argv[1] ?? __DIR__ . '/../dist';
+define('OUTPUT_DIR', $outputDir);
 
-// Renders a template from html/ with $vars as its variables, and writes the output.
-function renderPage(string $template, string $outputFile, array $vars = []): void
+// Renders a template from html/ with $vars as its variables, and writes it for the URL $path
+// (e.g. "/download/" -> download/index.html). Pages also get $canonical_url; "/404.html" has none.
+function renderPage(string $template, string $path, array $vars = []): void
 {
+    $isPage = str_ends_with($path, '/');
+    $vars['canonical_url'] = $isPage ? SITE_URL . $path : null;
+    $outputFile = OUTPUT_DIR . ($isPage ? "{$path}index.html" : $path);
+
     $render = static function (string $_template, array $_vars): string {
         extract($_vars);
         ob_start();
@@ -117,13 +123,13 @@ $pages = [
 ];
 foreach ($pages as $template => $path) {
     $vars = $template === 'changelog.php' ? ['changelog_version' => '', 'changelog_build' => ''] : [];
-    renderPage($template, "$outputDir/{$path}index.html", $vars);
+    renderPage($template, "/$path", $vars);
     $pageCount++;
     if ($template !== 'contact_received.php') {
         $sitemap[] = "/$path";
     }
 }
-renderPage('404.php', "$outputDir/404.html");
+renderPage('404.php', '/404.html');
 $pageCount++;
 
 // 3. Changelog per version and per build. Include builds that only have a download, so its link works.
@@ -138,11 +144,11 @@ foreach (load_downloads() as $download) {
 }
 foreach ($builds as $version => $versionBuilds) {
     $version = assertPathSegment((string)$version);
-    renderPage('changelog.php', "$outputDir/changelog/$version/index.html", ['changelog_version' => $version, 'changelog_build' => '']);
+    renderPage('changelog.php', "/changelog/$version/", ['changelog_version' => $version, 'changelog_build' => '']);
     $pageCount++;
     foreach (array_keys($versionBuilds) as $build) {
         $build = assertPathSegment((string)$build);
-        renderPage('changelog.php', "$outputDir/changelog/$version/$build/index.html", ['changelog_version' => $version, 'changelog_build' => $build]);
+        renderPage('changelog.php', "/changelog/$version/$build/", ['changelog_version' => $version, 'changelog_build' => $build]);
         $pageCount++;
     }
 }
@@ -165,13 +171,13 @@ if ($unsafe !== []) {
 // The sitemap lists every page of "latest", but only the overview of older versions (near-duplicates).
 foreach (array_keys(doc_versions()) as $docVersion) {
     $docVersion = assertPathSegment($docVersion);
-    renderPage('documentation/page.php', "$outputDir/documentation/$docVersion/index.html", ['doc_version' => $docVersion, 'doc_slug' => '']);
+    renderPage('documentation/page.php', doc_url($docVersion, ''), ['doc_version' => $docVersion, 'doc_slug' => '']);
     $pageCount++;
     $sitemap[] = doc_url($docVersion, '');
 
     foreach (doc_manifest($docVersion) as $slug => $doc) {
         $slug = assertPathSegment((string)$slug);
-        renderPage('documentation/page.php', "$outputDir/documentation/$docVersion/$slug/index.html", ['doc_version' => $docVersion, 'doc_slug' => $slug]);
+        renderPage('documentation/page.php', doc_url($docVersion, $slug), ['doc_version' => $docVersion, 'doc_slug' => $slug]);
         $pageCount++;
         if ($docVersion === 'latest' && doc_has_content($doc)) {
             $sitemap[] = doc_url($docVersion, $slug);
@@ -198,11 +204,9 @@ foreach (load_downloads() as $download) {
 }
 writeFile("$outputDir/data/download-ids.json", jsonEncode($downloadIds));
 
-// 7. Static assets and GitHub Pages settings.
+// 7. Static assets. (No CNAME file: for Actions deployments, the custom domain is set in the repo's Pages settings.)
 foreach (['css', 'js', 'images', 'documentation', 'favicon.ico', 'robots.txt'] as $asset) {
     copyTree(SOURCE_DIR . "/$asset", "$outputDir/$asset");
 }
-writeFile("$outputDir/CNAME", "www.hmailserver.com\n");
-writeFile("$outputDir/.nojekyll", '');
 
 printf("Site built in %s (%.0f s)\n", realpath($outputDir), microtime(true) - $started);

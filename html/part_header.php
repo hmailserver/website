@@ -1,5 +1,6 @@
 <?php
-    // Page chrome. Optional inputs: $title_prepend (page title) and $nav_active (highlighted menu item).
+    // Page chrome. Optional inputs: $title_prepend (page title), $nav_active (highlighted menu item)
+    // and $canonical_url (set by the build for every page).
     // Opens <div class="bootstrap">, which part_footer.php closes.
     $nav_active = $nav_active ?? "";
     $nav_class = fn($item) => $item === $nav_active ? ' class="active"' : '';
@@ -15,6 +16,9 @@
     <meta name="author" content="Martin Knafve">
 
     <title><?php echo htmlspecialchars($page_title); ?>hMailServer - Free open source email server for Microsoft Windows</title>
+    <?php if (isset($canonical_url)): ?>
+    <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
+    <?php endif; ?>
 
     <link href="/css/bootstrap-in-div.css" rel="stylesheet">
     <link href="/css/site.css" rel="stylesheet">
