@@ -29,6 +29,13 @@ export default {
             return handleContact(request, env);
         }
 
+        // TEMPORARY: shows the URL the Worker receives, to debug query-string redirects. Remove when solved.
+        if (url.pathname === "/statistics/echo") {
+            return new Response(`url: ${request.url}\nsearch: ${url.search}\nmethod: ${request.method}\n`, {
+                headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+            });
+        }
+
         const response = await legacyRedirect(url, siteLookups(url.origin));
         return response ?? fetch(request);
     },

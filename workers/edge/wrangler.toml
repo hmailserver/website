@@ -54,6 +54,10 @@ routes = [
     { pattern = "static.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
 ]
 
+# Request logs in the dashboard (Workers & Pages → hmailserver-edge → Logs), including errors from the contact form.
+[observability]
+enabled = true
+
 [vars]
 SMTP_HOST = "mail.hmailserver.com"
 SMTP_PORT = "587"
