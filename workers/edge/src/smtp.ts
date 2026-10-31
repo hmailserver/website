@@ -13,8 +13,10 @@ export interface SmtpConfig {
 }
 
 export async function sendMail(config: SmtpConfig, from: string, to: string, message: string): Promise<void> {
-    const secureTransport: "starttls" | "off" = config.security === "starttls" ? "starttls" : "off";
-    let socket = connect({ hostname: config.host, port: config.port }, { secureTransport });
+    let socket = connect(
+        { hostname: config.host, port: config.port },
+        { secureTransport: config.security === "starttls" ? "starttls" : "off", allowHalfOpen: false },
+    );
     let session = new SmtpSession(socket);
 
     try {
