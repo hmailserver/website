@@ -57,6 +57,9 @@ function doc_rewrite_links($html, $version)
         return 'href="' . htmlspecialchars(doc_url($linkversion, $slug) . ($m[3] ?? "")) . '"';
     }, $html);
 
+    // The forum moved to its own host.
+    $html = preg_replace('#href="https?://(?:www\.)?hmailserver\.com/forum\b#', 'href="https://forum.hmailserver.com/forum', $html);
+
     return str_replace('src="images/', 'src="/documentation/' . htmlspecialchars($version) . '/images/', $html);
 }
 
