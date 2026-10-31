@@ -8,18 +8,7 @@
         <button id="acceptCookies">Accept</button>
     </div>
 
-    <script>
-        document.getElementById('acceptCookies').addEventListener('click', function () {
-            document.getElementById('cookieBanner').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        });
-
-        window.addEventListener('load', function () {
-            if (localStorage.getItem('cookiesAccepted') === 'true') {
-                document.getElementById('cookieBanner').style.display = 'none';
-            }
-        });
-    </script>
+    <script src="/js/cookie-banner.js"></script>
 </div>
 </body>
 </html>

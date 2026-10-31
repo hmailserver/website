@@ -16,6 +16,18 @@ Source for www.hmailserver.com, the website of hMailServer (a Windows email serv
 - `docs-content/<version>/` — manual in Markdown with front matter. `docs-build/<version>/` — HTML fragments and `manifest.json` generated from it by `scripts/build-docs-html.php`. Don't hand-edit `docs-build/`.
 - `scripts/build-site.php` — renders everything to `dist/`.
 - `.github/workflows/build-site.yml` — builds hourly and on push; deploys `main` to GitHub Pages.
+- `workers/edge/` — Cloudflare Worker for what needs code at request time: redirects for old URLs (`?page=`, `.php`, `download_file?downloadid=`), the retired `/statistics/update.php` endpoint, and the contact form (`/api/contact`: Turnstile, then SMTP to the hMailServer mail server). Runs only on the routes in `wrangler.toml`. Reads `dist/data/download-ids.json` and `dist/data/doc-slugs.json` from the published site.
+
+## Worker
+
+Deployed by `.github/workflows/deploy-worker.yml` on pushes to `main` that change `workers/edge/` (tests and typecheck first). The Worker's secrets (see the top of `wrangler.toml`) are set in the Cloudflare dashboard. Tests run in plain Node:
+
+```
+cd workers/edge
+node --test "test/*.test.ts"
+```
+
+Keep redirect logic in `src/redirects.ts` and email building in `src/contact.ts` free of Cloudflare APIs, so the tests can run in plain Node. Only `src/smtp.ts` and `src/index.ts` use Worker APIs.
 
 ## Building
 
@@ -41,4 +53,5 @@ Shown count = `counter_baseline + (GitHub download_count now - github_baseline)`
 
 - Keep pages working as plain PHP includes; there's no framework or template engine.
 - Escape output with `htmlspecialchars()`.
-- Anything needing a server at request time (redirects, forms) belongs in Cloudflare, not here.
+- Anything needing a server at request time (redirects, forms) belongs in the Worker, not in `html/`.
+- No inline scripts or event handlers in pages; put JavaScript in `html/js/`. This keeps a strict Content-Security-Policy possible.

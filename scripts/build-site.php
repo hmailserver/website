@@ -195,14 +195,22 @@ foreach ($sitemap as $path) {
 }
 writeFile("$outputDir/sitemap.xml", $xml . "</urlset>\n");
 
-// 6. Download id -> URL, for redirecting old /download_file?downloadid=N links (Cloudflare Worker).
+// 6. Lookup data for the Cloudflare Worker, which redirects old URLs:
+// download id -> URL/version/build (/download_file?downloadid=N, /changelog?downloadid=N),
+// and the slugs of each manual version (/documentation/<v>/?page=<slug>).
 $downloadIds = [];
 foreach (load_downloads() as $download) {
     if ($download['visible'] && str_starts_with($download['url'], 'https://github.com/hmailserver/hmailserver/releases/download/')) {
-        $downloadIds[(string)$download['id']] = $download['url'];
+        $downloadIds[(string)$download['id']] = ['url' => $download['url'], 'version' => $download['version'], 'build' => $download['build']];
     }
 }
 writeFile("$outputDir/data/download-ids.json", jsonEncode($downloadIds));
+
+$docSlugs = [];
+foreach (array_keys(doc_versions()) as $docVersion) {
+    $docSlugs[$docVersion] = array_map('strval', array_keys(doc_manifest($docVersion)));
+}
+writeFile("$outputDir/data/doc-slugs.json", jsonEncode($docSlugs));
 
 // 7. Static assets. (No CNAME file: for Actions deployments, the custom domain is set in the repo's Pages settings.)
 foreach (['css', 'js', 'images', 'documentation', 'favicon.ico', 'robots.txt'] as $asset) {

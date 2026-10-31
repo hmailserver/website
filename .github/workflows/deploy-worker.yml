@@ -1,0 +1,64 @@
+# Tests the Cloudflare Worker in workers/edge, and deploys it when it changes on main.
+# Needs, in the "cloudflare" environment (Settings → Environments):
+#   secret CLOUDFLARE_API_TOKEN    Workers Scripts: Edit (account) + Workers Routes: Edit (hmailserver.com zone)
+#   variable CLOUDFLARE_ACCOUNT_ID
+# The Worker's own secrets (SMTP password etc.) are set in the Cloudflare dashboard and kept across deploys.
+name: Deploy Worker
+
+on:
+  push:
+    branches: [main]
+    paths: ['workers/edge/**', '.github/workflows/deploy-worker.yml']
+  pull_request:
+    paths: ['workers/edge/**', '.github/workflows/deploy-worker.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-worker-${{ github.ref }}
+  cancel-in-progress: false
+
+defaults:
+  run:
+    working-directory: workers/edge
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: workers/edge/package-lock.json
+
+      # Installs exactly what package-lock.json pins; fails if it doesn't match package.json.
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck
+
+  deploy:
+    # Only main deploys. Pull requests (including from forks) only run the tests and never see the token.
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    environment: cloudflare
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: workers/edge/package-lock.json
+
+      - run: npm ci
+
+      - run: npx wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,64 @@
+# Cloudflare Worker for www.hmailserver.com (and the static.hmailserver.com preview, once proxied).
+# Deploy: npx wrangler deploy
+#
+# Secrets, set once with "npx wrangler secret put <NAME>" (not stored in this repo):
+#   SMTP_PASSWORD     password of SMTP_USER
+#   TURNSTILE_SECRET  secret key of the Turnstile widget used on /contact/
+#   MAIL_TO           address that receives contact form messages
+#   BLOCKED_IPS       optional, comma-separated IP addresses whose messages are rejected
+
+name = "hmailserver-edge"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+[vars]
+SMTP_HOST = "mail.hmailserver.com"
+SMTP_PORT = "587"
+# TODO: "starttls" once the mail server's certificate is renewed. "none" sends the SMTP password unencrypted.
+SMTP_SECURITY = "none"
+SMTP_USER = "website@hmailserver.com"
+MAIL_FROM = "website@hmailserver.com"
+# Turnstile tokens are only accepted when issued for one of these hostnames.
+ALLOWED_HOSTNAMES = "www.hmailserver.com,static.hmailserver.com"
+
+# The Worker runs only on these paths; everything else goes straight to GitHub Pages (or to Linode for /forum).
+# A pattern without a trailing "*" matches that exact path. Query strings aren't part of the match.
+routes = [
+    # www: enable at cutover (step 7). Until then, www is still the PHP site, which doesn't serve the new URLs.
+    # { pattern = "www.hmailserver.com/", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/index.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/functionality.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/download.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/download_archive.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/docs.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/contact.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/contact_received.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/sitemap.php*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/welcome*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/contactform*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/statistics/*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/download_file*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/download_getfile*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/changelog*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/documentation*", zone_name = "hmailserver.com" },
+    # { pattern = "www.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
+
+    { pattern = "static.hmailserver.com/", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/index.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/functionality.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/download.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/download_archive.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/docs.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/contact.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/contact_received.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/sitemap.php*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/welcome*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/contactform*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/statistics/*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/download_file*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/download_getfile*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/changelog*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/documentation*", zone_name = "hmailserver.com" },
+    { pattern = "static.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
+]
