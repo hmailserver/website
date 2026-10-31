@@ -42,8 +42,7 @@ enabled = true
 [vars]
 SMTP_HOST = "mail.hmailserver.com"
 SMTP_PORT = "587"
-# TODO: "starttls" once the mail server's certificate is renewed. "none" sends the SMTP password unencrypted.
-SMTP_SECURITY = "none"
+SMTP_SECURITY = "starttls"
 SMTP_USER = "website@hmailserver.com"
 MAIL_FROM = "website@hmailserver.com"
 # Turnstile tokens are only accepted when issued for one of these hostnames.
