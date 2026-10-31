@@ -3,8 +3,7 @@
     $nav_active = "contact";
 
     // Site key of the Turnstile widget (public). The secret key is a Worker secret (workers/edge).
-    // TODO: replace Cloudflare's always-pass test key with the real site key.
-    $turnstile_site_key = "1x00000000000000000000AA";
+    $turnstile_site_key = "0x4AAAAAAFt4DySMUcy_CNJp";
 
     include __DIR__ . "/part_header.php";
 ?>
