@@ -1,7 +1,7 @@
 # Cloudflare Worker for www.hmailserver.com (and the static.hmailserver.com preview, once proxied).
-# Deploy: npx wrangler deploy
+# Deployed by .github/workflows/deploy-worker.yml.
 #
-# Secrets, set once with "npx wrangler secret put <NAME>" (not stored in this repo):
+# Secrets, set in the Cloudflare dashboard (Worker → Settings → Variables and Secrets, type "Secret"):
 #   SMTP_PASSWORD     password of SMTP_USER
 #   TURNSTILE_SECRET  secret key of the Turnstile widget used on /contact/
 #   MAIL_TO           address that receives contact form messages
@@ -12,16 +12,7 @@ main = "src/index.ts"
 compatibility_date = "2026-10-01"
 workers_dev = false
 
-[vars]
-SMTP_HOST = "mail.hmailserver.com"
-SMTP_PORT = "587"
-# TODO: "starttls" once the mail server's certificate is renewed. "none" sends the SMTP password unencrypted.
-SMTP_SECURITY = "none"
-SMTP_USER = "website@hmailserver.com"
-MAIL_FROM = "website@hmailserver.com"
-# Turnstile tokens are only accepted when issued for one of these hostnames.
-ALLOWED_HOSTNAMES = "www.hmailserver.com,static.hmailserver.com"
-
+# Keep "routes" above [vars]: in TOML, every key after a [table] header belongs to that table.
 # The Worker runs only on these paths; everything else goes straight to GitHub Pages (or to Linode for /forum).
 # A pattern without a trailing "*" matches that exact path. Query strings aren't part of the match.
 routes = [
@@ -62,3 +53,13 @@ routes = [
     { pattern = "static.hmailserver.com/documentation*", zone_name = "hmailserver.com" },
     { pattern = "static.hmailserver.com/api/contact", zone_name = "hmailserver.com" },
 ]
+
+[vars]
+SMTP_HOST = "mail.hmailserver.com"
+SMTP_PORT = "587"
+# TODO: "starttls" once the mail server's certificate is renewed. "none" sends the SMTP password unencrypted.
+SMTP_SECURITY = "none"
+SMTP_USER = "website@hmailserver.com"
+MAIL_FROM = "website@hmailserver.com"
+# Turnstile tokens are only accepted when issued for one of these hostnames.
+ALLOWED_HOSTNAMES = "www.hmailserver.com,static.hmailserver.com"
