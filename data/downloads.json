@@ -1474,5 +1474,17 @@
         "date": "2026-09-29",
         "counter_baseline": 615,
         "github_baseline": 564
+    },
+    {
+        "id": 280,
+        "name": "hMailServer",
+        "version": "5.7.2",
+        "build": "3144",
+        "url": "https://github.com/hmailserver/hmailserver/releases/download/hMailServer-5.7.2-b3144/hMailServer-5.7.2-B3144-x64.exe",
+        "visible": true,
+        "stable": false,
+        "date": "2026-11-01",
+        "counter_baseline": 0,
+        "github_baseline": 0
     }
 ]

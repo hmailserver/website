@@ -4422,5 +4422,13 @@
         "issue_id": 0,
         "comment": "Update to OpenSSL 3.5.9",
         "date": "2026-09-29 18:01:00"
+    },
+    {
+        "id": 566,
+        "version": "5.7.2",
+        "build": 3144,
+        "issue_id": 0,
+        "comment": "This build makes hMailServer write SQL Compact database changes to disk once a second. It works around a bug in SQL Compact where changes are sometimes never written to disk, so that they are lost if the server stops without a normal shutdown, for example after a crash or power loss. Only installations that use the built-in SQL Compact database are affected.",
+        "date": "2026-11-01 20:45:00"
     }
 ]
